@@ -8,6 +8,9 @@ import { FaCar, FaHome, FaPlane, FaUsers } from "react-icons/fa";
 import { gsap } from "gsap";
 import type { Risk } from "@/types/risk";
 
+// import accident from "/public/img/risks/accident.png";
+// import travel from "/public/img/risks/usman-malik-cbXfPEOc1-k-unsplash.jpg";
+
 // --- Component Data & Types ---
 const riskData: Risk[] = [
   {
@@ -16,8 +19,8 @@ const riskData: Risk[] = [
     title: "Motor Comprehensive",
     description:
       "Complete protection for your vehicle against accidents, theft, and third-party liabilities.",
-    imageUrl:
-      "https://res.cloudinary.com/dnaaxfifx/image/upload/v1721081593/accident_hogjub",
+    imageUrl: "/img/risks/accident.png",
+    // "https://res.cloudinary.com/dnaaxfifx/image/upload/v1721081593/accident_hogjub",
   },
   {
     id: "travel",
@@ -25,8 +28,8 @@ const riskData: Risk[] = [
     title: "Travel Insurance",
     description:
       "Journey with confidence. Our policies cover medical emergencies, trip cancellations, and lost luggage.",
-    imageUrl:
-      "https://res.cloudinary.com/dnaaxfifx/image/upload/v1721245695/usman-malik-cbXfPEOc1-k-unsplash_knf3ko",
+    imageUrl: "/img/risks/usman-malik-cbXfPEOc1-k-unsplash.jpg",
+    // "https://res.cloudinary.com/dnaaxfifx/image/upload/v1721245695/usman-malik-cbXfPEOc1-k-unsplash_knf3ko",
   },
   {
     id: "gpa",
@@ -34,8 +37,8 @@ const riskData: Risk[] = [
     title: "Group Personal Accident (GPA)",
     description:
       "An essential employee benefit that provides 24-hour coverage for your team against accidental death or disability.",
-    imageUrl:
-      "https://res.cloudinary.com/dnaaxfifx/image/upload/v1721081593/hero_image_kvdq0z",
+    imageUrl: "/img/about/hero_image.png",
+    //"https://res.cloudinary.com/dnaaxfifx/image/upload/v1721081593/hero_image_kvdq0z",
   },
   {
     id: "fire",
@@ -43,8 +46,8 @@ const riskData: Risk[] = [
     title: "Fire & Burglary",
     description:
       "Safeguard your home or business premises and the valuable contents within against specific perils.",
-    imageUrl:
-      "https://res.cloudinary.com/dnaaxfifx/image/upload/v1721081593/fire_b3ud1a",
+    imageUrl: "/img/risks/fire.png",
+    // "https://res.cloudinary.com/dnaaxfifx/image/upload/v1721081593/fire_b3ud1a",
   },
 ];
 

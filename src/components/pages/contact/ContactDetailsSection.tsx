@@ -29,15 +29,16 @@ const contactInfo: ContactInfo[] = [
     icon: <FiMapPin />,
     title: "Our Office",
     details: [
-      "Kanjokya House, 1st Floor, Suite 1–9",
+      "Kanjokya House, 1st Floor",
       "Kanjokya Street, Kampala, Uganda",
+      "P.O.Box 138881",
     ],
     color: "brand-accent",
   },
   {
     icon: <FiPhone />,
     title: "Give Us a Call",
-    details: ["0414-534351", "0392-968210"],
+    details: ["0200-940878"],
     color: "brand-primary",
   },
   {
