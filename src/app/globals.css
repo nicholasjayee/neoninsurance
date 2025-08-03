@@ -1,0 +1,163 @@
+/*
+  ========================================================================
+  THE FIX: All @import rules are now at the very top, which is required by CSS.
+  ========================================================================
+*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500&family=Space+Grotesk:wght@400;500;700&display=swap");
+@import "tailwindcss";
+
+/* import '@bprogress/core/css'; */
+
+/* 
+  Now, all other rules can follow.
+*/
+@font-face {
+  font-family: "Centra";
+  src: url("/public/font/CentraNo2-Bold.ttf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Centra";
+  src: url("/public/fonts/CentraNo2-Medium.ttf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Centra";
+  src: url("/public/fonts/CentraNo2-Book.ttf");
+  font-weight: 400;
+}
+
+@theme {
+  /* --- Colors --- */
+  --color-brand-primary: #c41e24;
+  --color-brand-primary-light: #e53e3e;
+  --color-brand-primary-dark: #a3161b;
+  --color-brand-secondary: #fbcb0a;
+  --color-brand-secondary-light: #fef3c7;
+  --color-brand-secondary-dark: #d97706;
+  --color-brand-accent: #f97316;
+  --color-brand-accent-light: #fb923c;
+  --color-brand-accent-dark: #ea580c;
+  --color-brand-blue: #0052cc;
+  --color-brand-red: #de350b;
+  --color-accent-yellow: #ffc400;
+  --color-brand-light: #f9fafb;
+  --color-brand-dark: #380d11;
+  --color-brand-white: #ffffff;
+  --color-neutral-subtle: #f4f5f7;
+  --color-dark-grey: #111827;
+  --color-brand-text-primary: #8a1c1c;
+  --color-brand-text-secondary: #475467;
+  --color-brand-text-tertiary: #667085;
+  --color-brand-text-onDark: #f5efef;
+  --color-brand-border: #eaecf0;
+
+  /* --- Fonts --- */
+  --font-sans: "Centra", "Space Grotesk", -apple-system, system-ui, sans-serif;
+  --font-mono: "Roboto Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
+
+  /* --- Animations & Keyframes --- */
+  --animation-float: float 6s ease-in-out infinite;
+  --animation-fadeInUp: fadeInUp 0.5s ease-out forwards;
+  --animation-float-up: float-up linear infinite;
+  --animation-pulse-glow: pulse-glow 2.5s ease-in-out infinite;
+
+  /*
+    ========================================================================
+    THE SECOND FIX: Removed invalid quotes from CSS property values (e.g., opacity: "0" -> opacity: 0).
+    ========================================================================
+  */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(-20px);
+    }
+    50% {
+      transform: translateY(20px);
+    }
+  }
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes float-up {
+    0% {
+      transform: translateY(0) translateX(0);
+    }
+    50% {
+      transform: translateX(15px);
+    }
+    100% {
+      transform: translateY(-110vh) translateX(-15px);
+    }
+  }
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.4);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-brand-light text-brand-text-primary;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  code {
+    @apply font-mono;
+  }
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+body::-webkit-scrollbar-track {
+  background: #0a192f;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #233554;
+  border-radius: 10px;
+  border: 2px solid #0a192f;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #8892b0;
+}
+
+.perspective-container {
+  perspective: 1000px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* --- DEBUGGING: NProgress Bar --- */
+#nprogress {
+  pointer-events: none;
+}
+#nprogress .bar {
+  background: #c41e24 !important; /* Your brand color */
+  position: fixed;
+  z-index: 99999 !important; /* Extremely high z-index to ensure it's on top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px !important;
+}
+
+/* bprogress */

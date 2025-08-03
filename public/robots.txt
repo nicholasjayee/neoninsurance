@@ -1,0 +1,6 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow:
+
+# Provide the full URL to your sitemap
+Sitemap: https://www.neoninsurance.co.ug/sitemap.xml

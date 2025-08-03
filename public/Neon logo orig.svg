@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1080" height="1080" viewBox="0 0 1080 1080">
+  <defs>
+    <style>
+      .cls-1, .cls-3, .cls-5, .cls-6 {
+        fill: #a80a06;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 0.37px;
+      }
+
+      .cls-1, .cls-2, .cls-6 {
+        fill-rule: evenodd;
+      }
+
+      .cls-1 {
+        stroke: url(#linear-gradient);
+      }
+
+      .cls-2 {
+        fill: #e5e400;
+        stroke: url(#linear-gradient-2);
+      }
+
+      .cls-3 {
+        font-size: 60px;
+      }
+
+      .cls-3, .cls-5 {
+        font-family: Nexa;
+        font-weight: 800;
+      }
+
+      .cls-4 {
+        font-size: 48px;
+      }
+
+      .cls-5 {
+        font-size: 72px;
+      }
+
+      .cls-6 {
+        stroke-width: 1.96px;
+        stroke: url(#linear-gradient-3);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="537.002" y1="886.625" x2="537.002" y2="10.375" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#161515"/>
+      <stop offset="1" stop-color="#161515"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="537.891" y1="690.312" x2="537.891" y2="52.813" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="587" y1="416.344" x2="587" y2="363" xlink:href="#linear-gradient"/>
+  </defs>
+  <path id="Rectangle_1_copy" data-name="Rectangle 1 copy" class="cls-1" d="M156.859,10.36H917.141a104,104,0,0,1,104,104V782.64a104,104,0,0,1-104,104H156.859a104,104,0,0,1-104-104V114.36A104,104,0,0,1,156.859,10.36Z"/>
+  <path class="cls-2" d="M231.087,52.808H844.7a104,104,0,0,1,104,104V586.3a104,104,0,0,1-104,104H231.087a104,104,0,0,1-104-104v-429.5A104,104,0,0,1,231.087,52.808Z"/>
+  <text id="NEON_INSURANCE_BROKERS_LTD_" data-name="NEON INSURANCE BROKERS LTD " class="cls-3" x="32.325" y="978.642">NEON INSURANCE BROKERS LTD<tspan class="cls-4"> </tspan></text>
+  <text id="NEON" class="cls-5" transform="translate(197.191 616.966) scale(3.094)">NEON<tspan class="cls-4"> </tspan></text>
+  <path class="cls-6" d="M839,407c-122.923,36.069-504-44-504-44"/>
+</svg>

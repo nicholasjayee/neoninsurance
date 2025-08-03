@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1080"
+   height="1080"
+   viewBox="0 0 1080 1080"
+   version="1.1"
+   id="svg3"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2">
+    <style
+       id="style1">
+      .cls-1, .cls-3, .cls-5, .cls-6 {
+        fill: #a80a06;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 0.37px;
+      }
+
+      .cls-1, .cls-2, .cls-6 {
+        fill-rule: evenodd;
+      }
+
+      .cls-1 {
+        stroke: url(#linear-gradient);
+      }
+
+      .cls-2 {
+        fill: #e5e400;
+        stroke: url(#linear-gradient-2);
+      }
+
+      .cls-3 {
+        font-size: 60px;
+      }
+
+      .cls-3, .cls-5 {
+        font-family: Nexa;
+        font-weight: 800;
+      }
+
+      .cls-4 {
+        font-size: 48px;
+      }
+
+      .cls-5 {
+        font-size: 72px;
+      }
+
+      .cls-6 {
+        stroke-width: 1.96px;
+        stroke: url(#linear-gradient-3);
+      }
+    </style>
+    <linearGradient
+       id="linear-gradient"
+       x1="537.00201"
+       y1="886.625"
+       x2="537.00201"
+       y2="10.375"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#161515"
+         id="stop1" />
+      <stop
+         offset="1"
+         stop-color="#161515"
+         id="stop2" />
+    </linearGradient>
+    <linearGradient
+       id="linear-gradient-2"
+       x1="537.89099"
+       y1="690.31201"
+       x2="537.89099"
+       y2="52.813"
+       xlink:href="#linear-gradient" />
+    <linearGradient
+       id="linear-gradient-3"
+       x1="587"
+       y1="416.34399"
+       x2="587"
+       y2="363"
+       xlink:href="#linear-gradient" />
+    <linearGradient
+       xlink:href="#linear-gradient"
+       id="linearGradient3"
+       gradientUnits="userSpaceOnUse"
+       x1="537.00201"
+       y1="886.625"
+       x2="537.00201"
+       y2="10.375" />
+  </defs>
+  <g
+     id="g1"
+     transform="translate(3,91.5)">
+    <path
+       id="Rectangle_1_copy"
+       data-name="Rectangle 1 copy"
+       class="cls-1"
+       d="m 156.859,10.36 h 760.282 a 104,104 0 0 1 104,104 v 668.28 a 104,104 0 0 1 -104,104 H 156.859 a 104,104 0 0 1 -104,-104 V 114.36 a 104,104 0 0 1 104,-104 z"
+       style="stroke:url(#linearGradient3)" />
+    <path
+       class="cls-2"
+       d="M 231.087,52.808 H 844.7 a 104,104 0 0 1 104,104 V 586.3 a 104,104 0 0 1 -104,104 H 231.087 a 104,104 0 0 1 -104,-104 V 156.8 a 104,104 0 0 1 104,-103.992 z"
+       id="path2"
+       style="stroke:url(#linear-gradient-2)" />
+    <path
+       class="cls-6"
+       d="M 839,407 C 716.077,443.069 335,363 335,363"
+       id="path3"
+       style="stroke:url(#linear-gradient-3)" />
+    <text
+       id="NEON-3"
+       class="cls-5"
+       style="font-weight:800;font-size:222.768px;font-family:Nexa;fill:#a80a06;stroke-width:3.094"
+       x="197.19148"
+       y="616.96582">NEON<tspan
+   class="cls-4"
+   id="tspan3-6"
+   style="stroke-width:3.094" /></text>
+  </g>
+</svg>
