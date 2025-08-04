@@ -10,8 +10,21 @@ const inter = Inter({
   variable: "--font-sans",
 });
 
+const getSiteUrl = () => {
+  if (process.env.VERCEL_ENV === "production") {
+    // Use the final production domain
+    return "https://www.neoninsurance.co.ug";
+  }
+  if (process.env.VERCEL_URL) {
+    // Use the Vercel preview URL
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  // Use the local development URL
+  return "http://localhost:3000";
+};
+
 // --- SEO METADATA ---
-const siteUrl = "https://www.neoninsurance.co.ug";
+const siteUrl = getSiteUrl();
 
 export const metadata: Metadata = {
   // --- Core Metadata ---

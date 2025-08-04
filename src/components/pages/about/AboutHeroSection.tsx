@@ -19,7 +19,7 @@ const AboutHeroSection: React.FC = () => {
       {/* 
         The gradient overlay is preserved with your exact brand color classes.
       */}
-      <div className="absolute inset-0 bg-gradient-to-t from-brand-light via-brand-dark/20 to-brand-dark/50 z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-brand-light/40 via-brand-dark/20 to-brand-dark/50 z-10"></div>
 
       <div className="relative z-20 p-6">
         <motion.h1

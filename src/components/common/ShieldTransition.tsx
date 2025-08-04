@@ -82,7 +82,7 @@ const ShieldTransition: React.FC = () => {
   return (
     <div
       ref={ref}
-      className="relative w-full h-24 flex items-center justify-center"
+      className="relative  w-full  h-24 flex items-center justify-center"
     >
       <div className="relative z-50 w-24 h-24 ">
         <svg

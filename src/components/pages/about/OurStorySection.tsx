@@ -113,34 +113,29 @@ const OurStorySection: React.FC = () => {
   const timelineRef = useRef<HTMLDivElement>(null);
   const animatedLineRef = useRef<HTMLDivElement>(null);
 
-  // This useScroll is for the GSAP timeline animation
   const { scrollYProgress: timelineScrollYProgress } = useScroll({
     target: timelineRef,
     offset: ["start center", "end end"],
   });
-
-  // This useScroll is for the background parallax effect
   const { scrollYProgress: parallaxScrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
   });
 
-  // GSAP animation logic is now preserved and wrapped in a context for safety
   useMotionValueEvent(timelineScrollYProgress, "change", (latest) => {
     const ctx = gsap.context(() => {
       gsap.to(animatedLineRef.current, {
         height: `${latest * 100}%`,
         ease: "none",
       });
-
       const milestones = gsap.utils.toArray<HTMLElement>(".milestone-icon");
       milestones.forEach((icon) => {
         const iconTop = icon.offsetTop;
         const lineHeight = animatedLineRef.current?.offsetHeight ?? 0;
         if (lineHeight >= iconTop) {
-          gsap.to(icon, { scale: 1.2, color: "#C41E24", duration: 0.3 }); // brand-primary
+          gsap.to(icon, { scale: 1.2, color: "#C41E24", duration: 0.3 });
         } else {
-          gsap.to(icon, { scale: 1, color: "#A3161B", duration: 0.3 }); // brand-primary-dark
+          gsap.to(icon, { scale: 1, color: "#A3161B", duration: 0.3 });
         }
       });
     }, sectionRef);
@@ -152,7 +147,7 @@ const OurStorySection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative pt-20 md:pt-32 bg-brand-light overflow-hidden"
+      className="relative pt-20  md:pt-32 bg-brand-light overflow-hidden"
     >
       <motion.div className="absolute inset-0 z-0" style={{ y }}>
         <OptimizedBgImage srcUrl={aboutimage} />
@@ -189,7 +184,7 @@ const OurStorySection: React.FC = () => {
           ))}
         </div>
 
-        {/* --- Mobile Timeline with Framer Motion --- */}
+        {/* THE FIX: The complete mobile timeline JSX is now restored. */}
         <div className="md:hidden relative">
           <div className="absolute top-0 left-5 w-0.5 h-full bg-brand-border -translate-x-1/2"></div>
           {storyData.map((story, index) => (
