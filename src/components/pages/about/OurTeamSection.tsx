@@ -42,6 +42,20 @@ const teamData: TeamMember[] = [
       "Our leadership is dedicated to upholding the integrity and elevating the standards of the entire insurance brokerage fraternity in Uganda.",
     roleColor: "brand-secondary-dark",
   },
+  {
+    name: "Umar-Semambo",
+    role: "Assessor",
+    imageUrl: "/img/about/Umar-Semambo(Assessor).png",
+    quote: "",
+    roleColor: "brand-primary",
+  },
+  {
+    name: "Nambiro-Winfred",
+    role: "Marketing",
+    imageUrl: "/img/about/Nambiro-Winfred(-Marketing).png",
+    quote: "",
+    roleColor: "brand-accent",
+  },
 ];
 
 // This mapping is essential for Tailwind to correctly build the dynamic class names.
