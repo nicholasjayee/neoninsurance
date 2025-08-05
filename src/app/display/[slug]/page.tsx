@@ -1,164 +1,73 @@
-"use client";
-
-import React, { useEffect } from "react";
-import Link from "next/link";
-import { useParams, notFound } from "next/navigation";
-import { motion } from "framer-motion";
-import { FiArrowLeft, FiCheck } from "react-icons/fi";
+import React from "react";
+import { notFound } from "next/navigation";
 import { solutionsData } from "@/data/navigationData";
-import type { DetailedContentItem } from "@/data/navigationData";
-import ServiceIntroSection from "@/components/pages/services/ServiceIntroSection";
+import DisplayClientPage from "@/components/pages/display/DisplayClientPage";
 
-// --- Type Definition for the Renderer ---
-interface ContentRendererProps {
-  item: DetailedContentItem;
+// --- Server-Side Metadata Generation (Using the async/await pattern) ---
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  // Await the params to get the slug
+  const { slug } = await params;
+  const allServices = solutionsData.flatMap((solution) => solution.services);
+  const service = allServices.find((s) => s.slug === slug);
+
+  if (!service) {
+    return { title: "Service Not Found" };
+  }
+
+  const description =
+    service.content?.find((item) => item.type === "paragraph")?.text ||
+    `Learn more about our ${service.name} insurance services.`;
+
+  return {
+    title: `${service.name} | Neon Insurance Brokers Ltd`,
+    description: description.substring(0, 155),
+    keywords: [
+      service.name,
+      `${service.name} Uganda`,
+      `${service.name} Kampala`,
+      "Neon Insurance Brokers",
+    ],
+    alternates: { canonical: `/display/${slug}` },
+    openGraph: {
+      title: `${service.name} | Neon Insurance Brokers Ltd`,
+      description,
+      url: `https://neoninsurance.vercel.app/display/${slug}`,
+      images: [
+        {
+          url: "/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: `Details about ${service.name} from Neon Insurance`,
+        },
+      ],
+    },
+    twitter: {
+      title: `${service.name} | Neon Insurance Brokers Ltd`,
+      description,
+      images: ["/og-image.png"],
+    },
+  };
 }
 
-// --- Helper Component: Content Renderer ---
-const ContentRenderer: React.FC<ContentRendererProps> = ({ item }) => {
-  switch (item.type) {
-    case "heading":
-      // THE FIX: We explicitly return the correct JSX tag based on the level.
-      // This is the correct, type-safe way to handle dynamic heading levels.
-      const level = item.level || 2;
-      const className =
-        "text-2xl md:text-3xl font-bold text-brand-text-primary mt-8 mb-4";
-      if (level === 2) return <h2 className={className}>{item.text}</h2>;
-      if (level === 3) return <h3 className={className}>{item.text}</h3>;
-      if (level === 4) return <h4 className={className}>{item.text}</h4>;
-      // Fallback for any other level
-      return <h2 className={className}>{item.text}</h2>;
-
-    case "paragraph":
-      return (
-        <p className="text-lg text-brand-text-secondary leading-relaxed mb-4">
-          {item.text}
-        </p>
-      );
-
-    case "list":
-      return (
-        <ul className="space-y-3 pl-5 mt-4 mb-6">
-          {item.items.map((listItem, index) => (
-            <li key={index} className="flex items-start gap-3">
-              <FiCheck className="text-brand-primary mt-1 flex-shrink-0" />
-              <span className="text-brand-text-secondary">{listItem}</span>
-            </li>
-          ))}
-        </ul>
-      );
-
-    case "highlight":
-      return (
-        <p className="p-4 my-6 bg-brand-secondary-light border-l-4 border-brand-secondary-dark text-brand-secondary-dark font-semibold">
-          {item.text}
-        </p>
-      );
-
-    case "table":
-      return (
-        <div className="my-6 overflow-x-auto">
-          <table className="w-full border-collapse text-left">
-            <thead>
-              <tr className="border-b-2 border-brand-border">
-                {item.headers.map((header, index) => (
-                  <th
-                    key={index}
-                    className="p-3 text-sm font-semibold text-brand-text-primary"
-                  >
-                    {header}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {item.rows.map((row, rowIndex) => (
-                <tr key={rowIndex} className="border-b border-brand-border">
-                  {row.map((cell, cellIndex) => (
-                    <td
-                      key={cellIndex}
-                      className="p-3 text-brand-text-secondary"
-                    >
-                      {cell}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      );
-
-    default:
-      return null;
-  }
-};
-
-// --- Main Exported Component ---
-export default function DisplayPage() {
-  const params = useParams();
-  const slug = params.slug as string;
+// --- Main Page Component (Using the async/await pattern) ---
+export default async function DisplayPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  // Await the params to get the slug
+  const { slug } = await params;
 
   const allServices = solutionsData.flatMap((solution) => solution.services);
   const service = allServices.find((s) => s.slug === slug);
 
-  useEffect(() => {
-    if (!service) {
-      notFound();
-    }
-  }, [service]);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [slug]);
-
   if (!service) {
-    return null;
+    notFound();
   }
 
-  const { name: title, content: data = [] } = service;
-
-  return (
-    <div className="bg-brand-light min-h-screen">
-      <ServiceIntroSection />
-      <div className="container mx-auto px-6 py-24 md:py-32">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-          >
-            <Link
-              href="/services"
-              className="flex items-center gap-2 font-semibold text-brand-text-secondary hover:text-brand-primary mb-8"
-            >
-              <FiArrowLeft />
-              Back to Services
-            </Link>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-          >
-            <p className="text-brand-accent font-semibold">Our Services</p>
-            <h1 className="text-4xl md:text-6xl font-bold text-brand-text-primary mt-2">
-              {title}
-            </h1>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="mt-12 border-t border-brand-border pt-8"
-          >
-            {data.map((item, index) => (
-              <ContentRenderer key={index} item={item} />
-            ))}
-          </motion.div>
-        </div>
-      </div>
-    </div>
-  );
+  return <DisplayClientPage service={service} />;
 }

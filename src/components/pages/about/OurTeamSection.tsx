@@ -22,37 +22,38 @@ const teamData: TeamMember[] = [
     name: "Musasizi-Elizabeth",
     role: "chief Operations officer",
     imageUrl: "/img/about/Musasizi-Elizabeth(chief Operations officer).png",
-    quote: "",
+    quote:
+      "We build trust through seamless execution. My goal is to ensure our operational process is as reliable and clear as the protection we provide.",
     roleColor: "brand-primary",
   },
   {
     name: "KIgemuzi-Rashid",
     role: "Manager",
     imageUrl: "/img/about/KIgemuzi-Rashid(Manager).png",
-    quote: "",
+    quote:
+      "Our team is your advocate. We lead with expertise to navigate the complexities of insurance, ensuring you are always protected and prioritized.",
     roleColor: "brand-primary",
   },
   {
     name: "Nambiro-Winfred",
     role: "Marketing",
     imageUrl: "/img/about/Nambiro-Winfred(-Marketing).png",
-    quote: "",
+    quote:
+      "My passion is connecting our promise of security with the community we serve, making complex insurance simple and accessible for everyone",
     roleColor: "brand-accent",
   },
   {
     name: "Mr.Gilbert Akampa",
     role: "UnderWriting",
     imageUrl: "/img/about/Mr.Gilbert Akampa (UnderWritting).png",
-    quote:
-      "By carefully evaluating risk, we craft policies that stand strong when you need them most, ensuring every promise we make is built on a solid foundation.",
+    quote: "",
     roleColor: "brand-primary",
   },
   {
     name: "Orishaba Patience Akankwatsa",
     role: "Finance",
     imageUrl: "/img/about/Patience.png",
-    quote:
-      "Our leadership is dedicated to upholding the integrity and elevating the standards of the entire insurance brokerage fraternity in Uganda.",
+    quote: "",
     roleColor: "brand-secondary-dark",
   },
   {
@@ -64,10 +65,9 @@ const teamData: TeamMember[] = [
   },
   {
     name: "Ndiho-Gregory",
-    role: "Accounts-Executive",
+    role: "IT",
     imageUrl: "/img/about/Ndiho-Gregory(-Acounts-Executive.png",
-    quote:
-      "I bridge the gap between complex insurance policies and your unique needs, ensuring you have a clear, confident partner every step of the way.",
+    quote: "",
     roleColor: "brand-accent",
   },
 ];
