@@ -95,7 +95,7 @@ export default function Footer() {
             <h4 className="mb-4 font-bold text-brand-text-primary">Connect</h4>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://www.facebook.com/neoninsurance/"
                 className="transition-colors hover:text-brand-primary"
                 aria-label="Facebook"
               >
@@ -118,13 +118,6 @@ export default function Footer() {
                 aria-label="Instagram"
               >
                 <FaInstagram size={20} />
-              </a>
-              <a
-                href="#"
-                className="transition-colors hover:text-brand-primary"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedin size={20} />
               </a>
             </div>
           </div>

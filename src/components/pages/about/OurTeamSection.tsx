@@ -19,6 +19,27 @@ interface TeamMember {
 // --- Component Data --- (Image paths are updated for the /public directory)
 const teamData: TeamMember[] = [
   {
+    name: "Musasizi-Elizabeth",
+    role: "chief Operations officer",
+    imageUrl: "/img/about/Musasizi-Elizabeth(chief Operations officer).png",
+    quote: "",
+    roleColor: "brand-primary",
+  },
+  {
+    name: "KIgemuzi-Rashid",
+    role: "Manager",
+    imageUrl: "/img/about/KIgemuzi-Rashid(Manager).png",
+    quote: "",
+    roleColor: "brand-primary",
+  },
+  {
+    name: "Nambiro-Winfred",
+    role: "Marketing",
+    imageUrl: "/img/about/Nambiro-Winfred(-Marketing).png",
+    quote: "",
+    roleColor: "brand-accent",
+  },
+  {
     name: "Mr.Gilbert Akampa",
     role: "UnderWriting",
     imageUrl: "/img/about/Mr.Gilbert Akampa (UnderWritting).png",
@@ -27,17 +48,9 @@ const teamData: TeamMember[] = [
     roleColor: "brand-primary",
   },
   {
-    name: "Ndiho-Gregory",
-    role: "Accounts-Executive",
-    imageUrl: "/img/about/Ndiho-Gregory(-Acounts-Executive.png",
-    quote:
-      "I bridge the gap between complex insurance policies and your unique needs, ensuring you have a clear, confident partner every step of the way.",
-    roleColor: "brand-accent",
-  },
-  {
     name: "Orishaba Patience Akankwatsa",
     role: "Finance",
-    imageUrl: "/img/about/Orishaba Patience Akankwatsa(Finance) .png",
+    imageUrl: "/img/about/Patience.png",
     quote:
       "Our leadership is dedicated to upholding the integrity and elevating the standards of the entire insurance brokerage fraternity in Uganda.",
     roleColor: "brand-secondary-dark",
@@ -47,13 +60,14 @@ const teamData: TeamMember[] = [
     role: "Assessor",
     imageUrl: "/img/about/Umar-Semambo(Assessor).png",
     quote: "",
-    roleColor: "brand-primary",
+    roleColor: "brand-secondary-dark",
   },
   {
-    name: "Nambiro-Winfred",
-    role: "Marketing",
-    imageUrl: "/img/about/Nambiro-Winfred(-Marketing).png",
-    quote: "",
+    name: "Ndiho-Gregory",
+    role: "Accounts-Executive",
+    imageUrl: "/img/about/Ndiho-Gregory(-Acounts-Executive.png",
+    quote:
+      "I bridge the gap between complex insurance policies and your unique needs, ensuring you have a clear, confident partner every step of the way.",
     roleColor: "brand-accent",
   },
 ];

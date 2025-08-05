@@ -37,6 +37,7 @@ export const metadata: Metadata = {
   description:
     "With over 21 years of experience, Neon Insurance Brokers provides expert risk assessment, tailored insurance solutions, and dedicated claims advocacy for personal and commercial needs in Kampala, Uganda. Clarity in complexity.",
   keywords: [
+    // Core & Location
     "insurance broker Uganda",
     "Kampala insurance",
     "risk management Uganda",
@@ -47,8 +48,35 @@ export const metadata: Metadata = {
     "fire and perils insurance",
     "Neon Insurance Brokers",
     "IBAU member",
-  ],
+    "neon insurance brokers uganda",
 
+    // Expanded Services
+    "car insurance Kampala",
+    "health insurance Uganda",
+    "SME insurance",
+    "life assurance",
+    "goods-in-transit insurance",
+    "travel insurance",
+
+    // Trust & Action
+    "licensed insurance broker",
+    "expert risk assessment",
+    "insurance claims support",
+    "get insurance quote Uganda",
+
+    // Broader Terms
+    "insurance companies in Kampala",
+    "best insurance brokers in Uganda",
+  ],
+  // <meta name="google-site-verification" content="VTStVITxJ_6O8fMKgTRJAEnV5h0qeoIoJR-ccCa0r4I" />
+  verification: {
+    google: "VTStVITxJ_6O8fMKgTRJAEnV5h0qeoIoJR-ccCa0r4I",
+    // You can also add verification for other services here if needed
+    // yandex: 'yandex-verification-code',
+    // other: {
+    //   'msvalidate.01': 'BING_VALIDATION_CODE',
+    // },
+  },
   // --- Author and Publisher ---
   authors: [{ name: "Neon Insurance Brokers Limited", url: siteUrl }],
   publisher: "Neon Insurance Brokers Limited",

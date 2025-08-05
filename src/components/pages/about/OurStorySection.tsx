@@ -147,7 +147,7 @@ const OurStorySection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative pt-20  md:pt-32 bg-brand-light overflow-hidden"
+      className="relative pt-20  md:pt-32 bg-brand-dark overflow-hidden"
     >
       <motion.div className="absolute inset-0 z-0" style={{ y }}>
         <OptimizedBgImage srcUrl={aboutimage} />
