@@ -3,15 +3,23 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
-import OptimizedImage from "@/components/common/OptimizedImage";
 // CORRECT: Importing your existing, correct useMediaQuery hook.
 import useMediaQuery from "@/hooks/useMediaQuery";
+import Image, { StaticImageData } from "next/image";
+
+import musazi from "../../../../public//img/about/Musasizi-Elizabeth.png";
+import KIgemuzi from "../../../../public//img/about/kigemuzi-rashid.png";
+import Nambiro from "../../../../public//img/about/Nambiro-Winfred(-Marketing).png";
+import Gilbert from "../../../../public//img/about/Mr.Gilbert Akampa (UnderWritting).png";
+import Orishaba from "../../../../public//img/about/Patience.png";
+import Umar from "../../../../public//img/about/Umar-Semambo(Assessor).png";
+import Ndiho from "../../../../public//img/about/Ndiho-Gregory(-Acounts-Executive.png";
 
 // --- Type Definitions ---
 interface TeamMember {
   name: string;
   role: string;
-  imageUrl: string;
+  imageUrl: StaticImageData;
   quote: string;
   roleColor: string;
 }
@@ -21,7 +29,7 @@ const teamData: TeamMember[] = [
   {
     name: "Musasizi-Elizabeth",
     role: "chief Operations officer",
-    imageUrl: "/img/about/Musasizi-Elizabeth(chief Operations officer).png",
+    imageUrl: musazi,
     quote:
       "We build trust through seamless execution. My goal is to ensure our operational process is as reliable and clear as the protection we provide.",
     roleColor: "brand-primary",
@@ -29,7 +37,7 @@ const teamData: TeamMember[] = [
   {
     name: "KIgemuzi-Rashid",
     role: "Manager",
-    imageUrl: "/img/about/KIgemuzi-Rashid(Manager).png",
+    imageUrl: KIgemuzi,
     quote:
       "Our team is your advocate. We lead with expertise to navigate the complexities of insurance, ensuring you are always protected and prioritized.",
     roleColor: "brand-primary",
@@ -37,7 +45,7 @@ const teamData: TeamMember[] = [
   {
     name: "Nambiro-Winfred",
     role: "Marketing",
-    imageUrl: "/img/about/Nambiro-Winfred(-Marketing).png",
+    imageUrl: Nambiro,
     quote:
       "My passion is connecting our promise of security with the community we serve, making complex insurance simple and accessible for everyone",
     roleColor: "brand-accent",
@@ -45,28 +53,28 @@ const teamData: TeamMember[] = [
   {
     name: "Mr.Gilbert Akampa",
     role: "UnderWriting",
-    imageUrl: "/img/about/Mr.Gilbert Akampa (UnderWritting).png",
+    imageUrl: Gilbert,
     quote: "",
     roleColor: "brand-primary",
   },
   {
     name: "Orishaba Patience Akankwatsa",
     role: "Finance",
-    imageUrl: "/img/about/Patience.png",
+    imageUrl: Orishaba,
     quote: "",
     roleColor: "brand-secondary-dark",
   },
   {
     name: "Umar-Semambo",
     role: "Assessor",
-    imageUrl: "/img/about/Umar-Semambo(Assessor).png",
+    imageUrl: Umar,
     quote: "",
     roleColor: "brand-secondary-dark",
   },
   {
     name: "Ndiho-Gregory",
     role: "Acounts-Executive & IT",
-    imageUrl: "/img/about/Ndiho-Gregory(-Acounts-Executive.png",
+    imageUrl: Ndiho,
     quote: "",
     roleColor: "brand-accent",
   },
@@ -179,7 +187,17 @@ const OurTeamSection: React.FC = () => {
               onClick={() => setActiveIndex(index)}
             >
               <div className="w-full h-full rounded-full border-4 border-brand-white shadow-lg overflow-hidden">
-                <OptimizedImage srcUrl={member.imageUrl} alt={member.name} />
+                <div className={`relative h-full w-full overflow-hidden`}>
+                  <Image
+                    fill
+                    style={{ objectFit: "cover" }}
+                    src={member.imageUrl}
+                    alt={member.name}
+                    placeholder="blur"
+                    sizes="(min-width: 768px) 160px, 128px"
+                    priority={index === 0}
+                  />
+                </div>
               </div>
             </motion.div>
           ))}

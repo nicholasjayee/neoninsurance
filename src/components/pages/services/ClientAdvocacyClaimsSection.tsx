@@ -3,11 +3,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 // Preserving your exact import of your custom component.
-import OptimizedImage from "@/components/common/OptimizedImage";
+// import OptimizedImage from "@/components/common/OptimizedImage";
+import CloudinaryImage from "@/components/cloudinary/CloudinaryImage";
 
 // Preserving your exact Cloudinary URL.
-const serviceimage =
-  "https://res.cloudinary.com/dnaaxfifx/image/upload/services_bibxrl";
+// const serviceimage =
+//   "https://res.cloudinary.com/dnaaxfifx/image/upload/services_bibxrl";
+const serviceImagePublicId = "services_bibxrl";
 
 // Preserving your original arrow function component structure.
 const ClientAdvocacyClaimsSection: React.FC = () => {
@@ -42,10 +44,14 @@ const ClientAdvocacyClaimsSection: React.FC = () => {
           className="h-80 rounded-lg overflow-hidden shadow-lg"
         >
           {/* Preserving your exact component call. */}
-          <OptimizedImage
-            srcUrl={serviceimage}
+          <CloudinaryImage
+            publicId={serviceImagePublicId}
             alt="A professional insurance broker assisting a client."
           />
+          {/* <OptimizedImage
+            srcUrl={serviceimage}
+            alt="A professional insurance broker assisting a client."
+          /> */}
         </motion.div>
       </div>
     </section>

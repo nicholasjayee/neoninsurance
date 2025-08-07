@@ -1,18 +1,18 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-// import Image from "next/image"; // Replaces custom image component
-import Link from "next/link"; // Replaces the 'a' tag for navigation
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiHome, FiTrendingUp, FiHeart, FiShield } from "react-icons/fi";
 import { FaCar, FaBriefcase } from "react-icons/fa";
-import OptimizedBgImage from "@/components/common/OptimizedImage";
+// --- 1. UPDATED IMPORT to use your new component ---
+import CloudinaryImage from "@/components/cloudinary/CloudinaryImage";
 
-// --- Type Definitions for our data structures ---
+// --- 2. UPDATED TYPE DEFINITION ---
 interface HeroContent {
   headline: string;
   subheadline: string;
-  imageUrl: string;
+  publicId: string; // Changed from imageUrl
 }
 
 interface FloatingIconProps {
@@ -21,42 +21,37 @@ interface FloatingIconProps {
   duration: number;
 }
 
-// --- Component Data ---
+// --- 3. UPDATED COMPONENT DATA with publicId ---
 const rotatingTextData: HeroContent[] = [
   {
     headline: "Clarity in Complexity.",
     subheadline:
       "We are your unwavering advocates, turning the tide on risk and securing your world.",
-    imageUrl:
-      "https://res.cloudinary.com/dnaaxfifx/image/upload/v1721081593/banner02_parfef.png",
+    publicId: "v1721081593/banner02_parfef.png",
   },
   {
     headline: "Your Future, Secured.",
     subheadline:
       "Tailored insurance solutions designed to protect what you've built and what's to come.",
-    imageUrl:
-      "https://res.cloudinary.com/dnaaxfifx/image/upload/v1721081593/fire_b3ud1a.png",
+    publicId: "v1721081593/fire_b3ud1a.png",
   },
   {
     headline: "Partners in Protection.",
     subheadline:
       "Navigating the world of insurance so you can focus on what matters most.",
-    imageUrl:
-      "https://res.cloudinary.com/dnaaxfifx/image/upload/v1721081593/services_bibxrl.png",
+    publicId: "v1721081593/services_bibxrl.png",
   },
   {
     headline: "Confidence for Tomorrow.",
     subheadline:
       "From personal assets to business ventures, we provide the peace of mind you deserve.",
-    imageUrl:
-      "https://res.cloudinary.com/dnaaxfifx/image/upload/v1721081593/hero_image_kvdq0z.png",
+    publicId: "v1721081593/hero_image_kvdq0z.png",
   },
   {
     headline: "Beyond a Policy. A Promise.",
     subheadline:
       "Our commitment is to you – your advocate in claims, your guide in coverage.",
-    imageUrl:
-      "https://res.cloudinary.com/dnaaxfifx/image/upload/v1721081593/ChatGPT_Image_Jul_12_2025_04_40_04_PM_jjvgb3.png",
+    publicId: "v1721081593/ChatGPT_Image_Jul_12_2025_04_40_04_PM_jjvgb3.png",
   },
 ];
 
@@ -97,10 +92,12 @@ export default function DynamicHeroSection() {
           exit={{ opacity: 0, scale: 1.05 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
         >
-          {/* CONVERTED to next/image for optimized, responsive backgrounds */}
-          <OptimizedBgImage
-            srcUrl={rotatingTextData[index].imageUrl}
+          {/* --- 4. REPLACED old component with the new CloudinaryImage --- */}
+          <CloudinaryImage
+            publicId={rotatingTextData[index].publicId}
             alt={rotatingTextData[index].headline}
+            // --- Crucial LCP Optimization ---
+            priority={index === 0}
           />
         </motion.div>
       </AnimatePresence>
@@ -180,7 +177,6 @@ export default function DynamicHeroSection() {
           </AnimatePresence>
         </div>
 
-        {/* CONVERTED to next/link for optimized client-side navigation */}
         <Link
           href="/contact"
           className="mt-8 inline-block transform rounded-full bg-brand-primary py-3 px-8 font-bold text-white shadow-lg shadow-brand-primary/20 transition-all hover:scale-105 hover:bg-brand-primary-light md:mt-10 md:py-4 md:px-10"

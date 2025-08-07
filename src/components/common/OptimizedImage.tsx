@@ -49,7 +49,7 @@ export default function OptimizedImage({
         fill // This makes the image fill its parent container.
         style={{ objectFit: "cover" }} // Equivalent to object-cover.
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Helps Next.js select the right image size.
-        unoptimized={true} // Recommended for Cloudinary to prevent double optimization and costs.
+        unoptimized={false} // Recommended for Cloudinary to prevent double optimization and costs.
       />
     </div>
   );

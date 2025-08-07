@@ -1,12 +1,19 @@
+// next.config.ts
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
+    // DO NOT set a global loader here.
+    // We will use remotePatterns for the default loader.
     remotePatterns: [
       {
-        protocol: "https", // Corrected: Comma is now outside the quotes
+        protocol: "https",
         hostname: "placehold.co",
-        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com", // Add Cloudinary here
         pathname: "/**",
       },
       { protocol: "https", hostname: "jubileeinsurance.com" },

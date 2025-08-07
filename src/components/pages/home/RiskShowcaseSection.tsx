@@ -80,7 +80,6 @@ const RiskImageCard: React.FC<RiskImageCardProps> = ({
       fill
       style={{ objectFit: "cover" }}
       className="transition-transform duration-500 group-hover:scale-110"
-      unoptimized={true} // For Cloudinary
     />
     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 flex flex-col justify-end">
       {children}
