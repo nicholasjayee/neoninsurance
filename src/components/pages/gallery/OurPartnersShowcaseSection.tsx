@@ -89,7 +89,7 @@ const OurPartnersShowcaseSection: React.FC = () => {
                     alt={`${partner.name} logo`}
                     fill
                     style={{ objectFit: "contain" }}
-                    className="bg-white/5" // Corrected a typo here from bg-white/5 0
+                    className="bg-white/50" // Corrected a typo here from bg-white/5 0
                     // Add conditional placeholder and accurate sizes
                     placeholder={isSvg ? "empty" : "blur"}
                     sizes="(min-width: 1024px) 20vw, (min-width: 768px) 25vw, (min-width: 640px) 33vw, 50vw"
