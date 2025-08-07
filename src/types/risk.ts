@@ -1,6 +1,7 @@
 // risks.ts
 import type { ReactNode } from "react";
 // --- 1. Import the StaticImageData type from next/image ---
+import type { StaticImageData } from "next/image";
 
 // This interface defines the shape of a single "Risk" object.
 export interface Risk {
@@ -11,5 +12,5 @@ export interface Risk {
 
   // --- 2. UPDATED to use StaticImageData ---
   // This supports optimized, statically imported images and enables features like `placeholder="blur"`.
-  imageUrl: string;
+  imageUrl: StaticImageData;
 }

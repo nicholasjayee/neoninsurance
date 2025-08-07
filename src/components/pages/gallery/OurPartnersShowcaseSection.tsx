@@ -81,7 +81,7 @@ const OurPartnersShowcaseSection: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.5 }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
-                className="flex justify-center items-center h-16 grayscale hover:grayscale-0 transition-all duration-300"
+                className="flex justify-center items-center h-16 transition-all duration-300"
               >
                 <div className="relative h-24 w-48">
                   <Image
