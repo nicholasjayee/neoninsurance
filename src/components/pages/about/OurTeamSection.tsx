@@ -5,21 +5,21 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 // CORRECT: Importing your existing, correct useMediaQuery hook.
 import useMediaQuery from "@/hooks/useMediaQuery";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 
-import musazi from "./img/Musasizi-Elizabeth.png";
-import KIgemuzi from "./img/kigemuzi-rashid.png";
-import Nambiro from "./img/Nambiro-Winfred(-Marketing).png";
-import Gilbert from "./img/Mr.Gilbert Akampa (UnderWritting).png";
-import Orishaba from "./img/Patience.png";
-import Umar from "./img/Umar-Semambo(Assessor).png";
-import Ndiho from "./img/Ndiho-Gregory(-Acounts-Executive.png";
+// import musazi from "./img/Musasizi-Elizabeth.png";
+// import KIgemuzi from "./img/kigemuzi-rashid.png";
+// import Nambiro from "./img/Nambiro-Winfred(-Marketing).png";
+// import Gilbert from "./img/Mr.Gilbert Akampa (UnderWritting).png";
+// import Orishaba from "./img/Patience.png";
+// import Umar from "./img/Umar-Semambo(Assessor).png";
+// import Ndiho from "./img/Ndiho-Gregory(-Acounts-Executive.png";
 
 // --- Type Definitions ---
 interface TeamMember {
   name: string;
   role: string;
-  imageUrl: StaticImageData;
+  imageUrl: string;
   quote: string;
   roleColor: string;
 }
@@ -29,7 +29,7 @@ const teamData: TeamMember[] = [
   {
     name: "Musasizi-Elizabeth",
     role: "chief Operations officer",
-    imageUrl: musazi,
+    imageUrl: "/img/Musasizi-Elizabeth.png",
     quote:
       "We build trust through seamless execution. My goal is to ensure our operational process is as reliable and clear as the protection we provide.",
     roleColor: "brand-primary",
@@ -37,7 +37,7 @@ const teamData: TeamMember[] = [
   {
     name: "KIgemuzi-Rashid",
     role: "Manager",
-    imageUrl: KIgemuzi,
+    imageUrl: "/img/kigemuzi-rashid.png",
     quote:
       "Our team is your advocate. We lead with expertise to navigate the complexities of insurance, ensuring you are always protected and prioritized.",
     roleColor: "brand-primary",
@@ -45,7 +45,7 @@ const teamData: TeamMember[] = [
   {
     name: "Nambiro-Winfred",
     role: "Marketing",
-    imageUrl: Nambiro,
+    imageUrl: "/img/Nambiro-Winfred(-Marketing).png",
     quote:
       "My passion is connecting our promise of security with the community we serve, making complex insurance simple and accessible for everyone",
     roleColor: "brand-accent",
@@ -53,28 +53,28 @@ const teamData: TeamMember[] = [
   {
     name: "Mr.Gilbert Akampa",
     role: "UnderWriting",
-    imageUrl: Gilbert,
+    imageUrl: "/img/Mr.Gilbert Akampa (UnderWritting).png",
     quote: "",
     roleColor: "brand-primary",
   },
   {
     name: "Orishaba Patience Akankwatsa",
     role: "Finance",
-    imageUrl: Orishaba,
+    imageUrl: "/img/Patience.png",
     quote: "",
     roleColor: "brand-secondary-dark",
   },
   {
     name: "Umar-Semambo",
     role: "Assessor",
-    imageUrl: Umar,
+    imageUrl: "/img/Umar-Semambo(Assessor).png",
     quote: "",
     roleColor: "brand-secondary-dark",
   },
   {
     name: "Ndiho-Gregory",
     role: "Acounts-Executive & IT",
-    imageUrl: Ndiho,
+    imageUrl: "/img/Ndiho-Gregory(-Acounts-Executive.png",
     quote: "",
     roleColor: "brand-accent",
   },

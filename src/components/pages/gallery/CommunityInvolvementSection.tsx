@@ -3,47 +3,45 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiX, FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 
-// --- STEP 1: Statically import all local images ---
-import galleryImg1 from "../../../../public/img/gallery/IMG-20250629-WA0075.jpg";
-import galleryImg2 from "../../../../public/img/gallery/IMG-20250629-WA0103.jpg";
-import galleryImg3 from "../../../../public/img/gallery/safe boda.png";
-import galleryImg4 from "../../../../public/img/gallery/safe-boda--liz.png";
-
-// --- STEP 2: Update type definitions to use StaticImageData ---
+// --- Type Definitions ---
 interface GalleryItem {
   category: string;
   title: string;
-  imageUrl: StaticImageData; // Changed from string
+  imageUrl: string;
 }
 
 interface SelectedImage {
-  src: StaticImageData; // Changed from string
+  src: string;
   index: number;
 }
 
-// Update the data to use the imported image objects
+// --- Component Data --- (Preserved exactly, now typed)
 const galleryData: GalleryItem[] = [
   {
     category: "Industry Leadership",
-    title: "Neon team at Insurance Sports Gala",
-    imageUrl: galleryImg1,
+    title: "IBAU Annual Conference",
+    imageUrl: "/img/gallery/IMG-20250629-WA0075.jpg",
+    // "https://ibau.ug/sites/default/files/2022-04/DSC_4968_1.jpg",
   },
   {
     category: "Community Competition",
     title: "Community participation",
-    imageUrl: galleryImg2,
+    imageUrl: "/img/gallery/IMG-20250629-WA0103.jpg",
+    // "https://ibau.ug/sites/default/files/2022-04/DSC_4560.jpg",
   },
   {
     category: "Financial Literacy",
     title: "Safe boda",
-    imageUrl: galleryImg3,
+    imageUrl: "/img/gallery/safe boda.png",
+    // "https://ibau.ug/sites/default/files/2022-04/DSC_4549%203.jpg",
   },
   {
     category: "Digital sticker sensitization",
     title: "Digital sticker sensitization to safe boda",
-    imageUrl: galleryImg4,
+    imageUrl: "/img/gallery/safe-boda--liz.png",
+    //  "https://ibau.ug/sites/default/files/2022-04/DSC_4849.jpg",
   },
 ];
 
@@ -108,6 +106,11 @@ const CommunityInvolvementSection: React.FC = () => {
               className="overflow-hidden rounded-lg shadow-lg cursor-pointer group"
               onClick={() => setSelectedImage({ src: item.imageUrl, index })}
             >
+              {/* 
+        This parent div must be 'relative' and have a defined height or aspect ratio 
+        for the <Image> component with the 'fill' prop to work correctly.
+        Here, we've added a responsive height (e.g., h-80).
+      */}
               <div className="relative h-80">
                 <Image
                   src={item.imageUrl}
@@ -115,9 +118,8 @@ const CommunityInvolvementSection: React.FC = () => {
                   fill
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
-                  // --- Blur effect is now enabled ---
-                  placeholder="blur"
                 />
+
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                   <p className="text-brand-white text-sm font-semibold">
                     {item.title}
@@ -149,24 +151,17 @@ const CommunityInvolvementSection: React.FC = () => {
             >
               <FiChevronLeft size={32} />
             </button>
+            {/* The <img> tag is preserved in the modal as well */}
 
-            {/* --- OPTIMIZED MODAL IMAGE --- */}
-            <motion.div
-              key={selectedImage.index}
+            <motion.img
+              key={selectedImage.src}
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.3 }}
-              className="relative w-full h-full max-w-4xl max-h-[90vh]"
-            >
-              <Image
-                src={selectedImage.src}
-                alt="Enlarged community view"
-                fill
-                style={{ objectFit: "contain" }}
-                sizes="100vw"
-              />
-            </motion.div>
-
+              src={selectedImage.src}
+              alt="Enlarged community view"
+              className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+            />
             <button
               onClick={handleNext}
               className="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors z-50 p-2 bg-black/20 rounded-full"
