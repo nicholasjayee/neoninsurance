@@ -6,6 +6,7 @@ import { FiArrowLeft } from "react-icons/fi";
 // CORRECTED: Importing your custom OptimizedImage component, not next/image.
 import OptimizedImage from "@/components/common/OptimizedImage";
 import type { Risk } from "@/types/risk";
+import Image from "next/image";
 
 // --- Type Definition for Component Props ---
 interface RiskDetailViewProps {
@@ -32,7 +33,16 @@ export default function RiskDetailView({ risk, onBack }: RiskDetailViewProps) {
           CORRECTED: Using your custom OptimizedImage component, which handles 
           the blur-up effect with its own internal logic.
         */}
-        <OptimizedImage srcUrl={risk.imageUrl} alt={risk.title} />
+        {/* <OptimizedImage srcUrl={risk.imageUrl} alt={risk.title} /> */}
+        <div className={`relative h-full w-full overflow-hidden`}>
+          <Image
+            src={risk.imageUrl}
+            alt={risk.title}
+            fill
+            style={{ objectFit: "cover" }}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
         <div className="container absolute inset-0 mx-auto flex items-end px-4 pb-8 sm:px-6 md:pb-12">
