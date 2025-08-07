@@ -22,8 +22,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticUrls = staticRoutes.map((route) => ({
     url: `${siteUrl}${route.url}`,
     lastModified,
-    priority: route.priority,
-    changeFrequency: route.changeFrequency,
+    // priority: route.priority,
+    // changeFrequency: route.changeFrequency,
   }));
 
   // 2. Dynamically generate URLs for all your service display pages.
@@ -33,8 +33,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .map((service) => ({
       url: `${siteUrl}/display/${service.slug}`,
       lastModified,
-      priority: 0.7, // Service pages are important, but less so than top-level pages
-      changeFrequency: "yearly" as const, // Content doesn't change often
+      // priority: 0.7, // Service pages are important, but less so than top-level pages
+      // changeFrequency: "yearly" as const, // Content doesn't change often
     }));
 
   // 3. Combine the static and dynamic URLs into a single array.
