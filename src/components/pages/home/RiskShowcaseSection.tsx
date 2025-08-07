@@ -1,17 +1,20 @@
 "use client";
 
 import React, { useRef } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 import { FaCar, FaHome, FaPlane, FaUsers } from "react-icons/fa";
 import { gsap } from "gsap";
 import type { Risk } from "@/types/risk";
 
-// import accident from "/public/img/risks/accident.png";
-// import travel from "/public/img/risks/usman-malik-cbXfPEOc1-k-unsplash.jpg";
+// --- STEP 1: Statically import all local images using relative paths ---
+import motorImage from "../../../../public/img/risks/accident.png";
+import travelImage from "../../../../public/img/risks/Travel ins- web plane.svg";
+import gpaImage from "../../../../public/img/about/hero_image.png";
+import fireImage from "../../../../public/img/risks/fire.png";
 
-// --- Component Data & Types ---
+// --- STEP 2: Update Component Data to use imported image objects ---
 const riskData: Risk[] = [
   {
     id: "motor",
@@ -19,8 +22,7 @@ const riskData: Risk[] = [
     title: "Motor Comprehensive",
     description:
       "Complete protection for your vehicle against accidents, theft, and third-party liabilities.",
-    imageUrl: "/img/risks/accident.png",
-    // "https://res.cloudinary.com/dnaaxfifx/image/upload/v1721081593/accident_hogjub",
+    imageUrl: motorImage,
   },
   {
     id: "travel",
@@ -28,8 +30,7 @@ const riskData: Risk[] = [
     title: "Travel Insurance",
     description:
       "Journey with confidence. Our policies cover medical emergencies, trip cancellations, and lost luggage.",
-    imageUrl: "/img/risks/usman-malik-cbXfPEOc1-k-unsplash.jpg",
-    // "https://res.cloudinary.com/dnaaxfifx/image/upload/v1721245695/usman-malik-cbXfPEOc1-k-unsplash_knf3ko",
+    imageUrl: travelImage,
   },
   {
     id: "gpa",
@@ -37,8 +38,7 @@ const riskData: Risk[] = [
     title: "Group Personal Accident (GPA)",
     description:
       "An essential employee benefit that provides 24-hour coverage for your team against accidental death or disability.",
-    imageUrl: "/img/about/hero_image.png",
-    //"https://res.cloudinary.com/dnaaxfifx/image/upload/v1721081593/hero_image_kvdq0z",
+    imageUrl: gpaImage,
   },
   {
     id: "fire",
@@ -46,11 +46,11 @@ const riskData: Risk[] = [
     title: "Fire & Burglary",
     description:
       "Safeguard your home or business premises and the valuable contents within against specific perils.",
-    imageUrl: "/img/risks/fire.png",
-    // "https://res.cloudinary.com/dnaaxfifx/image/upload/v1721081593/fire_b3ud1a",
+    imageUrl: fireImage,
   },
 ];
 
+// --- Type Definitions ---
 interface RiskShowcaseSectionProps {
   onSelectRisk: (risk: Risk) => void;
 }
@@ -60,32 +60,41 @@ interface RiskTimelineCardProps {
   onSelectRisk: (risk: Risk) => void;
 }
 interface RiskImageCardProps {
-  srcUrl: string;
+  src: StaticImageData; // Changed from string to StaticImageData
   alt: string;
   children: React.ReactNode;
 }
 
 // --- Helper Components ---
 
-// Replaces OptimizedImageCard with a Next.js-native implementation
 const RiskImageCard: React.FC<RiskImageCardProps> = ({
-  srcUrl,
+  src,
   alt,
   children,
-}) => (
-  <div className="relative h-full w-full overflow-hidden">
-    <Image
-      src={srcUrl}
-      alt={alt}
-      fill
-      style={{ objectFit: "cover" }}
-      className="transition-transform duration-500 group-hover:scale-110"
-    />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 flex flex-col justify-end">
-      {children}
+}) => {
+  // Check if the image source is an SVG file.
+  // The 'src' object from a static import contains a `src` string with the path.
+  const isSvg = src.src.endsWith(".svg");
+
+  return (
+    <div className="relative h-full w-full overflow-hidden">
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        style={{ objectFit: "cover" }}
+        className="transition-transform duration-500 group-hover:scale-110"
+        // --- THE FIX ---
+        // Conditionally apply the placeholder. Use 'blur' for raster images, 'empty' for SVGs.
+        placeholder={isSvg ? "empty" : "blur"}
+        sizes="(min-width: 768px) 42vw, 100vw"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 flex flex-col justify-end">
+        {children}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const RiskTimelineCard: React.FC<RiskTimelineCardProps> = ({
   data,
@@ -105,7 +114,7 @@ const RiskTimelineCard: React.FC<RiskTimelineCardProps> = ({
         className="group rounded-lg shadow-2xl overflow-hidden"
         style={{ aspectRatio: "4/3" }}
       >
-        <RiskImageCard srcUrl={data.imageUrl} alt={data.title}>
+        <RiskImageCard src={data.imageUrl} alt={data.title}>
           <h3 className="text-2xl font-bold text-brand-accent">{data.title}</h3>
           <p className="mt-1 text-brand-text-onDark/80 text-sm">
             {data.description}

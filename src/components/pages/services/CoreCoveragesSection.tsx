@@ -52,7 +52,8 @@ const commercialCoverages: CoverageItem[] = [
   { icon: <FaBuilding />, name: "Industrial All Risks (IAR)" },
   { icon: <FaBriefcase />, name: "Professional Indemnity" },
   { icon: <FaUsersCog />, name: "VSLA" },
-  { icon: <FaAnchor />, name: "Marine & Goods-in-Transit" },
+  { icon: <FaAnchor />, name: "Local marine cargo" },
+  { icon: <FaQrcode />, name: "Digital sticker motor third party" },
 ];
 
 // --- Helper Component --- (Preserved as an arrow function)
