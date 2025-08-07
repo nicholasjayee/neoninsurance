@@ -7,13 +7,13 @@ import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import Image, { StaticImageData } from "next/image";
 
-import musazi from "../../../../public//img/about/Musasizi-Elizabeth.png";
-import KIgemuzi from "../../../../public//img/about/kigemuzi-rashid.png";
-import Nambiro from "../../../../public//img/about/Nambiro-Winfred(-Marketing).png";
-import Gilbert from "../../../../public//img/about/Mr.Gilbert Akampa (UnderWritting).png";
-import Orishaba from "../../../../public//img/about/Patience.png";
-import Umar from "../../../../public//img/about/Umar-Semambo(Assessor).png";
-import Ndiho from "../../../../public//img/about/Ndiho-Gregory(-Acounts-Executive.png";
+import musazi from "./img/Musasizi-Elizabeth.png";
+import KIgemuzi from "./img/kigemuzi-rashid.png";
+import Nambiro from "./img/Nambiro-Winfred(-Marketing).png";
+import Gilbert from "./img/Mr.Gilbert Akampa (UnderWritting).png";
+import Orishaba from "./img/Patience.png";
+import Umar from "./img/Umar-Semambo(Assessor).png";
+import Ndiho from "./img/Ndiho-Gregory(-Acounts-Executive.png";
 
 // --- Type Definitions ---
 interface TeamMember {

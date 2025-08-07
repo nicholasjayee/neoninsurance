@@ -12,16 +12,16 @@ interface Partner {
 }
 
 // --- STEP 1 & 2: Statically import all logos with relative paths ---
-import exquisiteSolutionLogo from "../../../../public/img/logos/Exquisite-solution.png";
-import kiwaHardwareLogo from "../../../../public/img/logos/KIWA-HARDWARE.png";
-import parkShoebillLogo from "../../../../public/img/logos/park-shoebill-logo.png";
-import serviceCopsLogo from "../../../../public/img/logos/Service-Cops.png";
-import supperdealHardwareLogo from "../../../../public/img/logos/supperdeal-Hardware1.png";
-import easyRideLogo from "../../../../public/img/logos/easy-ride.svg"; // Using cleaned filename
-import safeBodaLogo from "../../../../public/img/logos/safe-boda.png"; // Using cleaned filename
-import neptuneLogo from "../../../../public/img/logos/neptune.png";
-import conteLogo from "../../../../public/img/logos/conte.png";
-import unimoversLogo from "../../../../public/img/logos/unimovers.svg";
+import exquisiteSolutionLogo from "./logos/Exquisite-solution.png";
+import kiwaHardwareLogo from "./logos/KIWA-HARDWARE.png";
+import parkShoebillLogo from "./logos/park-shoebill-logo.png";
+import serviceCopsLogo from "./logos/Service-Cops.png";
+import supperdealHardwareLogo from "./logos/supperdeal-Hardware1.png";
+import easyRideLogo from "./logos/easy-ride.svg"; // Using cleaned filename
+import safeBodaLogo from "./logos/safe-boda.png"; // Using cleaned filename
+import neptuneLogo from "./logos/neptune.png";
+import conteLogo from "./logos/conte.png";
+import unimoversLogo from "./logos/unimovers.svg";
 
 // --- STEP 3: Update Component Data to use imported objects ---
 const partners: Partner[] = [
