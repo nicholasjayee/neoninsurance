@@ -3,8 +3,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FiArrowLeft } from "react-icons/fi";
-// CORRECTED: Importing your custom OptimizedImage component, not next/image.
-import OptimizedImage from "@/components/common/OptimizedImage";
+// // CORRECTED: Importing your custom OptimizedImage component, not next/image.
+// import OptimizedImage from "@/components/common/OptimizedImage";
 import type { Risk } from "@/types/risk";
 import Image from "next/image";
 
