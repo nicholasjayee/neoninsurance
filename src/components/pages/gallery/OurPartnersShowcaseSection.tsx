@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 // --- Type Definition ---
 interface Partner {
@@ -13,40 +14,55 @@ interface Partner {
 // --- Component Data --- (Preserved exactly as you provided it, now typed)
 const partners: Partner[] = [
   {
-    name: "UAP Old Mutual",
-    logoUrl: "/uap-old-mutual-insurance-uganda.svg",
-    websiteUrl: "https://www.uapoldmutual.com/ug",
+    name: "Exquisite-solution",
+    logoUrl: "/img/logos/Exquisite-solution.png",
+    websiteUrl: "#",
   },
   {
-    name: "ICEA LION Group",
-    logoUrl: "/icea-lion-general-insurance.svg",
-    websiteUrl: "https://www.icealion.com/ug",
+    name: "KIWA-HARDWARE",
+    logoUrl: "/img/logos/KIWA-HARDWARE.png",
+    websiteUrl: "#",
   },
   {
-    name: "MUA Insurance",
-    logoUrl: "https://www.mua.co.ug/sites/default/files/MUA.svg",
-    websiteUrl: "https://www.mua.co.ug/",
+    name: "park-shoebill",
+    logoUrl: "/img/logos/park-shoebill-logo.png",
+    websiteUrl: "#",
   },
   {
-    name: "Sanlam",
-    logoUrl: "/sanlam.svg",
-    websiteUrl: "https://www.sanlam.com/uganda/",
-  }, // Corrected URL as per previous versions
-  {
-    name: "Britam",
-    logoUrl: "/britam-insurance-uganda.svg",
-    websiteUrl: "https://ug.britam.com/",
+    name: "Service-Cops",
+    logoUrl: "/img/logos/Service-Cops.png",
+    websiteUrl: "#",
   },
   {
-    name: "Prudential",
-    logoUrl: "/prudential-insurance.svg",
-    websiteUrl: "https://www.prudential.ug/",
+    name: "supperdeal-Hardware",
+    logoUrl: "/img/logos/supperdeal-Hardware1.png",
+    websiteUrl: "#",
   },
   {
-    name: "Insurance Brokers Association of Uganda (IBAU)",
-    logoUrl: "/Ibau.svg",
-    websiteUrl: "https://ibau.ug/",
+    name: "easy ride",
+    logoUrl: "/img/logos/easy ride.svg",
+    websiteUrl: "#",
   },
+  // {
+  //   name: "Sanlam",
+  //   logoUrl: "Service-Cops.png",
+  //   websiteUrl: "#",
+  // }, // Corrected URL as per previous versions
+  // {
+  //   name: "Britam",
+  //   logoUrl: "/britam-insurance-uganda.svg",
+  //   websiteUrl: "https://ug.britam.com/",
+  // },
+  // {
+  //   name: "Prudential",
+  //   logoUrl: "/prudential-insurance.svg",
+  //   websiteUrl: "https://www.prudential.ug/",
+  // },
+  // {
+  //   name: "Insurance Brokers Association of Uganda (IBAU)",
+  //   logoUrl: "/Ibau.svg",
+  //   websiteUrl: "https://ibau.ug/",
+  // },
 ];
 
 // --- Main Exported Component --- (Preserved as an arrow function)
@@ -82,12 +98,17 @@ const OurPartnersShowcaseSection: React.FC = () => {
               className="flex justify-center items-center h-16 grayscale-0 hover:grayscale-0 transition-all duration-300" // Note: your original code had grayscale-0 twice, which is preserved.
             >
               {/* The <img> tag is preserved, with an ESLint comment to handle the warning */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={partner.logoUrl}
-                alt={`${partner.name} logo`}
-                className="max-h-full max-w-full object-contain"
-              />
+              {/* The parent container should have a defined size and position relative */}
+              <div className="relative h-24 w-48">
+                {/* Example: Set a height and width on the parent */}
+                <Image
+                  src={partner.logoUrl}
+                  alt={`${partner.name} logo`}
+                  fill
+                  style={{ objectFit: "contain" }}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </div>
             </motion.a>
           ))}
         </div>

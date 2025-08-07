@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiX, FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import Image from "next/image";
 
 // --- Type Definitions ---
 interface GalleryItem {
@@ -21,22 +22,26 @@ const galleryData: GalleryItem[] = [
   {
     category: "Industry Leadership",
     title: "IBAU Annual Conference",
-    imageUrl: "https://ibau.ug/sites/default/files/2022-04/DSC_4968_1.jpg",
+    imageUrl: "/img/gallery/IMG-20250629-WA0075.jpg",
+    // "https://ibau.ug/sites/default/files/2022-04/DSC_4968_1.jpg",
   },
   {
-    category: "Community Health",
-    title: "Sponsoring the Kampala Health Run",
-    imageUrl: "https://ibau.ug/sites/default/files/2022-04/DSC_4560.jpg",
+    category: "Community Competition",
+    title: "Community participation",
+    imageUrl: "/img/gallery/IMG-20250629-WA0103.jpg",
+    // "https://ibau.ug/sites/default/files/2022-04/DSC_4560.jpg",
   },
   {
     category: "Financial Literacy",
-    title: "Workshop for Small Business Owners",
-    imageUrl: "https://ibau.ug/sites/default/files/2022-04/DSC_4549%203.jpg",
+    title: "Safe boda",
+    imageUrl: "/img/gallery/safe boda.png",
+    // "https://ibau.ug/sites/default/files/2022-04/DSC_4549%203.jpg",
   },
   {
-    category: "Youth Empowerment",
-    title: "Local Youth Football Team Sponsorship",
-    imageUrl: "https://ibau.ug/sites/default/files/2022-04/DSC_4849.jpg",
+    category: "Digital sticker sensitization",
+    title: "Digital sticker sensitization to safe boda",
+    imageUrl: "/img/gallery/safe-boda--liz.png",
+    //  "https://ibau.ug/sites/default/files/2022-04/DSC_4849.jpg",
   },
 ];
 
@@ -101,14 +106,20 @@ const CommunityInvolvementSection: React.FC = () => {
               className="overflow-hidden rounded-lg shadow-lg cursor-pointer group"
               onClick={() => setSelectedImage({ src: item.imageUrl, index })}
             >
-              <div className="relative">
-                {/* The <img> tag is preserved, with an ESLint comment to handle the warning */}
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+              {/* 
+        This parent div must be 'relative' and have a defined height or aspect ratio 
+        for the <Image> component with the 'fill' prop to work correctly.
+        Here, we've added a responsive height (e.g., h-80).
+      */}
+              <div className="relative h-80">
+                <Image
                   src={item.imageUrl}
                   alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  fill
+                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-110"
                 />
+
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                   <p className="text-brand-white text-sm font-semibold">
                     {item.title}

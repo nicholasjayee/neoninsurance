@@ -1,6 +1,0 @@
-# https://www.robotstxt.org/robotstxt.html
-User-agent: *
-Disallow:
-
-# Provide the full URL to your sitemap
-Sitemap: https://neoninsurance.vercel.app//sitemap.xml

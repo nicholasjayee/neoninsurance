@@ -65,7 +65,7 @@ const teamData: TeamMember[] = [
   },
   {
     name: "Ndiho-Gregory",
-    role: "IT",
+    role: "Acounts-Executive & IT",
     imageUrl: "/img/about/Ndiho-Gregory(-Acounts-Executive.png",
     quote: "",
     roleColor: "brand-accent",

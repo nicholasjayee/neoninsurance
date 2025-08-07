@@ -3,6 +3,10 @@ import { notFound } from "next/navigation";
 import { solutionsData } from "@/data/navigationData";
 import DisplayClientPage from "@/components/pages/display/DisplayClientPage";
 
+// cache from react
+
+// generateStaticParams
+
 // --- Server-Side Metadata Generation (Using the async/await pattern) ---
 export async function generateMetadata({
   params,
