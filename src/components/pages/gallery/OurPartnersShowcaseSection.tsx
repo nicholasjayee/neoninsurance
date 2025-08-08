@@ -57,7 +57,7 @@ const OurPartnersShowcaseSection: React.FC = () => {
           viewport={{ once: true, amount: 0.5 }}
         >
           <h2 className="text-4xl font-bold text-brand-text-onDark">
-            Our Network of Trusted Partners
+            Our Network of Trusted Clients
           </h2>
           <p className="mt-4 text-lg text-brand-text-onDark/70">
             We collaborate with the best to bring you unparalleled coverage.

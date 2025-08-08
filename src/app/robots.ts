@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin", "/privacy"],
       },
     ],
-    sitemap: "https://neoninsurance.vercel.app/sitemap.xml",
+    sitemap: "https://neoninsurancebrokerltd.org/sitemap.xml",
   };
 }

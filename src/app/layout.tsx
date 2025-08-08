@@ -13,7 +13,7 @@ const inter = Inter({
 const getSiteUrl = () => {
   if (process.env.VERCEL_ENV === "production") {
     // Use the final production domain
-    return "https://neoninsurance.vercel.app/";
+    return "https://neoninsurancebrokerltd.org/";
   }
   if (process.env.VERCEL_URL) {
     // Use the Vercel preview URL
@@ -49,6 +49,9 @@ export const metadata: Metadata = {
     "Neon Insurance Brokers",
     "IBAU member",
     "neon insurance brokers uganda",
+    "neon insurance",
+    "neon",
+    "insurance",
 
     // Expanded Services
     "car insurance Kampala",
