@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/admin", "/privacy"],
+        // disallow: ["/admin", "/privacy"],
       },
     ],
     sitemap: "https://neoninsurancebrokerltd.org/sitemap.xml",

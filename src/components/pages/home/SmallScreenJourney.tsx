@@ -79,7 +79,7 @@ const SmallScreenJourney: React.FC<SmallScreenJourneyProps> = ({
   // The parent `ServiceJourneySection` provides the necessary scrollable height (e.g., h-[400vh]).
   return (
     <div className="relative w-full max-w-md mx-auto px-4 py-32 md:hidden">
-      <div className="flex flex-col gap-y-32">
+      <div className="flex flex-col gap-y-20">
         {claimsJourneyData.map((step, index) => (
           <Milestone
             key={step.id}

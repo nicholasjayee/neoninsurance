@@ -65,8 +65,8 @@ const teamData: TeamMember[] = [
     roleColor: "brand-secondary-dark",
   },
   {
-    name: "Umar-Semambo",
-    role: "Assessor",
+    name: "Semambo Umar Kigemuzi",
+    role: "Claims Assistant",
     imageUrl: Umar,
     quote: "",
     roleColor: "brand-secondary-dark",
@@ -235,9 +235,15 @@ const OurTeamSection: React.FC = () => {
                     &quot;{teamData[activeIndex].quote}&quot;
                   </p>
                 )}
+
+                {teamData[activeIndex].quote && (
+                  <div className="text-brand-text-tertiary pb-8 text-sm italic mt-2 block md:hidden px-4">
+                    &quot;{teamData[activeIndex].quote}&quot;
+                  </div>
+                )}
               </motion.div>
             </AnimatePresence>
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/3 h-1">
+            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1/3 h-1">
               <div
                 className={`w-full h-full rounded-full transition-colors duration-300 ${activeRoleColors.bg}`}
               />
