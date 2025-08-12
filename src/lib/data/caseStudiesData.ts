@@ -13,12 +13,12 @@ export interface CaseStudy {
 export const caseStudiesData: CaseStudy[] = [
   {
     icon: "truck", // <-- Represents <FaTruck />
-    client: "Cross-Border Logistics Firm",
+    client: "Cross-Border Claim",
     challenge:
-      "A client's truck carrying high-value cargo was involved in a multi-vehicle accident in a neighboring country, leading to complex liability claims.",
+      "A client's property was damaged and body injuries occured in Mombasa, resulting in a complex claim",
     solution:
-      "We managed all cross-border communication and paperwork, acting as the primary negotiator with the multiple insurers involved.",
-    outcome: "Full Cargo Value Recovered & Liability Settled",
+      "We efficiently managed the claim by: Promptly notifying the insurer and facilitating the appointment of anassessor. Ensuring timely submission of all required documents. Guiding the client through the ptocess and assuring reimbursement for third-party settlements. Coordinating with the insurer to finalize the claim settlement",
+    outcome: "Property Damage and Third-Party Liability Claims Fully Settled",
     themeColor: "#C41E24",
   },
   {
