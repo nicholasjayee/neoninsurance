@@ -9,6 +9,13 @@ import HolisticRiskManagementSection from "@/components/pages/services/HolisticR
 import ClientAdvocacyClaimsSection from "@/components/pages/services/ClientAdvocacyClaimsSection";
 import GetAQuoteSection from "@/components/pages/services/GetAQuoteSection";
 
+import {
+  personalCoveragesData,
+  commercialCoveragesData,
+} from "@/lib/data/servicesData";
+import { processStepsData } from "@/lib/data/holisticRiskData"; // <-- Import the new data
+import { siteConfig } from "@/lib/data/siteConfig";
+
 // --- 2. Define and export the SEO metadata for the Services page ---
 export const metadata: Metadata = {
   // A title rich with service-related keywords
@@ -70,12 +77,40 @@ export const metadata: Metadata = {
 
 // --- Your existing page component remains unchanged ---
 export default function ServicesPage() {
+  const allServices = [...personalCoveragesData, ...commercialCoveragesData];
+
+  const insuranceServicesSchema = {
+    "@context": "https://schema.org",
+    "@type": "InsuranceAgency",
+    name: siteConfig.name,
+    url: "https://neoninsurancebrokerltd.org/services",
+    description:
+      "Comprehensive insurance services in Uganda, including motor, medical, and business coverage.",
+    makesOffer: allServices.map((service) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: service.name,
+      },
+    })),
+  };
+
   return (
     // Using a <main> tag for better semantic HTML
     <main>
+      {/* Inject the SEO schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(insuranceServicesSchema),
+        }}
+      />
       <ServiceIntroSection />
-      <CoreCoveragesSection />
-      <HolisticRiskManagementSection />
+      <CoreCoveragesSection
+        personalCoverages={personalCoveragesData}
+        commercialCoverages={commercialCoveragesData}
+      />
+      <HolisticRiskManagementSection processSteps={processStepsData} />
       <ClientAdvocacyClaimsSection />
       <GetAQuoteSection />
     </main>

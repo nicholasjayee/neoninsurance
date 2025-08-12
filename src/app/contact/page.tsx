@@ -1,5 +1,4 @@
 import React from "react";
-// --- 1. Import the Metadata type from Next.js ---
 import type { Metadata } from "next";
 
 // Importing the child components for the Contact page structure
@@ -8,16 +7,15 @@ import ContactDetailsSection from "@/components/pages/contact/ContactDetailsSect
 import ContactFormSection from "@/components/pages/contact/ContactFormSection";
 import FaqSection from "@/components/pages/contact/FaqSection";
 
-// --- 2. Define and export the SEO metadata for the Contact page ---
-export const metadata: Metadata = {
-  // A clear and action-oriented title
-  title: "Contact Us | Get a Quote or Visit Our Office in Kampala",
+import { siteConfig } from "@/lib/data/siteConfig";
+import { contactFaqData } from "@/lib/data/faqData";
+import { contactInfoData } from "@/lib/data/contactPageData"; // Visual data for
 
-  // A description focused on how and why to get in touch
+// --- SEO METADATA (Your original, high-quality metadata) ---
+export const metadata: Metadata = {
+  title: "Contact Us | Get a Quote or Visit Our Office in Kampala",
   description:
     "Get in touch with Neon Insurance Broker Ltd. Find our Kampala office address, phone number, and email. Use our contact form for inquiries or to request a free insurance quote.",
-
-  // Keywords specific to contacting your business
   keywords: [
     "contact neon insurance",
     "neon insurance brokers contact",
@@ -27,50 +25,104 @@ export const metadata: Metadata = {
     "neon insurance kampala office",
     "insurance broker location uganda",
   ],
-
-  // --- Open Graph (for social media sharing) ---
   openGraph: {
     title: "Contact Neon Insurance Broker Ltd - We're Here to Help",
     description:
       "Reach out for expert insurance advice, get a free quote, or find our office location in Kampala. We look forward to assisting you.",
-    // Using the absolute URL for the social sharing image is a best practice.
     images: [
       {
-        url: "https://neoninsurancebrokerltd.org/og-image.png", // Uses the same og-image as the homepage
+        url: "https://neoninsurancebrokerltd.org/og-image.png",
         width: 1200,
         height: 630,
         alt: "Contact Neon Insurance Broker Ltd for expert support",
       },
     ],
-    // The canonical URL for this specific page
     url: "https://neoninsurancebrokerltd.org/contact",
     type: "website",
   },
-
-  // --- Twitter Card (for sharing on Twitter) ---
   twitter: {
     card: "summary_large_image",
     title: "Contact Neon Insurance Broker Ltd - We're Here to Help",
     description:
       "Reach out for expert insurance advice, get a free quote, or find our office location in Kampala.",
-    images: ["https://neoninsurancebrokerltd.org/og-image.png"], // Using the absolute URL
+    images: ["https://neoninsurancebrokerltd.org/og-image.png"],
   },
-
-  // Define the canonical URL to avoid duplicate content issues
   alternates: {
-    canonical: "https://neoninsurancebrokerltd.org/contact",
+    canonical: "/contact",
   },
 };
 
-// --- Your existing page component remains unchanged ---
+// --- DATA FROM FaqSection.tsx ---
+// We define this data here so the server has access to it for generating the JSON-LD schema.
+
+// --- MAIN PAGE COMPONENT WITH INTEGRATED STRUCTURED DATA ---
 export default function ContactPage() {
+  // --- 1. InsuranceAgency Structured Data ---
+  // Matches the data in your ContactDetailsSection
+  const insuranceAgencySchema = {
+    "@context": "https://schema.org",
+    "@type": "InsuranceAgency",
+    name: siteConfig.name,
+    image: "https://neoninsurancebrokerltd.org/og-image.png",
+    url: "https://neoninsurancebrokerltd.org/contact",
+    telephone: siteConfig.telephone,
+    email: siteConfig.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: `${siteConfig.address.line1}, ${siteConfig.address.line2}`,
+      addressLocality: "Kampala",
+      addressCountry: "UG",
+      postOfficeBoxNumber: siteConfig.address.poBox.replace("P.O.Box ", ""),
+    },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "08:30",
+        closes: "17:00",
+      },
+    ],
+  };
+
+  // --- 2. FAQPage Structured Data (Generated from faqSchemaData array) ---
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: contactFaqData.map((faq) => ({
+      // <-- Using imported data
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
-    // Using a <main> tag for better semantic HTML
     <main>
+      {/* 
+        Injecting JSON-LD scripts for InsuranceAgency and FAQPage.
+        This provides machine-readable data to Google for rich snippets.
+      */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(insuranceAgencySchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
+      {/* Your existing components for the visual layout */}
       <ContactHeroSection />
-      <ContactDetailsSection />
+      <ContactDetailsSection contactInfo={contactInfoData} />
       <ContactFormSection />
-      <FaqSection />
+      {/* FaqSection renders the visual FAQs which match the schema above */}
+      <FaqSection faqData={contactFaqData} />
     </main>
   );
 }

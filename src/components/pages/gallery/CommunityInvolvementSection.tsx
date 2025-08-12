@@ -7,16 +7,16 @@ import Image, { StaticImageData } from "next/image";
 
 // --- STEP 1: Statically import all local images using relative paths ---
 // This method is confirmed to work with your project setup.
-import galleryImg1 from "../../../../public/img/gallery/IMG-20250629-WA0075.jpg";
-import galleryImg2 from "../../../../public/img/gallery/IMG-20250629-WA0103.jpg";
-import galleryImg3 from "../../../../public/img/gallery/safe-boda.png"; // Using cleaned filename
-import galleryImg4 from "../../../../public/img/gallery/safe-boda--liz.png";
 
 // --- STEP 2: Update type definitions to use StaticImageData ---
 interface GalleryItem {
   category: string;
   title: string;
-  imageUrl: StaticImageData; // Changed from string
+  imageUrl: StaticImageData;
+}
+
+interface CommunityInvolvementSectionProps {
+  galleryData: GalleryItem[];
 }
 
 interface SelectedImage {
@@ -25,31 +25,13 @@ interface SelectedImage {
 }
 
 // Update the data to use the imported image objects
-const galleryData: GalleryItem[] = [
-  {
-    category: "Industry Leadership",
-    title: "Neon team at Insurance sports Gala",
-    imageUrl: galleryImg1,
-  },
-  {
-    category: "Community Competition",
-    title: "Community participation",
-    imageUrl: galleryImg2,
-  },
-  {
-    category: "Financial Literacy",
-    title: "Safe boda",
-    imageUrl: galleryImg3,
-  },
-  {
-    category: "Digital sticker sensitization",
-    title: "Digital sticker sensitization to safe boda",
-    imageUrl: galleryImg4,
-  },
-];
 
 // --- Main Exported Component ---
-const CommunityInvolvementSection: React.FC = () => {
+const CommunityInvolvementSection: React.FC<
+  CommunityInvolvementSectionProps
+> = ({
+  galleryData = [], // Use a default empty array to prevent crashes
+}) => {
   const [selectedImage, setSelectedImage] = useState<SelectedImage | null>(
     null
   );

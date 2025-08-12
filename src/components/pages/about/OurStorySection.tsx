@@ -9,68 +9,31 @@ import {
 } from "framer-motion";
 import { FaFlag, FaUsers, FaCertificate, FaGlobe, FaBus } from "react-icons/fa";
 import { gsap } from "gsap";
+
+import { Story } from "@/lib/data/storyData";
 import OptimizedBgImage from "@/components/common/OptimizedBgImage";
 
-// --- Type Definitions ---
-interface Story {
-  id: string;
-  year: string;
-  title: string;
-  icon: ReactNode;
-  description: string;
-}
+const iconMap: { [key: string]: ReactNode } = {
+  flag: <FaFlag />,
+  bus: <FaBus />,
+  certificate: <FaCertificate />,
+  users: <FaUsers />,
+  globe: <FaGlobe />,
+};
 
+// --- Type Definitions ---
 interface StoryCardProps {
   data: Story;
   index: number;
 }
 
+interface OurStorySectionProps {
+  storyData: Story[];
+}
+
 // --- Component Data ---
 const aboutimage =
   "https://res.cloudinary.com/dnaaxfifx/image/upload/v1721081593/ChatGPT_Image_Jul_12_2025_04_40_04_PM_jjvgb3";
-
-const storyData: Story[] = [
-  {
-    id: "story-2004",
-    year: "2004",
-    title: "Our Founding",
-    icon: <FaFlag />,
-    description:
-      "Founded with over two decades of experience, Neon Insurance Brokers was established with a clear mission: to provide professional, client-first insurance brokerage services in Uganda.",
-  },
-  {
-    id: "story-2013",
-    year: "December 2013",
-    title: "Pioneering Passenger Protection",
-    icon: <FaBus />,
-    description:
-      "In partnership with UAP Insurance, we launched 'Musabaaze Sure,' a first-of-its-kind, affordable travel insurance policy designed to protect everyday upcountry bus travelers.",
-  },
-  {
-    id: "story-recognition",
-    year: "Official Recognition",
-    title: "Licensed & Certified",
-    icon: <FaCertificate />,
-    description:
-      "As a fully licensed broker and a proud member of the Insurance Brokers Association of Uganda (IBAU), we are committed to upholding the highest standards of ethics and professional practice.",
-  },
-  {
-    id: "story-growth",
-    year: "Consistent Growth",
-    title: "Building Trust, One Client at a Time",
-    icon: <FaUsers />,
-    description:
-      "Through dedicated advocacy and tailored solutions, we have steadily grown our client base, becoming a trusted partner for both personal and commercial insurance needs.",
-  },
-  {
-    id: "story-today",
-    year: "Today",
-    title: "A Commitment to the Future",
-    icon: <FaGlobe />,
-    description:
-      "Our focus remains on empowering a thriving and secure community by providing unparalleled expertise and unwavering support, ensuring our clients are protected.",
-  },
-];
 
 // --- Helper Component for Desktop View ---
 const StoryCard: React.FC<StoryCardProps> = ({ data, index }) => {
@@ -108,7 +71,9 @@ const StoryCard: React.FC<StoryCardProps> = ({ data, index }) => {
 };
 
 // --- Main Exported Component ---
-const OurStorySection: React.FC = () => {
+const OurStorySection: React.FC<OurStorySectionProps> = ({
+  storyData = [],
+}) => {
   const sectionRef = useRef<HTMLElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
   const animatedLineRef = useRef<HTMLDivElement>(null);
@@ -129,6 +94,7 @@ const OurStorySection: React.FC = () => {
         ease: "none",
       });
       const milestones = gsap.utils.toArray<HTMLElement>(".milestone-icon");
+
       milestones.forEach((icon) => {
         const iconTop = icon.offsetTop;
         const lineHeight = animatedLineRef.current?.offsetHeight ?? 0;
@@ -176,7 +142,7 @@ const OurStorySection: React.FC = () => {
             <div key={story.id} className="relative flex justify-center">
               <div className="milestone-icon absolute top-8 left-1/2 -translate-x-1/2 w-10 h-10 bg-brand-light rounded-full border-4 border-brand-primary-dark flex items-center justify-center z-20">
                 <div className="text-brand-primary-dark text-xl">
-                  {story.icon}
+                  {iconMap[story.icon]}
                 </div>
               </div>
               <StoryCard data={story} index={index} />
@@ -195,7 +161,9 @@ const OurStorySection: React.FC = () => {
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true, amount: 0.5 }}
               >
-                <div className="text-brand-primary text-xl">{story.icon}</div>
+                <div className="text-brand-primary text-xl">
+                  {iconMap[story.icon]}
+                </div>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, x: 20 }}

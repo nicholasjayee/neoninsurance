@@ -9,6 +9,9 @@ import OurStorySection from "@/components/pages/about/OurStorySection";
 import OurTeamSection from "@/components/pages/about/OurTeamSection";
 import ShieldTransition from "@/components/common/ShieldTransition";
 
+import { storyData } from "@/lib/data/storyData";
+import { siteConfig } from "@/lib/data/siteConfig";
+
 export const metadata: Metadata = {
   title: "About Us | Our Story, Mission, and Team | Neon Insurance",
 
@@ -63,11 +66,63 @@ export const metadata: Metadata = {
 
 // --- Your existing page component remains unchanged ---
 export default function AboutPage() {
+  const insuranceAgencySchema = {
+    "@context": "https://schema.org",
+    "@type": "InsuranceAgency",
+    name: siteConfig.name,
+    image: "https://neoninsurancebrokerltd.org/og-image.png",
+    url: "https://neoninsurancebrokerltd.org/about",
+    telephone: siteConfig.telephone,
+    email: siteConfig.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: `${siteConfig.address.line1}, ${siteConfig.address.line2}`,
+      addressLocality: "Kampala",
+      addressCountry: "UG",
+      postOfficeBoxNumber: siteConfig.address.poBox.replace("P.O.Box ", ""),
+    },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "08:30",
+        closes: "17:00",
+      },
+    ],
+  };
+
+  const storyArticleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: "Our Journey: A Legacy of Trust and Advocacy",
+    author: {
+      "@type": "Organization",
+      name: "Neon Insurance Brokers Ltd",
+      url: "https://neoninsurancebrokerltd.org/",
+    },
+    // Combine the descriptions from your timeline to create a rich article body for Google
+    articleBody: storyData
+      .map((story) => `${story.title}: ${story.description}`)
+      .join(". "),
+    datePublished: "2004-01-01", // Set to your founding date
+  };
+
   return (
     <div className="bg-background-light">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(insuranceAgencySchema),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(storyArticleSchema) }}
+      />
+
       <AboutHeroSection />
       <ShieldTransition />
-      <OurStorySection />
+      <OurStorySection storyData={storyData} />
       <ShieldTransition />
       <OurPhilosophySection />
       <ShieldTransition />

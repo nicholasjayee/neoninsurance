@@ -4,12 +4,17 @@ import React, { ReactElement } from "react";
 import { motion } from "framer-motion";
 import { FiMapPin, FiPhone, FiMail } from "react-icons/fi";
 
-// --- Type Definitions ---
-interface ContactInfo {
-  icon: ReactElement;
-  title: string;
-  details: string[];
-  color: "brand-accent" | "brand-primary" | "brand-secondary-dark";
+import { ContactInfo } from "@/lib/data/contactPageData";
+
+const iconMap: { [key: string]: ReactElement } = {
+  "map-pin": <FiMapPin />,
+  phone: <FiPhone />,
+  mail: <FiMail />,
+};
+
+// Define the component's props interface
+interface ContactDetailsSectionProps {
+  contactInfo: ContactInfo[];
 }
 
 // THE FIX: Tailwind needs full class names to exist in the source code.
@@ -23,34 +28,10 @@ const colorMap = {
   },
 };
 
-// --- Component Data --- (Preserved exactly, now typed)
-const contactInfo: ContactInfo[] = [
-  {
-    icon: <FiMapPin />,
-    title: "Our Office",
-    details: [
-      "Kanjokya House, 1st Floor",
-      "Kanjokya Street, Kampala, Uganda",
-      "P.O.Box 138881",
-    ],
-    color: "brand-accent",
-  },
-  {
-    icon: <FiPhone />,
-    title: "Give Us a Call",
-    details: ["0200-940878"],
-    color: "brand-primary",
-  },
-  {
-    icon: <FiMail />,
-    title: "Send Us an Email",
-    details: ["info@neoninsurance.co.ug"],
-    color: "brand-secondary-dark",
-  },
-];
-
 // --- Main Exported Component ---
-const ContactDetailsSection: React.FC = () => {
+const ContactDetailsSection: React.FC<ContactDetailsSectionProps> = ({
+  contactInfo = [],
+}) => {
   return (
     <section className="py-20 md:py-32 bg-brand-light">
       <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-start">
@@ -63,6 +44,7 @@ const ContactDetailsSection: React.FC = () => {
             {contactInfo.map((info, index) => {
               // Use the color map to get the correct, full class names
               const classes = colorMap[info.color];
+              const IconComponent = iconMap[info.icon]; // Look up the icon
               return (
                 <motion.div
                   key={index}
@@ -75,7 +57,7 @@ const ContactDetailsSection: React.FC = () => {
                   <div className={`p-3 rounded-full mt-1 ${classes.bg}`}>
                     <div className={classes.text}>
                       {React.cloneElement(
-                        info.icon as React.ReactElement<{ size: number }>,
+                        IconComponent as React.ReactElement<{ size: number }>,
                         { size: 24 }
                       )}
                     </div>

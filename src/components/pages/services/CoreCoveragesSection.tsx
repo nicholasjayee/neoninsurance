@@ -2,33 +2,48 @@
 
 import React, { ReactNode } from "react";
 import { motion } from "framer-motion";
+
+// Step 1: Import all the necessary icons from the library.
 import {
   FaCar,
-  // FaHome,
-  FaHeartbeat,
   FaShieldAlt,
+  FaHeartbeat,
   FaBriefcase,
   FaBuilding,
-  // FaPlane,
   FaAnchor,
   FaUsersCog,
   FaQrcode,
 } from "react-icons/fa";
 
-// --- Type Definitions ---
-interface CoverageItem {
-  icon: ReactNode;
-  name: string;
-}
+// Step 2: Import the TypeScript type definition from your central data file.
+import { CoverageItem } from "@/lib/data/servicesData";
 
+// Step 3: Create the Icon Map. This maps the string identifiers from your data file
+// to the actual icon components you imported above.
+const iconMap: { [key: string]: ReactNode } = {
+  car: <FaCar />,
+  shield: <FaShieldAlt />,
+  qrcode: <FaQrcode />,
+  heartbeat: <FaHeartbeat />,
+  building: <FaBuilding />,
+  briefcase: <FaBriefcase />,
+  "users-cog": <FaUsersCog />,
+  anchor: <FaAnchor />,
+};
+
+// Step 4: Define the props for your helper and main components.
 interface CoverageCardProps {
   items: CoverageItem[];
   title: string;
-  titleColor: "brand-accent" | "brand-primary"; // Restrict the prop to valid keys
+  titleColor: "brand-accent" | "brand-primary";
 }
 
-// THE FIX: Tailwind needs full class names to exist in the source code to generate them.
-// This mapping object provides those full class names, solving the dynamic class issue.
+interface CoreCoveragesSectionProps {
+  personalCoverages: CoverageItem[];
+  commercialCoverages: CoverageItem[];
+}
+
+// This utility map provides full Tailwind class names, which is a best practice.
 const colorMap = {
   "brand-accent": {
     text: "text-brand-accent",
@@ -40,59 +55,53 @@ const colorMap = {
   },
 };
 
-// --- Component Data --- (Preserved exactly, now typed)
-const personalCoverages: CoverageItem[] = [
-  { icon: <FaCar />, name: "Motor Comprehensive" },
-  { icon: <FaShieldAlt />, name: "Motor Third Party" },
-  { icon: <FaQrcode />, name: "Digital Stickers" },
-  { icon: <FaHeartbeat />, name: "Life Assurance" },
-];
-
-const commercialCoverages: CoverageItem[] = [
-  { icon: <FaBuilding />, name: "Industrial All Risks (IAR)" },
-  { icon: <FaBriefcase />, name: "Professional Indemnity" },
-  { icon: <FaUsersCog />, name: "VSLA" },
-  { icon: <FaAnchor />, name: "Local marine cargo" },
-  { icon: <FaQrcode />, name: "Digital sticker motor third party" },
-];
-
-// --- Helper Component --- (Preserved as an arrow function)
+// --- Helper Component: CoverageCard ---
+// This component displays a single card with a list of services.
 const CoverageCard: React.FC<CoverageCardProps> = ({
   items,
   title,
   titleColor,
 }) => {
-  // Use the color map to get the correct, full class names
   const classes = colorMap[titleColor];
 
   return (
     <div className="bg-brand-white rounded-lg p-8 border border-brand-border shadow-sm">
       <h3 className={`text-3xl font-bold mb-6 ${classes.text}`}>{title}</h3>
       <div className="space-y-4">
-        {items.map((item, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.8 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="flex items-center gap-4"
-          >
-            <div className={`p-2 rounded-md ${classes.bg}`}>
-              <div className={`text-2xl ${classes.text}`}>{item.icon}</div>
-            </div>
-            <span className="font-medium text-brand-text-secondary">
-              {item.name}
-            </span>
-          </motion.div>
-        ))}
+        {items.map((item, index) => {
+          // Look up the correct icon component from the map.
+          const IconComponent = iconMap[item.icon];
+          return (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.8 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="flex items-center gap-4"
+            >
+              <div className={`p-2 rounded-md ${classes.bg}`}>
+                <div className={`text-2xl ${classes.text}`}>
+                  {IconComponent}
+                </div>
+              </div>
+              <span className="font-medium text-brand-text-secondary">
+                {item.name}
+              </span>
+            </motion.div>
+          );
+        })}
       </div>
     </div>
   );
 };
 
-// --- Main Exported Component --- (Preserved as an arrow function)
-const CoreCoveragesSection: React.FC = () => {
+// --- Main Exported Component: CoreCoveragesSection ---
+// This component accepts the data via props and arranges the cards.
+const CoreCoveragesSection: React.FC<CoreCoveragesSectionProps> = ({
+  personalCoverages = [], // Default to an empty array to prevent crashes
+  commercialCoverages = [], // Default to an empty array to prevent crashes
+}) => {
   return (
     <section className="py-20 md:py-32 bg-brand-light">
       <div className="container mx-auto px-6">
