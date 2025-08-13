@@ -73,7 +73,7 @@ export const metadata: Metadata = {
   ],
   // <meta name="google-site-verification" content="VTStVITxJ_6O8fMKgTRJAEnV5h0qeoIoJR-ccCa0r4I" />
   verification: {
-    google: "VTStVITxJ_6O8fMKgTRJAEnV5h0qeoIoJR-ccCa0r4I",
+    // google: "VTStVITxJ_6O8fMKgTRJAEnV5h0qeoIoJR-ccCa0r4I",
     // You can also add verification for other services here if needed
     // yandex: 'yandex-verification-code',
     // other: {
