@@ -33,9 +33,25 @@ const Button = ({
 };
 
 // --- 2. ADD A HELPER FUNCTION TO TRUNCATE TEXT ---
-const truncateUrl = (url: string, maxLength: number = 60) => {
-  if (url.length <= maxLength) return url;
-  return url.slice(0, maxLength - 3) + "...";
+// --- REVISED AND CORRECTED HELPER FUNCTION ---
+const truncateUrl = (url: string, maxLength: number = 35) => {
+  // Return the original URL if it's already short enough
+  if (url.length <= maxLength) {
+    return url;
+  }
+
+  const ellipsis = "...";
+  const charsToKeep = maxLength - ellipsis.length;
+
+  // Allocate slightly more space to the front to preserve the domain
+  const frontChars = Math.ceil(charsToKeep / 2);
+  const backChars = Math.floor(charsToKeep / 2);
+
+  // Extract the start and end of the URL
+  const start = url.substring(0, frontChars);
+  const end = url.substring(url.length - backChars);
+
+  return `${start}${ellipsis}${end}`;
 };
 
 export default function NotFound() {
