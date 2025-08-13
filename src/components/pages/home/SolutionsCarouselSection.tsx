@@ -2,9 +2,9 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link"; // Using Next.js Link
+import Link from "next/link";
 import { FaRegCheckCircle } from "react-icons/fa";
-// Importing the typed data
+import { PlusCircle } from "lucide-react"; // Import the icon
 import { solutionsData } from "@/data/navigationData";
 import type { Solution } from "@/data/navigationData";
 
@@ -23,7 +23,6 @@ export default function SolutionsCarouselSection() {
     (s) => s.id === activeTab
   ) as Solution;
 
-  // This dynamic style pattern is excellent and preserved
   const dynamicStyles = {
     "--active-color": activeSolution.color,
   } as React.CSSProperties;
@@ -31,6 +30,7 @@ export default function SolutionsCarouselSection() {
   return (
     <section className="bg-brand-dark py-20 md:py-32" style={dynamicStyles}>
       <div className="container mx-auto px-6">
+        {/* --- NO CHANGES TO THIS PART --- */}
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold text-brand-text-onDark md:text-4xl">
             Solutions Tailored for Every Need
@@ -42,6 +42,7 @@ export default function SolutionsCarouselSection() {
         </div>
 
         <div className="mx-auto max-w-4xl">
+          {/* --- NO CHANGES TO THIS PART --- */}
           <div className="mb-12 flex justify-center border-b border-white/10">
             {solutionsData.map((tab) => (
               <button
@@ -87,6 +88,7 @@ export default function SolutionsCarouselSection() {
               transition={{ duration: 0.5, ease: "easeInOut" }}
               className="flex flex-col items-center gap-8 text-center md:flex-row md:items-start md:gap-12 md:text-left"
             >
+              {/* --- NO CHANGES TO THIS PART --- */}
               <motion.div
                 key={`${activeTab}-icon`}
                 initial={{ scale: 0.8, opacity: 0 }}
@@ -97,39 +99,66 @@ export default function SolutionsCarouselSection() {
                 {activeSolution.icon}
               </motion.div>
 
-              <motion.div
-                className="flex-1 space-y-3"
-                variants={listContainerVariants}
-                initial="hidden"
-                animate="visible"
-              >
-                {activeSolution.services.map((service, index) => (
-                  <motion.div
-                    key={index}
-                    variants={listItemVariants}
-                    className="flex items-center justify-center gap-3 md:justify-start"
-                  >
-                    <FaRegCheckCircle
-                      className="flex-shrink-0 text-lg md:text-xl"
-                      style={{ color: "var(--active-color)", opacity: 0.5 }}
-                    />
+              {/* --- STRUCTURAL CHANGE IS HERE --- */}
+              {/* This new div wraps the list AND the button, ensuring they are laid out correctly together */}
+              <div className="flex flex-1 flex-col">
+                {/* Your original list of services remains completely untouched */}
+                <motion.div
+                  className="space-y-3" // Removed flex-1 from here
+                  variants={listContainerVariants}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  {activeSolution.services.map((service, index) => (
+                    <motion.div
+                      key={index}
+                      variants={listItemVariants}
+                      className="flex items-center justify-center gap-3 md:justify-start"
+                    >
+                      <FaRegCheckCircle
+                        className="flex-shrink-0 text-lg md:text-xl"
+                        style={{ color: "var(--active-color)", opacity: 0.5 }}
+                      />
+                      {service.slug ? (
+                        <Link
+                          href={`/display/${service.slug}`}
+                          className="text-base text-brand-text-onDark hover:underline md:text-lg"
+                        >
+                          {service.name}
+                        </Link>
+                      ) : (
+                        <span className="cursor-not-allowed text-base text-brand-text-onDark/70 md:text-lg">
+                          {service.name}
+                        </span>
+                      )}
+                    </motion.div>
+                  ))}
+                </motion.div>
 
-                    {/* CONVERTED: Conditionally render a Next.js Link or a span */}
-                    {service.slug ? (
-                      <Link
-                        href={`/display/${service.slug}`}
-                        className="text-base text-brand-text-onDark hover:underline md:text-lg"
-                      >
-                        {service.name}
-                      </Link>
-                    ) : (
-                      <span className="cursor-not-allowed text-base text-brand-text-onDark/70 md:text-lg">
-                        {service.name}
-                      </span>
-                    )}
-                  </motion.div>
-                ))}
-              </motion.div>
+                {/* --- THIS IS THE NEW PLUS BUTTON --- */}
+                {/* It is now placed correctly AFTER the list, with its own animation */}
+                <motion.div
+                  className="mt-6 flex justify-center md:justify-start"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    transition: { delay: 0.5, duration: 0.4 }, // Fades in after the list animates
+                  }}
+                >
+                  <Link
+                    href={`/solutions/${activeSolution.id}`}
+                    aria-disabled
+                    className="group inline-flex items-center gap-3 rounded-full py-2 px-5 text-sm font-semibold transition-all duration-300 md:text-base text-[var(--active-color)] bg-[var(--active-color)]/10 border border-[var(--active-color)]/30 hover:bg-[var(--active-color)]/20"
+                  >
+                    <PlusCircle
+                      size={20}
+                      className="transition-transform duration-300 group-hover:rotate-90"
+                    />
+                    <span>Explore More Options</span>
+                  </Link>
+                </motion.div>
+              </div>
             </motion.div>
           </AnimatePresence>
         </div>
