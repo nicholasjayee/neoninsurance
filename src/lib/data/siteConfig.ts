@@ -13,5 +13,5 @@ export const siteConfig = {
     line2: "Kanjokya Street, Kampala, Uganda",
     poBox: "P.O.Box 138881",
   },
-  url: "https://neoninsurancebrokerltd.org",
+  url: "https://www.neoninsurancebrokerltd.org",
 };

@@ -45,7 +45,7 @@ export const metadata: Metadata = {
         alt: "The Neon Insurance Team and Office",
       },
     ],
-    url: "https://neoninsurancebrokerltd.org/about", // The canonical URL for this page
+    url: "https://www.neoninsurancebrokerltd.org/about", // The canonical URL for this page
     type: "website",
   },
 
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
 
   // Define the canonical URL to avoid duplicate content issues
   alternates: {
-    canonical: "https://neoninsurancebrokerltd.org/about",
+    canonical: "https://www.neoninsurancebrokerltd.org/about",
   },
 };
 
@@ -70,8 +70,8 @@ export default function AboutPage() {
     "@context": "https://schema.org",
     "@type": "InsuranceAgency",
     name: siteConfig.name,
-    image: "https://neoninsurancebrokerltd.org/og-image.png",
-    url: "https://neoninsurancebrokerltd.org/about",
+    image: "https://www.neoninsurancebrokerltd.org/og-image.png",
+    url: "https://www.neoninsurancebrokerltd.org/about",
     telephone: siteConfig.telephone,
     email: siteConfig.email,
     address: {
@@ -98,7 +98,7 @@ export default function AboutPage() {
     author: {
       "@type": "Organization",
       name: "Neon Insurance Brokers Ltd",
-      url: "https://neoninsurancebrokerltd.org/",
+      url: "https://www.neoninsurancebrokerltd.org/about",
     },
     // Combine the descriptions from your timeline to create a rich article body for Google
     articleBody: storyData

@@ -38,13 +38,13 @@ export const metadata: Metadata = {
       "See our commitment to community, our expert work through case studies, and the strong partnerships we've built.",
     images: [
       {
-        url: "https://neoninsurancebrokerltd.org/og-image.png",
+        url: "https://www.neoninsurancebrokerltd.org/og-image.png",
         width: 1200,
         height: 630,
         alt: "A collage of Neon Insurance Broker Ltd events and partners",
       },
     ],
-    url: "https://neoninsurancebrokerltd.org/gallery",
+    url: "https://www.neoninsurancebrokerltd.org/gallery",
     type: "website",
   },
   twitter: {
@@ -52,16 +52,16 @@ export const metadata: Metadata = {
     title: "Gallery | Neon Insurance Broker Ltd in Action",
     description:
       "See our commitment to community, our expert work through case studies, and the strong partnerships we've built.",
-    images: ["https://neoninsurancebrokerltd.org/og-image.png"],
+    images: ["https://www.neoninsurancebrokerltd.org/og-image.png"],
   },
   alternates: {
-    canonical: "/gallery",
+    canonical: "https://www.neoninsurancebrokerltd.org/gallery",
   },
 };
 
 // --- MAIN PAGE COMPONENT WITH DYNAMICALLY GENERATED STRUCTURED DATA ---
 export default function GalleryPage() {
-  const siteUrl = "https://neoninsurancebrokerltd.org";
+  const siteUrl = "https://www.neoninsurancebrokerltd.org";
 
   // --- 2. Generate ImageGallery schema from your actual data ---
   const imageGallerySchema = {

@@ -4,7 +4,7 @@ import { solutionsData } from "@/data/navigationData";
 
 // This is the base URL for your website.
 // IMPORTANT: Update this to your final domain when you go live.
-const siteUrl = "https://neoninsurancebrokerltd.org";
+const siteUrl = "https://www.neoninsurancebrokerltd.org";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Get the current date to use as the `lastModified` value.

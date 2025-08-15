@@ -31,13 +31,13 @@ export const metadata: Metadata = {
       "Reach out for expert insurance advice, get a free quote, or find our office location in Kampala. We look forward to assisting you.",
     images: [
       {
-        url: "https://neoninsurancebrokerltd.org/og-image.png",
+        url: "https://www.neoninsurancebrokerltd.org/og-image.png",
         width: 1200,
         height: 630,
         alt: "Contact Neon Insurance Broker Ltd for expert support",
       },
     ],
-    url: "https://neoninsurancebrokerltd.org/contact",
+    url: "https://www.neoninsurancebrokerltd.org/contact",
     type: "website",
   },
   twitter: {
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: "Contact Neon Insurance Broker Ltd - We're Here to Help",
     description:
       "Reach out for expert insurance advice, get a free quote, or find our office location in Kampala.",
-    images: ["https://neoninsurancebrokerltd.org/og-image.png"],
+    images: ["https://www.neoninsurancebrokerltd.org/og-image.png"],
   },
   alternates: {
     canonical: "/contact",
@@ -63,8 +63,8 @@ export default function ContactPage() {
     "@context": "https://schema.org",
     "@type": "InsuranceAgency",
     name: siteConfig.name,
-    image: "https://neoninsurancebrokerltd.org/og-image.png",
-    url: "https://neoninsurancebrokerltd.org/contact",
+    image: "https://www.neoninsurancebrokerltd.org/og-image.png",
+    url: "https://www.neoninsurancebrokerltd.org/contact",
     telephone: siteConfig.telephone,
     email: siteConfig.email,
     address: {

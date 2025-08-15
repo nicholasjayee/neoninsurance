@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 // THIS IS THE ABSOLUTE URL TO YOUR LIVE WEBSITE
-const siteUrl = "https://neoninsurancebrokerltd.org/";
+const siteUrl = "https://www.neoninsurancebrokerltd.org/";
 
 export async function POST(request: Request) {
   try {

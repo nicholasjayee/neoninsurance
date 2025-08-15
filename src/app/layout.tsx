@@ -13,7 +13,7 @@ const inter = Inter({
 const getSiteUrl = () => {
   if (process.env.VERCEL_ENV === "production") {
     // Use the final production domain
-    return "https://neoninsurancebrokerltd.org/";
+    return "https://www.neoninsurancebrokerltd.org/";
   }
   if (process.env.VERCEL_URL) {
     // Use the Vercel preview URL

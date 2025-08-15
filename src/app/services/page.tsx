@@ -47,14 +47,14 @@ export const metadata: Metadata = {
     // A dedicated social sharing image for services would be effective.
     images: [
       {
-        url: "https://neoninsurancebrokerltd.org/img/seo/services-og-image.png", // Create a specific 1200x630px image for this page
+        url: "https://www.neoninsurancebrokerltd.org/img/seo/services-og-image.png", // Create a specific 1200x630px image for this page
         width: 1200,
         height: 630,
         alt: "An overview of insurance services offered by Neon Insurance Broker Ltd",
       },
     ],
     // The canonical URL for this specific page
-    url: "https://neoninsurancebrokerltd.org/services",
+    url: "https://www.neoninsurancebrokerltd.org/services",
     type: "website",
   },
 
@@ -65,13 +65,13 @@ export const metadata: Metadata = {
     description:
       "From personal auto and health to comprehensive business coverage, discover our full suite of insurance services.",
     images: [
-      "https://neoninsurancebrokerltd.org/img/seo/services-og-image.png",
+      "https://www.neoninsurancebrokerltd.org/img/seo/services-og-image.png",
     ], // Using the absolute URL
   },
 
   // Define the canonical URL to avoid duplicate content issues
   alternates: {
-    canonical: "https://neoninsurancebrokerltd.org/services",
+    canonical: "https://www.neoninsurancebrokerltd.org/services",
   },
 };
 
@@ -83,7 +83,7 @@ export default function ServicesPage() {
     "@context": "https://schema.org",
     "@type": "InsuranceAgency",
     name: siteConfig.name,
-    url: "https://neoninsurancebrokerltd.org/services",
+    url: "https://www.neoninsurancebrokerltd.org/services",
     description:
       "Comprehensive insurance services in Uganda, including motor, medical, and business coverage.",
     makesOffer: allServices.map((service) => ({

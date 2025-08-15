@@ -39,7 +39,7 @@ export async function generateMetadata({
     openGraph: {
       title: `${service.name} | Neon Insurance Brokers Ltd`,
       description,
-      url: `https://neoninsurancebrokerltd.org/display/${slug}`,
+      url: `https://www.neoninsurancebrokerltd.org/display/${slug}`,
       images: [
         {
           url: "/og-image.png",
