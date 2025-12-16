@@ -4,18 +4,23 @@ import React, { ReactElement } from "react";
 import { motion } from "framer-motion";
 import { FiMapPin, FiPhone, FiMail } from "react-icons/fi";
 
-import { ContactInfo } from "@/lib/data/contactPageData";
+// Define the component's props interface
+export interface ContactInfo {
+  icon: "map-pin" | "phone" | "mail";
+  title: string;
+  details: string[];
+  color: "brand-accent" | "brand-primary" | "brand-secondary-dark";
+}
+
+interface ContactDetailsSectionProps {
+  contactInfo: ContactInfo[];
+}
 
 const iconMap: { [key: string]: ReactElement } = {
   "map-pin": <FiMapPin />,
   phone: <FiPhone />,
   mail: <FiMail />,
 };
-
-// Define the component's props interface
-interface ContactDetailsSectionProps {
-  contactInfo: ContactInfo[];
-}
 
 // THE FIX: Tailwind needs full class names to exist in the source code.
 // This mapping object provides those full class names, solving the dynamic class issue.

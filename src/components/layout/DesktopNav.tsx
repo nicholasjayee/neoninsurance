@@ -5,54 +5,64 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import clsx from "clsx";
+import { FiSearch } from "react-icons/fi";
 import { navLinks } from "@/data/navigationData";
-import DropdownNavItem from "@/components/common/DropdownNavItem";
-
+import MegaMenuNavItem from "@/components/common/MegaMenuNavItem";
+import { Button } from "@/components/ui/Button";
 interface DesktopNavProps {
   scrolled: boolean;
+  openSearch: () => void;
 }
 
-const DesktopNav: React.FC<DesktopNavProps> = ({ scrolled }) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const DesktopNav: React.FC<DesktopNavProps> = ({ scrolled, openSearch }) => {
   const pathname = usePathname();
 
   return (
-    <div className="hidden md:flex items-center space-x-8">
-      {navLinks.map((link) =>
-        link.dropdownItems ? (
-          <DropdownNavItem key={link.label} link={link} scrolled={scrolled} />
-        ) : (
-          <Link key={link.label} href={link.href}>
-            <div className="relative group">
-              <span
-                className={clsx(
-                  "transition-colors font-medium",
-                  pathname === link.href
-                    ? "text-brand-primary"
-                    : scrolled
-                    ? "text-brand-text-secondary hover:text-brand-text-primary"
-                    : "text-brand-text-onDark hover:opacity-80"
+    <>
+      <div className="hidden md:flex items-center space-x-8">
+        {navLinks.map((link) =>
+          link.dropdownItems ? (
+            <MegaMenuNavItem key={link.label} link={link} />
+          ) : (
+            <Link key={link.label} href={link.href}>
+              <div className="relative group">
+                <span
+                  className={clsx(
+                    "transition-colors font-medium text-lg",
+                    pathname === link.href
+                      ? "text-brand-primary"
+                      : "text-brand-text-secondary hover:text-brand-text-primary"
+                  )}
+                >
+                  {link.label}
+                </span>
+                {pathname === link.href && (
+                  <motion.div
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-brand-primary"
+                    layoutId="underline"
+                    initial={false}
+                  />
                 )}
-              >
-                {link.label}
-              </span>
-              {pathname === link.href && (
-                <motion.div
-                  className="absolute bottom-[-4px] left-0 right-0 h-0.5 bg-brand-primary"
-                  layoutId="underline"
-                  initial={false}
-                />
-              )}
-            </div>
-          </Link>
-        )
-      )}
-      <Link
-        href="/contact"
-        className="bg-brand-primary px-6 py-2 rounded-full text-white font-semibold hover:bg-brand-primary-light transition-colors"
-      >
-        Contact Us
-      </Link>
-    </div>
+              </div>
+            </Link>
+          )
+        )}
+
+        <button
+          onClick={openSearch}
+          className="transition-colors p-2 rounded-full hover:bg-black/5 text-brand-text-secondary hover:text-brand-text-primary"
+          aria-label="Search"
+        >
+          <FiSearch size={20} />
+        </button>
+        <Link href="/contact">
+          <Button variant="primary" size="md" className="shadow-neon-blue/20">
+            Contact Us
+          </Button>
+        </Link>
+      </div>
+    </>
   );
 };
 

@@ -4,11 +4,13 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import clsx from "clsx";
+import SearchPalette from "@/components/common/SearchPalette";
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -31,18 +33,14 @@ const Header: React.FC = () => {
   return (
     <header
       className={clsx(
-        "fixed top-0 left-0 w-full z-50 transition-all duration-300",
+        "fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out",
         scrolled
-          ? "bg-brand-white/80 backdrop-blur-md shadow-lg"
-          : "bg-gray-500/20"
+          ? "glass py-2 shadow-lg"
+          : "bg-white/80 backdrop-blur-md py-6 shadow-sm"
       )}
     >
-      <nav
-        className={clsx(
-          "container mx-auto px-6 flex justify-between items-center transition-all duration-300",
-          scrolled ? "py-3" : "py-5"
-        )}
-      >
+      <SearchPalette isOpen={isSearchOpen} setIsOpen={setIsSearchOpen} />
+      <nav className="container mx-auto px-6 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2 font-bold z-50">
           <Image
             src={"/Neon logo orig.svg"}
@@ -61,32 +59,26 @@ const Header: React.FC = () => {
           */}
 
           {/* Short version for mobile (visible by default, hidden from `md` breakpoint up) */}
-          <span
-            className={clsx(
-              "transition-colors text-xl md:hidden",
-              scrolled || isOpen
-                ? "text-brand-text-primary"
-                : "text-brand-text-onDark"
-            )}
-          >
+          <span className="transition-colors text-xl md:hidden text-brand-text-primary">
             Neon Insurance
           </span>
 
           {/* Full version for desktop (hidden by default, visible from `md` breakpoint up) */}
-          <span
-            className={clsx(
-              "transition-colors hidden md:inline md:text-2xl",
-              scrolled || isOpen
-                ? "text-brand-text-primary"
-                : "text-brand-text-onDark"
-            )}
-          >
+          <span className="transition-colors hidden md:inline md:text-xl text-brand-text-primary">
             Neon Insurance Brokers Ltd
           </span>
         </Link>
 
-        <DesktopNav scrolled={scrolled} />
-        <MobileNav isOpen={isOpen} setIsOpen={setIsOpen} scrolled={scrolled} />
+        <DesktopNav
+          scrolled={scrolled}
+          openSearch={() => setIsSearchOpen(true)}
+        />
+        <MobileNav
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          scrolled={scrolled}
+          openSearch={() => setIsSearchOpen(true)}
+        />
       </nav>
     </header>
   );

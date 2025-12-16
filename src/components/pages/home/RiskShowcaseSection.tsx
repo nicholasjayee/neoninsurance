@@ -2,11 +2,13 @@
 
 import React, { useRef } from "react";
 import Image, { StaticImageData } from "next/image"; // Import StaticImageData
+import Link from "next/link";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 import { FaCar, FaHome, FaPlane, FaUsers } from "react-icons/fa";
 import { gsap } from "gsap";
 import type { Risk } from "@/types/risk";
+import ScrollReveal from "@/components/common/ScrollReveal";
 
 // --- STEP 1: Statically import all local images using relative paths ---
 import motorImage from "../../../../public/img/risks/accident.png";
@@ -52,6 +54,7 @@ const riskData: Risk[] = [
 ];
 
 // --- Type Definitions ---
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface RiskShowcaseSectionProps {
   onSelectRisk: (risk: Risk) => void;
 }
@@ -88,53 +91,57 @@ const RiskImageCard: React.FC<RiskImageCardProps> = ({
         placeholder={isSvg ? "empty" : "blur"}
         sizes="(min-width: 768px) 42vw, 100vw"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 flex flex-col justify-end">
+      <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-transparent p-8 flex flex-col justify-end transition-opacity duration-300 group-hover:from-black/95">
         {children}
       </div>
     </div>
   );
 };
 
-const RiskTimelineCard: React.FC<RiskTimelineCardProps> = ({
-  data,
-  index,
-  onSelectRisk,
-}) => {
+const RiskTimelineCard: React.FC<
+  Omit<RiskTimelineCardProps, "onSelectRisk">
+> = ({ data, index }) => {
   const isEven = index % 2 === 0;
   return (
     <motion.div
-      className="w-full md:w-5/12"
+      className="w-full md:w-5/12 perspective-container"
       initial={{ opacity: 0, x: isEven ? -50 : 50 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6 }}
     >
-      <div
-        className="group rounded-lg shadow-2xl overflow-hidden"
-        style={{ aspectRatio: "4/3" }}
-      >
-        <RiskImageCard src={data.imageUrl} alt={data.title}>
-          <h3 className="text-2xl font-bold text-brand-accent">{data.title}</h3>
-          <p className="mt-1 text-brand-text-onDark/80 text-sm">
-            {data.description}
-          </p>
-          <button
-            onClick={() => onSelectRisk(data)}
-            className="group/button mt-4 inline-flex items-center gap-2 font-semibold text-brand-primary-light transition-colors hover:text-brand-white"
-          >
-            Learn More{" "}
-            <FiArrowRight className="transition-transform group-hover/button:translate-x-1" />
-          </button>
-        </RiskImageCard>
-      </div>
+      <Link href={`/risks/${data.id}`}>
+        <motion.div
+          className="group rounded-2xl shadow-2xl overflow-hidden cursor-pointer preserve-3d"
+          style={{ aspectRatio: "4/3" }}
+          whileHover={{
+            scale: 1.02,
+            rotateY: isEven ? 2 : -2,
+            boxShadow: "0 20px 40px rgba(0,0,0,0.4)",
+          }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        >
+          <RiskImageCard src={data.imageUrl} alt={data.title}>
+            <div className="transform transition-transform duration-300 group-hover:-translate-y-2">
+              <h3 className="text-3xl font-bold text-white mb-2">
+                {data.title}
+              </h3>
+              <p className="text-brand-text-onDark/90 text-base leading-relaxed mb-4 opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+                {data.description}
+              </p>
+              <span className="inline-flex items-center gap-2 font-semibold text-brand-secondary-light transition-colors hover:text-white">
+                Learn More <FiArrowRight />
+              </span>
+            </div>
+          </RiskImageCard>
+        </motion.div>
+      </Link>
     </motion.div>
   );
 };
 
 // --- Main Exported Component ---
-export default function RiskShowcaseSection({
-  onSelectRisk,
-}: RiskShowcaseSectionProps) {
+export default function RiskShowcaseSection() {
   const timelineRef = useRef<HTMLDivElement>(null);
   const animatedLineRef = useRef<HTMLDivElement>(null);
 
@@ -165,16 +172,20 @@ export default function RiskShowcaseSection({
     <section className="overflow-x-hidden bg-brand-dark py-24">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 md:mb-24">
-          <h2
-            className="text-4xl font-bold text-brand-text-onDark md:text-5xl"
-            style={{ fontFamily: "Centra, sans-serif" }}
-          >
-            We See the Risk, So You Can See the Opportunity.
-          </h2>
-          <p className="mx-auto mt-4 max-w-3xl text-lg text-brand-text-onDark/70">
-            Life comes with challenges. We&apos;re here to turn them into
-            stepping stones.
-          </p>
+          <ScrollReveal width="100%" direction="up">
+            <h2
+              className="text-4xl font-bold text-brand-text-onDark md:text-5xl"
+              style={{ fontFamily: "Centra, sans-serif" }}
+            >
+              We See the Risk, So You Can See the Opportunity.
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal width="100%" direction="up" delay={0.2}>
+            <p className="mx-auto mt-4 max-w-3xl text-lg text-brand-text-onDark/70">
+              Life comes with challenges. We&apos;re here to turn them into
+              stepping stones.
+            </p>
+          </ScrollReveal>
         </div>
 
         <div ref={timelineRef} className="relative">
@@ -190,15 +201,11 @@ export default function RiskShowcaseSection({
               className="relative mb-12 flex items-center justify-center md:mb-0"
             >
               <div
-                className={`flex w-full items-center ${
+                className={`flex flex-col w-full items-center gap-8 md:gap-0 ${
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
-                <RiskTimelineCard
-                  data={risk}
-                  index={index}
-                  onSelectRisk={onSelectRisk}
-                />
+                <RiskTimelineCard data={risk} index={index} />
                 <div className="hidden w-7/12 md:block"></div>
               </div>
               <div className="risk-showcase-icon absolute left-1/2 top-1/2 z-20 hidden h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-4 border-brand-primary bg-brand-dark md:flex">

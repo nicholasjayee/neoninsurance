@@ -1,12 +1,13 @@
 import { MetadataRoute } from "next";
 // We will import your data to dynamically generate URLs for each service
 import { solutionsData } from "@/data/navigationData";
+import { getSiteConfig } from "@/lib/siteConfig";
 
-// This is the base URL for your website.
-// IMPORTANT: Update this to your final domain when you go live.
-const siteUrl = "https://www.neoninsurancebrokerltd.org";
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const config = await getSiteConfig();
+  // This is the base URL for your website.
+  const siteUrl = config?.url || "https://www.neoninsurancebrokerltd.org";
 
-export default function sitemap(): MetadataRoute.Sitemap {
   // Get the current date to use as the `lastModified` value.
   const lastModified = new Date().toISOString().split("T")[0];
 

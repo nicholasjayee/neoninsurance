@@ -3,7 +3,7 @@
   THE FIX: All @import rules are now at the very top, which is required by CSS.
   ========================================================================
 */
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500&family=Space+Grotesk:wght@400;500;700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&family=Space+Grotesk:wght@400;500;700&display=swap"); */
 @import "tailwindcss";
 
 /* import '@bprogress/core/css'; */
@@ -13,48 +13,58 @@
 */
 @font-face {
   font-family: "Centra";
-  src: url("/public/font/CentraNo2-Bold.ttf");
+  src: url("/font/CentraNo2-Bold.ttf");
   font-weight: 700;
 }
 @font-face {
   font-family: "Centra";
-  src: url("/public/fonts/CentraNo2-Medium.ttf");
+  src: url("/font/CentraNo2-Medium.ttf");
   font-weight: 500;
 }
 @font-face {
   font-family: "Centra";
-  src: url("/public/fonts/CentraNo2-Book.ttf");
+  src: url("/font/CentraNo2-Book.ttf");
   font-weight: 400;
 }
 
 @theme {
-  /* --- Colors --- */
-  --color-brand-primary: #c41e24;
-  --color-brand-primary-light: #e53e3e;
-  --color-brand-primary-dark: #a3161b;
-  --color-brand-secondary: #fbcb0a;
-  --color-brand-secondary-light: #fef3c7;
-  --color-brand-secondary-dark: #d97706;
-  --color-brand-accent: #f97316;
-  --color-brand-accent-light: #fb923c;
-  --color-brand-accent-dark: #ea580c;
-  --color-brand-blue: #0052cc;
-  --color-brand-red: #de350b;
-  --color-accent-yellow: #ffc400;
-  --color-brand-light: #f9fafb;
-  --color-brand-dark: #380d11;
+  /* --- Colors (Premium Palette - Company Colors) --- */
+  --color-brand-primary: #a3161b; /* Deep Crimson */
+  --color-brand-primary-light: #c41e24;
+  --color-brand-primary-dark: #7a0f13;
+
+  --color-brand-secondary: #d97706; /* Rich Amber */
+  --color-brand-secondary-light: #fbbf24;
+  --color-brand-secondary-dark: #b45309;
+
+  --color-brand-accent: #f59e0b;
+
+  /* Replaced Grays with Warm/Rich Tones */
+  --color-brand-dark: #2a0a0a; /* Deep Brown/Red instead of Slate */
+  --color-brand-light: #fffdf7; /* Warm Cream instead of Cool White */
   --color-brand-white: #ffffff;
-  --color-neutral-subtle: #f4f5f7;
-  --color-dark-grey: #111827;
-  --color-brand-text-primary: #8a1c1c;
-  --color-brand-text-secondary: #475467;
-  --color-brand-text-tertiary: #667085;
-  --color-brand-text-onDark: #f5efef;
-  --color-brand-border: #eaecf0;
+
+  --color-neutral-subtle: #fefce8; /* Very pale yellow/cream */
+  --color-dark-grey: #451a03; /* Dark Bronze */
+
+  --color-brand-text-primary: #2a0a0a;
+  --color-brand-text-secondary: #78350f; /* Brownish text */
+  --color-brand-text-tertiary: #92400e;
+  --color-brand-text-onDark: #fffbeb; /* Warm white text */
+
+  --color-brand-border: #fde68a; /* Gold tint border */
+
+  /* --- Premium Effects --- */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
 
   /* --- Fonts --- */
-  --font-sans: "Centra", "Space Grotesk", -apple-system, system-ui, sans-serif;
-  --font-mono: "Roboto Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
+  /* "Centra" is local, others are from next/font variables */
+  --font-sans: "Centra", var(--font-space-grotesk), var(--font-inter),
+    -apple-system, system-ui, sans-serif;
+  --font-mono: var(--font-roboto-mono), Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 
   /* --- Animations & Keyframes --- */
   --animation-float: float 6s ease-in-out infinite;
@@ -144,6 +154,32 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .preserve-3d {
   transform-style: preserve-3d;
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  border-radius: 16px;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
 
 /* --- DEBUGGING: NProgress Bar --- */

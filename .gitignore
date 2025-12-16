@@ -16,9 +16,11 @@
 # next.js
 /.next/
 /out/
+./generated
 
 # production
 /build
+/test
 
 # misc
 .DS_Store
@@ -37,8 +39,10 @@ yarn-error.log*
 .vercel
 
 #custom folders
-test
+
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/generated/prisma

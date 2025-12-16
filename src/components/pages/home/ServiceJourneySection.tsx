@@ -17,6 +17,7 @@ import {
 import useMediaQuery from "@/hooks/useMediaQuery";
 import LargeScreenJourney from "./LargeScreenJourney";
 import SmallScreenJourney from "./SmallScreenJourney"; // Your comment is preserved
+import ScrollReveal from "@/components/common/ScrollReveal";
 
 // --- Type Definitions ---
 export interface ClaimStep {
@@ -153,19 +154,26 @@ const ServiceJourneySection: React.FC = () => {
       ref={sectionRef}
       className={`relative bg-brand-light ${isLargeScreen ? "h-[250vh]" : ""}`}
     >
+      <div className="absolute inset-0 z-0 opacity-30" 
+           style={{ backgroundImage: "radial-gradient(#cbd5e1 1px, transparent 1px)", backgroundSize: "32px 32px" }}>
+      </div>
       <div
         className={`${
           isLargeScreen ? "sticky top-0 h-screen" : ""
         } w-full flex flex-col items-center`}
       >
         <div className="text-center pt-16 md:pt-24 px-4 relative z-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-brand-text-primary">
-            Your Advocate in Action
-          </h2>
-          <p className="mt-4 text-base md:text-lg text-brand-text-secondary max-w-2xl mx-auto">
-            See our transparent and supportive claims process from start to
-            finish.
-          </p>
+          <ScrollReveal width="100%" direction="up">
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-text-primary">
+              Your Advocate in Action
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal width="100%" direction="up" delay={0.2}>
+            <p className="mt-4 text-base md:text-lg text-brand-text-secondary max-w-2xl mx-auto">
+              See our transparent and supportive claims process from start to
+              finish.
+            </p>
+          </ScrollReveal>
           {isLargeScreen && (
             <div className="absolute top-[calc(100%+3rem)] left-1/2 -translate-x-1/2">
               <ScrollPrompter opacity={topPrompterOpacity} />

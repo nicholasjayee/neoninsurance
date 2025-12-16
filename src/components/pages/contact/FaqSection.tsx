@@ -4,7 +4,16 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiPlus, FiMinus } from "react-icons/fi";
 
-import { Faq } from "@/lib/data/faqData";
+// import { Faq } from "@/lib/data/faqData"; // Removed in favor of props
+
+// --- Type Definitions ---
+
+export interface Faq {
+  id?: string;
+  question: string;
+  answer: string;
+  category?: string;
+}
 
 // --- Type Definitions ---
 

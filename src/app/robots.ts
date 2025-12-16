@@ -1,6 +1,10 @@
 import { MetadataRoute } from "next";
+import { getSiteConfig } from "@/lib/siteConfig";
 
-export default function robots(): MetadataRoute.Robots {
+export default async function robots(): Promise<MetadataRoute.Robots> {
+  const config = await getSiteConfig();
+  const siteUrl = config?.url || "https://www.neoninsurancebrokerltd.org";
+
   return {
     rules: [
       {
@@ -9,6 +13,6 @@ export default function robots(): MetadataRoute.Robots {
         // disallow: ["/admin", "/privacy"],
       },
     ],
-    sitemap: "https://www.neoninsurancebrokerltd.org/sitemap.xml",
+    sitemap: `${siteUrl}/sitemap.xml`,
   };
 }

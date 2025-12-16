@@ -86,14 +86,14 @@ export default function SolutionsCarouselSection() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -30 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="flex flex-col items-center gap-8 text-center md:flex-row md:items-start md:gap-12 md:text-left"
+              className="glass rounded-3xl p-8 md:p-12 flex flex-col items-center gap-8 text-center md:flex-row md:items-start md:gap-12 md:text-left border border-white/10"
             >
               {/* --- NO CHANGES TO THIS PART --- */}
               <motion.div
                 key={`${activeTab}-icon`}
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                className="text-7xl md:text-8xl"
+                className="text-7xl md:text-8xl p-6 rounded-full bg-white/5"
                 style={{ color: "var(--active-color)" }}
               >
                 {activeSolution.icon}
@@ -104,7 +104,7 @@ export default function SolutionsCarouselSection() {
               <div className="flex flex-1 flex-col">
                 {/* Your original list of services remains completely untouched */}
                 <motion.div
-                  className="space-y-3" // Removed flex-1 from here
+                  className="space-y-4" // Removed flex-1 from here
                   variants={listContainerVariants}
                   initial="hidden"
                   animate="visible"
@@ -113,21 +113,21 @@ export default function SolutionsCarouselSection() {
                     <motion.div
                       key={index}
                       variants={listItemVariants}
-                      className="flex items-center justify-center gap-3 md:justify-start"
+                      className="flex items-center justify-center gap-3 md:justify-start group/item"
                     >
                       <FaRegCheckCircle
-                        className="flex-shrink-0 text-lg md:text-xl"
-                        style={{ color: "var(--active-color)", opacity: 0.5 }}
+                        className="flex-shrink-0 text-lg md:text-xl transition-opacity group-hover/item:opacity-100"
+                        style={{ color: "var(--active-color)", opacity: 0.7 }}
                       />
                       {service.slug ? (
                         <Link
                           href={`/display/${service.slug}`}
-                          className="text-base text-brand-text-onDark hover:underline md:text-lg"
+                          className="text-lg text-brand-text-onDark hover:text-white transition-colors md:text-xl font-medium"
                         >
                           {service.name}
                         </Link>
                       ) : (
-                        <span className="cursor-not-allowed text-base text-brand-text-onDark/70 md:text-lg">
+                        <span className="cursor-not-allowed text-lg text-brand-text-onDark/70 md:text-xl">
                           {service.name}
                         </span>
                       )}
@@ -138,7 +138,7 @@ export default function SolutionsCarouselSection() {
                 {/* --- THIS IS THE NEW PLUS BUTTON --- */}
                 {/* It is now placed correctly AFTER the list, with its own animation */}
                 <motion.div
-                  className="mt-6 flex justify-center md:justify-start"
+                  className="mt-8 flex justify-center md:justify-start"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{
                     opacity: 1,
@@ -149,7 +149,7 @@ export default function SolutionsCarouselSection() {
                   <Link
                     href={`/solutions/${activeSolution.id}`}
                     aria-disabled
-                    className="group inline-flex items-center gap-3 rounded-full py-2 px-5 text-sm font-semibold transition-all duration-300 md:text-base text-[var(--active-color)] bg-[var(--active-color)]/10 border border-[var(--active-color)]/30 hover:bg-[var(--active-color)]/20"
+                    className="group inline-flex items-center gap-3 rounded-full py-3 px-6 text-sm font-bold transition-all duration-300 md:text-base text-white bg-[var(--active-color)] shadow-lg shadow-[var(--active-color)]/20 hover:shadow-[var(--active-color)]/40 hover:-translate-y-1"
                   >
                     <PlusCircle
                       size={20}

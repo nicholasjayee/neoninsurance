@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { FaUserShield, FaBuilding, FaHandshake } from "react-icons/fa";
+import { FaUserShield, FaBuilding, FaHandshake, FaTools, FaInfoCircle } from "react-icons/fa";
 
 // --- Type Definitions for the Content Structure ---
 interface ParagraphContent {
@@ -49,6 +49,7 @@ export interface Solution {
   label: string;
   color: string;
   services: Service[];
+  useDisplayRoute?: boolean; // If true, use /display/{slug}, otherwise use /{slug}
 }
 
 export interface NavLinkItem {
@@ -65,6 +66,7 @@ export const solutionsData: Solution[] = [
     icon: <FaUserShield />,
     label: "Personal Insurance",
     color: "#C41E24",
+    useDisplayRoute: true,
     services: [
       { slug: "travel-insurance", name: "Travel Insurance" },
       {
@@ -252,6 +254,7 @@ export const solutionsData: Solution[] = [
     icon: <FaBuilding />,
     label: "Business & Commercial",
     color: "#F97316",
+    useDisplayRoute: true,
     services: [
       {
         slug: "fire-special-perils",
@@ -371,6 +374,7 @@ export const solutionsData: Solution[] = [
     icon: <FaHandshake />,
     label: "Our Brokerage Advantage",
     color: "#D97706",
+    useDisplayRoute: true,
     services: [
       { slug: "general-advisory", name: "General Insurance Advisory" },
       { slug: "risk-assessment", name: "Expert Risk Assessment" },
@@ -380,13 +384,54 @@ export const solutionsData: Solution[] = [
   },
 ];
 
+export const resourcesData: Solution[] = [
+  {
+    id: "resources",
+    icon: <FaTools />,
+    label: "Resources",
+    color: "#10B981",
+    useDisplayRoute: false, // Direct links, not /display/
+    services: [
+      { slug: "calculator", name: "Premium Calculator" },
+      { slug: "tools", name: "Insurance Tools" },
+      { slug: "help", name: "Help Center" },
+      { slug: "get-matched", name: "Get Matched" },
+    ],
+  },
+];
+
+export const companyData: Solution[] = [
+  {
+    id: "company",
+    icon: <FaInfoCircle />,
+    label: "Company",
+    color: "#6366F1",
+    useDisplayRoute: false, // Direct links, not /display/
+    services: [
+      { slug: "about", name: "About Us" },
+      { slug: "gallery", name: "Gallery" },
+      { slug: "contact", name: "Contact Us" },
+    ],
+  },
+];
+
 export const navLinks: NavLinkItem[] = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
   {
     href: "/services",
     label: "Services",
     dropdownItems: solutionsData,
   },
-  { href: "/gallery", label: "Gallery" },
+  {
+    href: "",
+    label: "Resources",
+    dropdownItems: resourcesData,
+  },
+  { href: "/claims", label: "Claims" },
+  { href: "/insights", label: "Insights" },
+  {
+    href: "",
+    label: "Company",
+    dropdownItems: companyData,
+  },
 ];

@@ -1,12 +1,15 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
-
-// The logo should be in your /public directory for next/image to access it this way.
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { getSiteConfig } from "@/lib/siteConfig";
 
 // This is a Server Component by default - no 'use client' needed.
-export default function Footer() {
+export default async function Footer() {
+  const config = await getSiteConfig();
+
+  if (!config) return null;
+
   return (
     <footer className="bg-brand-light text-brand-text-secondary">
       <div className="container mx-auto px-6 py-12">
@@ -18,10 +21,10 @@ export default function Footer() {
                 src={"/Neon logo orig.svg"}
                 width={40} // Specify width for next/image
                 height={40} // Specify height for next/image
-                alt="Neon Insurance Logo"
+                alt={`${config.name} Logo`}
               />
               <span className="text-xl font-bold text-brand-text-primary">
-                Neon Insurance
+                {config.name}
               </span>
             </Link>
             <p className="text-sm">
@@ -76,16 +79,16 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-sm">
               <li className="text-brand-text-tertiary">
-                Kanjokya Street, Kanjokya House, 1st Floor
+                {config.addressLine1}
               </li>
               <li className="text-brand-text-tertiary">
-                P.O. Box 138881, Kampala
+                {config.poBox}, {config.addressLine2}
               </li>
               <li className="font-medium text-brand-text-secondary">
-                Tel: 0200 940878
+                Tel: <a href={`tel:${config.telephone.replace(/\s/g, '')}`} className="hover:text-brand-primary">{config.telephone}</a>
               </li>
               <li className="font-medium text-brand-text-secondary">
-                info@neoninsurance.co.ug
+                <a href={`mailto:${config.email}`} className="hover:text-brand-primary">{config.email}</a>
               </li>
             </ul>
           </div>
@@ -94,31 +97,61 @@ export default function Footer() {
           <div>
             <h4 className="mb-4 font-bold text-brand-text-primary">Connect</h4>
             <div className="flex space-x-4">
-              <a
-                href="https://www.facebook.com/neoninsurance/"
-                className="transition-colors hover:text-brand-primary"
-                aria-label="Facebook"
-              >
-                <FaFacebook size={20} />
-              </a>
-              <a
-                href="https://x.com/neoninsuranceug?t=oKIvWZS0sX7efjjyXVdk7A&s=09"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-colors hover:text-brand-primary"
-                aria-label="Twitter"
-              >
-                <FaTwitter size={20} />
-              </a>
-              <a
-                href="https://www.instagram.com/neoninsurancebrokersltd?igsh=MXZvZDdvdnlibjNyNQ=="
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-colors hover:text-brand-primary"
-                aria-label="Instagram"
-              >
-                <FaInstagram size={20} />
-              </a>
+              {config.facebookUrl && (
+                <a
+                  href={config.facebookUrl}
+                  className="transition-colors hover:text-brand-primary"
+                  aria-label="Facebook"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaFacebook size={20} />
+                </a>
+              )}
+              {config.twitterUrl && (
+                <a
+                  href={config.twitterUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-brand-primary"
+                  aria-label="Twitter"
+                >
+                  <FaTwitter size={20} />
+                </a>
+              )}
+              {config.instagramUrl && (
+                <a
+                  href={config.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-brand-primary"
+                  aria-label="Instagram"
+                >
+                  <FaInstagram size={20} />
+                </a>
+              )}
+              {config.linkedinUrl && (
+                <a
+                  href={config.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-brand-primary"
+                  aria-label="LinkedIn"
+                >
+                  <FaLinkedin size={20} />
+                </a>
+              )}
+              {config.youtubeUrl && (
+                <a
+                  href={config.youtubeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-brand-primary"
+                  aria-label="YouTube"
+                >
+                  <FaYoutube size={20} />
+                </a>
+              )}
             </div>
           </div>
         </div>
@@ -126,7 +159,7 @@ export default function Footer() {
         {/* Bottom Copyright Section */}
         <div className="mt-12 border-t border-brand-border pt-8 text-center text-sm text-brand-text-tertiary">
           <p>
-            © {new Date().getFullYear()} Neon Insurance Brokers Limited. All
+            © {new Date().getFullYear()} {config.name}. All
             Rights Reserved.
           </p>
         </div>

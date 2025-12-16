@@ -25,6 +25,8 @@ export default function OptimizedBgImage({
       return;
     }
 
+    let isMounted = true;
+
     const fullImageUrl = srcUrl.replace(
       "/upload/",
       "/upload/q_auto:good,f_auto/"
@@ -33,7 +35,14 @@ export default function OptimizedBgImage({
     const img = new window.Image();
     img.src = fullImageUrl;
     img.onload = () => {
-      setIsLoaded(true);
+      if (isMounted) {
+        setIsLoaded(true);
+      }
+    };
+
+    return () => {
+      isMounted = false;
+      img.onload = null; // Cleanup
     };
   }, [srcUrl]); // The effect now correctly depends only on the prop that can change.
 

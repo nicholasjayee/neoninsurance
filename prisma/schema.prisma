@@ -1,0 +1,315 @@
+generator client {
+  provider = "prisma-client"
+  output   = "./generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum IncidentType {
+  CAR
+  HOME
+  HEALTH
+  CYBER
+  TRAVEL
+}
+
+enum ClaimStatus {
+  RECEIVED
+  REVIEWING
+  ASSESSING
+  APPROVED
+  PAID
+  REJECTED
+}
+
+enum InsuranceType {
+  MOTOR
+  HOME
+  HEALTH
+  TRAVEL
+}
+
+enum QuoteStatus {
+  DRAFT
+  SENT
+  ACCEPTED
+  EXPIRED
+}
+
+model Claim {
+  id            String       @id @default(cuid())
+  policyNumber  String?
+  firstName     String
+  lastName      String
+  email         String
+  phone         String?
+  incidentType  IncidentType
+  incidentDate  DateTime
+  description   String
+  location      String?
+  photos        String[]
+  voiceNoteUrl  String?
+  status        ClaimStatus  @default(RECEIVED)
+  estimatedPayout Float?
+  order         Int          @default(0)
+  
+  statusHistory ClaimStatusHistory[]
+
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+}
+
+model ClaimStatusHistory {
+  id        String      @id @default(cuid())
+  claimId   String
+  claim     Claim       @relation(fields: [claimId], references: [id], onDelete: Cascade)
+  status    ClaimStatus
+  notes     String?
+  createdAt DateTime    @default(now())
+}
+
+model PricingFactor {
+  id          String  @id @default(cuid())
+  key         String  @unique
+  value       Float
+  description String?
+}
+
+model RiskZone {
+  id        String @id @default(cuid())
+  zipCode   String @unique
+  floodRisk String // LOW, MEDIUM, HIGH
+  theftRisk String
+  fireRisk  String
+  score     Int
+}
+
+model Competitor {
+  id                    String @id @default(cuid())
+  name                  String @unique
+  avgMonthlyRate        Float
+  neonSavingsPercentage Float  @default(0.20)
+}
+
+model BlogPost {
+  id        String   @id @default(cuid())
+  title     String
+  slug      String   @unique
+  excerpt   String
+  content   String   @db.Text
+  author    String
+  category  String
+  imageUrl  String
+  publishedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Subscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Faq {
+  id        String   @id @default(cuid())
+  question  String
+  answer    String   @db.Text
+  category  String   @default("General")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Quote {
+  id              String        @id @default(cuid())
+  insuranceType   InsuranceType
+  status          QuoteStatus   @default(DRAFT)
+  
+  // Contact Information
+  firstName       String?
+  lastName        String?
+  email           String?
+  phone           String?
+  
+  // Common Fields
+  coverageLevel   String        // basic, standard, premium
+  monthlyPremium  Float
+  annualPremium   Float
+  
+  // Motor Insurance Specific
+  carValue        Float?
+  carMake         String?
+  carModel        String?
+  carYear         Int?
+  mileage         Float?
+  driverAge       Int?
+  safeDriver      Boolean?
+  
+  // Home Insurance Specific
+  homeValue       Float?
+  homeType        String?       // house, apartment, condo
+  homeAge         Int?
+  securitySystem  Boolean?
+  
+  // Health Insurance Specific
+  numberOfPeople  Int?
+  ageRange        String?       // 18-30, 31-45, 46-60, 60+
+  preExisting     Boolean?
+  
+  // Travel Insurance Specific
+  destination     String?
+  tripDuration    Int?          // days
+  travelers       Int?
+  tripType        String?       // leisure, business
+  
+  expiresAt       DateTime      @default(dbgenerated("NOW() + INTERVAL '30 days'"))
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
+
+model ChatbotKnowledge {
+  id          String   @id @default(cuid())
+  category    String   // e.g., "greetings", "claims", "quotes", "motor", "travel"
+  patterns    String[] // Regex patterns as strings
+  keywords  String[]
+  responses   String[] // Possible responses
+  priority    Int      @default(0) // Higher priority = checked first
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([category])
+  @@index([isActive])
+}
+
+model Page {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  content     String   @db.Text
+  isPublished Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Story {
+  id          String   @id @default(cuid())
+  year        String
+  title       String
+  icon        String
+  description String   @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Service {
+  id          String   @id @default(cuid())
+  name        String
+  icon        String
+  category    String
+  description String?  @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model TeamMember {
+  id        String   @id @default(cuid())
+  name      String
+  role      String
+  imageUrl  String
+  quote     String?  @db.Text
+  roleColor String
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model SiteConfig {
+  id           String   @id @default(cuid())
+  key          String   @unique
+  name         String
+  telephone    String
+  email        String
+  addressLine1 String
+  addressLine2 String
+  poBox        String
+  url          String
+  
+  // Social Media
+  facebookUrl  String?
+  twitterUrl   String?
+  instagramUrl String?
+  linkedinUrl  String?
+  youtubeUrl   String?
+  
+  // SEO Defaults
+  defaultTitle       String?
+  defaultDescription String? @db.Text
+  defaultKeywords    String? @db.Text // Comma separated
+  
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model AiApiKey {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  provider  String   // e.g., "openai", "gemini"
+  key       String
+  isActive  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum NotificationType {
+  POPUP
+  BANNER
+  TOAST
+}
+
+enum NotificationFrequency {
+  ONCE
+  SESSION
+  ALWAYS
+}
+
+model Notification {
+  id          String   @id @default(cuid())
+  title       String
+  content     String   @db.Text
+  type        NotificationType
+  position    String   @default("bottom-right") // e.g., top-center, bottom-right
+  
+  // Scheduling
+  startDate   DateTime?
+  endDate     DateTime?
+  
+  // Behavior
+  frequency   NotificationFrequency @default(ONCE)
+  delay       Int      @default(0) // Seconds before showing
+  duration    Int      @default(0) // Seconds to show (0 = infinite)
+  
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+enum UserRole {
+  ADMIN
+  USER
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String
+  email         String    @unique
+  image         String?
+  role          UserRole  @default(USER)
+  isActive      Boolean   @default(false)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}

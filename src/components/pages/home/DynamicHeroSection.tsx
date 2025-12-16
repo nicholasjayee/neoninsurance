@@ -5,14 +5,18 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiHome, FiTrendingUp, FiHeart, FiShield } from "react-icons/fi";
 import { FaCar, FaBriefcase } from "react-icons/fa";
-// --- 1. UPDATED IMPORT to use your new component ---
-import CloudinaryImage from "@/components/cloudinary/CloudinaryImage";
+import dynamic from "next/dynamic";
+import { Button } from "@/components/ui/Button";
+
+const Hero3D = dynamic(() => import("./Hero3D"), {
+  ssr: false,
+  loading: () => <div className="absolute inset-0 -z-10 bg-brand-light" />,
+});
 
 // --- 2. UPDATED TYPE DEFINITION ---
 interface HeroContent {
   headline: string;
   subheadline: string;
-  publicId: string; // Changed from imageUrl
 }
 
 interface FloatingIconProps {
@@ -21,37 +25,32 @@ interface FloatingIconProps {
   duration: number;
 }
 
-// --- 3. UPDATED COMPONENT DATA with publicId ---
+// --- 3. UPDATED COMPONENT DATA ---
 const rotatingTextData: HeroContent[] = [
   {
     headline: "Clarity in Complexity.",
     subheadline:
       "We are your unwavering advocates, turning the tide on risk and securing your world.",
-    publicId: "v1721081593/banner02_parfef.png",
   },
   {
     headline: "Your Future, Secured.",
     subheadline:
       "Tailored insurance solutions designed to protect what you've built and what's to come.",
-    publicId: "v1721081593/fire_b3ud1a.png",
   },
   {
     headline: "Partners in Protection.",
     subheadline:
       "Navigating the world of insurance so you can focus on what matters most.",
-    publicId: "v1721081593/services_bibxrl.png",
   },
   {
     headline: "Confidence for Tomorrow.",
     subheadline:
       "From personal assets to business ventures, we provide the peace of mind you deserve.",
-    publicId: "v1721081593/hero_image_kvdq0z.png",
   },
   {
     headline: "Beyond a Policy. A Promise.",
     subheadline:
       "Our commitment is to you – your advocate in claims, your guide in coverage.",
-    publicId: "v1721081593/ChatGPT_Image_Jul_12_2025_04_40_04_PM_jjvgb3.png",
   },
 ];
 
@@ -62,9 +61,17 @@ const FloatingIcon: React.FC<FloatingIconProps> = ({
   duration,
 }) => (
   <motion.div
-    className={`absolute text-brand-secondary/10 hidden md:block ${className}`}
-    animate={{ y: [0, -20, 0, 10, 0], x: [0, 10, -10, 0, 10] }}
-    transition={{ duration, ease: "easeInOut", repeat: Infinity }}
+    className={`absolute p-4 rounded-2xl glass text-brand-secondary/80 hidden md:flex items-center justify-center ${className}`}
+    animate={{
+      y: [0, -15, 0],
+      rotate: [0, 5, -5, 0],
+    }}
+    transition={{
+      duration,
+      ease: "easeInOut",
+      repeat: Infinity,
+      repeatType: "reverse",
+    }}
   >
     {icon}
   </motion.div>
@@ -82,29 +89,13 @@ export default function DynamicHeroSection() {
   }, []);
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-brand-light p-4 sm:p-6">
-      <AnimatePresence>
-        <motion.div
-          key={index}
-          className="absolute inset-0"
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 1.05 }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
-        >
-          {/* --- 4. REPLACED old component with the new CloudinaryImage --- */}
-          <CloudinaryImage
-            publicId={rotatingTextData[index].publicId}
-            alt={rotatingTextData[index].headline}
-            // --- Crucial LCP Optimization ---
-            priority={index === 0}
-          />
-        </motion.div>
-      </AnimatePresence>
+    <section className=" relative flex min-h-screen items-center justify-center overflow-hidden bg-brand-light p-4 sm:p-6">
+      {/* 3D Background Layer */}
+      <Hero3D />
 
-      <div className="absolute inset-0 z-10 bg-gradient-to-t from-brand-light via-brand-light/80 to-transparent"></div>
+      <div className="absolute inset-0 z-10 bg-linear-to-t from-brand-light via-brand-light/50 to-transparent"></div>
 
-      <div className="absolute inset-0 z-20">
+      <div className="absolute inset-0 z-20 pointer-events-none">
         <FloatingIcon
           icon={<FiHome size={60} />}
           className="top-1/4 left-1/4"
@@ -177,11 +168,21 @@ export default function DynamicHeroSection() {
           </AnimatePresence>
         </div>
 
-        <Link
-          href="/contact"
-          className="mt-8 inline-block transform rounded-full bg-brand-primary py-3 px-8 font-bold text-white shadow-lg shadow-brand-primary/20 transition-all hover:scale-105 hover:bg-brand-primary-light md:mt-10 md:py-4 md:px-10"
-        >
-          Begin Your Journey to Security
+        <Link href="/contact">
+          <Button
+            variant="primary"
+            size="lg"
+            className="mt-8 md:mt-12 shadow-brand-primary/30 group"
+          >
+            <span className="relative z-10">Begin Your Journey</span>
+            <motion.span
+              className="relative z-10 ml-2 inline-block"
+              animate={{ x: [0, 5, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              →
+            </motion.span>
+          </Button>
         </Link>
       </div>
     </section>

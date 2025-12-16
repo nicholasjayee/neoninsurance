@@ -104,9 +104,11 @@ const PartnersSection: React.FC = () => {
         </div>
         <Marquee
           gradient={true}
-          gradientColor={"rgb(249, 250, 251)"}
-          speed={40}
+          gradientColor="#f8fafc" // brand-light
+          gradientWidth={100}
+          speed={30}
           pauseOnHover={true}
+          className="py-4"
         >
           {partners.map((partner, index) => (
             <a
@@ -114,15 +116,15 @@ const PartnersSection: React.FC = () => {
               href={partner.websiteUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mx-12 flex items-center justify-center h-16  transition-all duration-300"
+              className="mx-12 flex items-center justify-center h-20 opacity-60 grayscale transition-all duration-500 hover:opacity-100 hover:grayscale-0"
               title={partner.name}
             >
               {/* --- Using the next/image component for performance --- */}
               <Image
                 src={partner.logoUrl}
                 alt={`${partner.name} logo`}
-                height={64} // Corresponds to h-16
-                width={160} // A generous width to maintain aspect ratio
+                height={80} // Corresponds to h-20
+                width={180} // A generous width to maintain aspect ratio
                 style={{
                   objectFit: "contain", // Replicates object-contain
                   width: "auto", // Allows the image to shrink to fit the height
