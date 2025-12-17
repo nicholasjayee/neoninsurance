@@ -171,7 +171,9 @@ export default function RootLayout({
       className={`${inter.variable} ${robotoMono.variable} ${spaceGrotesk.variable}`}
     >
       <body className={`font-sans antialiased bg-white`}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <div className="">{children}</div>
+        </Providers>
 
         <div id="portal-root"></div>
       </body>

@@ -126,10 +126,12 @@ const PartnersSection: React.FC = () => {
                 height={80} // Corresponds to h-20
                 width={180} // A generous width to maintain aspect ratio
                 style={{
-                  objectFit: "contain", // Replicates object-contain
-                  width: "auto", // Allows the image to shrink to fit the height
+                  objectFit: "contain",
+                  width: "auto",
                   height: "100%",
                 }}
+                loading="lazy"
+                sizes="(max-width: 768px) 100px, 180px"
               />
             </a>
           ))}

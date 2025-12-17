@@ -172,7 +172,7 @@ export default function RootLayout({
       <body className={`font-sans antialiased bg-white`}>
         <Providers>
           <Header />
-          <div className="md:mt-8">{children}</div>
+          <div className="pt-20 md:pt-24">{children}</div>
 
           <Footer />
           <NeonChatbot />

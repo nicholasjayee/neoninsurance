@@ -119,20 +119,6 @@ export default function NotFound() {
         )}
 
         <div className="mt-8 space-y-6">
-          <form
-            action="/search"
-            method="get"
-            className="relative max-w-sm mx-auto"
-          >
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-brand-text-tertiary" />
-            <input
-              type="search"
-              name="q"
-              placeholder="Try searching for what you need..."
-              className="w-full pl-12 pr-4 py-3 rounded-lg bg-brand-light border-2 border-brand-border text-brand-text-primary focus:ring-2 focus:ring-brand-primary focus:border-brand-primary transition-all"
-            />
-          </form>
-
           <div className="flex justify-center flex-wrap gap-4">
             <Button href="/">
               <Home size={18} />
