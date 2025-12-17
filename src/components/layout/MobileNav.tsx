@@ -189,7 +189,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
         onClick={() => setIsOpen(true)}
         className={clsx(
           "transition-colors relative z-50",
-          scrolled ? "text-brand-text-primary" : "text-brand-text-onDark"
+          scrolled ? "text-brand-text-primary" : "text-brand-text-primary"
         )}
         aria-label="Open menu"
       >
