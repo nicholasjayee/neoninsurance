@@ -1,1 +1,5 @@
-[]
+[
+  { "email": "subscriber1@example.com", "isActive": true },
+  { "email": "subscriber2@example.com", "isActive": true },
+  { "email": "unsubscribed@example.com", "isActive": false }
+]

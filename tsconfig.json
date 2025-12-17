@@ -16,7 +16,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     // "jsx": "react-jsx",
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
       {
@@ -25,12 +25,9 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "@prisma/client": [
-        "./prisma/generated/prisma/client"
-      ]
+      "@/*": ["./src/*"],
+      "@prisma/client": ["./prisma/generated/prisma/client"],
+      "@prisma/client/runtime/*": ["./node_modules/@prisma/client/runtime/*"]
     }
   },
   "include": [

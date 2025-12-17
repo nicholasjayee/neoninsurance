@@ -1,15 +1,18 @@
-[
-  {
-    "key": "main",
-    "name": "Neon Insurance Brokers Ltd",
-    "telephone": "+256 123 456 789",
-    "email": "info@neoninsurance.co.ug",
-    "addressLine1": "Plot 123, Kampala Road",
-    "addressLine2": "Neon Towers, 4th Floor",
-    "poBox": "P.O. Box 12345, Kampala",
-    "url": "https://neoninsurance.co.ug",
-    "defaultTitle": "Neon Insurance Brokers Ltd | Expert Risk Management",
-    "defaultDescription": "Leading insurance brokers in Uganda providing tailored risk management solutions.",
-    "defaultKeywords": "insurance, uganda, brokers, risk management"
-  }
-]
+{
+  "key": "main",
+  "name": "Neon Insurance Brokers Ltd",
+  "telephone": "0200 940878",
+  "email": "info@neoninsurance.co.ug",
+  "addressLine1": "Plot 123, Kampala Road",
+  "addressLine2": "Kampala, Uganda",
+  "poBox": "P.O. Box 12345",
+  "url": "https://neoninsurancebrokersltd-cms.vercel.app",
+  "facebookUrl": "https://www.facebook.com/neoninsurance/",
+  "twitterUrl": "https://twitter.com/neoninsurance",
+  "instagramUrl": "https://www.instagram.com/neoninsurancebrokersltd?igsh=MXZvZDdvdnlibjNyNQ==",
+  "linkedinUrl": "https://www.linkedin.com/company/neon-insurance-brokers-ltd",
+  "youtubeUrl": "",
+  "defaultTitle": "Neon Insurance Brokers Ltd | Expert Risk Management in Kampala",
+  "defaultDescription": "Neon Insurance Brokers provides expert risk assessment, tailored insurance solutions, and dedicated claims advocacy in Uganda.",
+  "defaultKeywords": "insurance broker Uganda, Kampala insurance, risk management, motor insurance, health insurance"
+}

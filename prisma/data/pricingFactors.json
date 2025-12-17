@@ -1,1 +1,9 @@
-[]
+[
+  { "key": "base_rate", "value": 50, "description": "Base monthly premium rate" },
+  { "key": "age_under_25_multiplier", "value": 1.5, "description": "Multiplier for drivers under 25" },
+  { "key": "age_over_60_multiplier", "value": 1.1, "description": "Multiplier for drivers over 60" },
+  { "key": "coverage_basic_multiplier", "value": 0.8, "description": "Multiplier for basic coverage" },
+  { "key": "coverage_premium_multiplier", "value": 1.3, "description": "Multiplier for premium coverage" },
+  { "key": "car_value_factor", "value": 0.002, "description": "Multiplier per dollar of car value (10/5000)" },
+  { "key": "mileage_factor", "value": 0.002, "description": "Multiplier per mile (2/1000)" }
+]

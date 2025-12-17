@@ -1,1 +1,5 @@
-[]
+[
+  { "zipCode": "12345", "floodRisk": "LOW", "theftRisk": "MEDIUM", "fireRisk": "HIGH", "score": 65 },
+  { "zipCode": "90210", "floodRisk": "LOW", "theftRisk": "LOW", "fireRisk": "MEDIUM", "score": 85 },
+  { "zipCode": "10001", "floodRisk": "MEDIUM", "theftRisk": "HIGH", "fireRisk": "LOW", "score": 55 }
+]

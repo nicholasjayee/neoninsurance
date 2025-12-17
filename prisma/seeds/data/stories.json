@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "year": "2004",
+    "title": "Our Founding",
+    "icon": "flag",
+    "description": "Founded with over two decades of experience, Neon Insurance Brokers was established with a clear mission: to provide professional, client-first insurance brokerage services in Uganda."
+  },
+  {
+    "year": "December 2013",
+    "title": "Pioneering Passenger Protection",
+    "icon": "bus",
+    "description": "In partnership with UAP Insurance, we launched 'Musabaaze Sure,' a first-of-its-kind, affordable travel insurance policy designed to protect everyday upcountry bus travelers."
+  },
+  {
+    "year": "Official Recognition",
+    "title": "Licensed & Certified",
+    "icon": "certificate",
+    "description": "As a fully licensed broker and a proud member of the Insurance Brokers Association of Uganda (IBAU), we are committed to upholding the highest standards of ethics and professional practice."
+  },
+  {
+    "year": "Consistent Growth",
+    "title": "Building Trust, One Client at a Time",
+    "icon": "users",
+    "description": "Through dedicated advocacy and tailored solutions, we have steadily grown our client base, becoming a trusted partner for both personal and commercial insurance needs."
+  },
+  {
+    "year": "Today",
+    "title": "A Commitment to the Future",
+    "icon": "globe",
+    "description": "Our focus remains on empowering a thriving and secure community by providing unparalleled expertise and unwavering support, ensuring our clients are protected."
+  }
+]

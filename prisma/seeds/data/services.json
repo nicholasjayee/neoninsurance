@@ -1,1 +1,11 @@
-[]
+[
+  { "name": "Motor Comprehensive", "icon": "car", "category": "PERSONAL" },
+  { "name": "Motor Third Party", "icon": "shield", "category": "PERSONAL" },
+  { "name": "Digital Stickers", "icon": "qrcode", "category": "PERSONAL" },
+  { "name": "Life Assurance", "icon": "heartbeat", "category": "PERSONAL" },
+  { "name": "Industrial All Risks (IAR)", "icon": "building", "category": "COMMERCIAL" },
+  { "name": "Professional Indemnity", "icon": "briefcase", "category": "COMMERCIAL" },
+  { "name": "VSLA", "icon": "users-cog", "category": "COMMERCIAL" },
+  { "name": "Local marine cargo", "icon": "anchor", "category": "COMMERCIAL" },
+  { "name": "Digital sticker motor third party", "icon": "qrcode", "category": "COMMERCIAL" }
+]

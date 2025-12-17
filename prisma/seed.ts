@@ -43,18 +43,16 @@ async function main() {
   }
 
   console.log("Seeding Site Config...");
-  if (Array.isArray(siteConfig) && siteConfig.length > 0) {
-    await prisma.siteConfig.upsert({
-      where: { key: "main" },
-      update: siteConfig[0],
-      create: siteConfig[0],
-    });
-  }
+  await prisma.siteConfig.upsert({
+    where: { key: "main" },
+    update: siteConfig,
+    create: siteConfig,
+  });
 
   // --- Seed Previous Models ---
 
   console.log("Seeding Blog Posts...");
-  for (const post of (blogPosts as any[])) {
+  for (const post of blogPosts) {
     await prisma.blogPost.upsert({
       where: { slug: post.slug },
       update: {
@@ -69,7 +67,7 @@ async function main() {
   }
 
   console.log("Seeding Claims...");
-  for (const claim of (claims as any[])) {
+  for (const claim of claims) {
     await prisma.claim.create({
       data: {
         ...claim,
@@ -91,7 +89,7 @@ async function main() {
   }
 
   console.log("Seeding Competitors...");
-  for (const comp of (competitors as any[])) {
+  for (const comp of competitors) {
     await prisma.competitor.upsert({
       where: { name: comp.name },
       update: comp,
@@ -100,17 +98,17 @@ async function main() {
   }
 
   console.log("Seeding FAQs...");
-  for (const faq of (faqs as any[])) {
+  for (const faq of faqs) {
     await prisma.faq.create({ data: faq });
   }
 
   console.log("Seeding Chatbot Knowledge...");
-  for (const kb of (knowledgeBase as any[])) {
+  for (const kb of knowledgeBase) {
     await prisma.chatbotKnowledge.create({ data: kb });
   }
 
   console.log("Seeding Pricing Factors...");
-  for (const factor of (pricingFactors as any[])) {
+  for (const factor of pricingFactors) {
     await prisma.pricingFactor.upsert({
       where: { key: factor.key },
       update: factor,
@@ -119,7 +117,7 @@ async function main() {
   }
 
   console.log("Seeding Risk Zones...");
-  for (const zone of (riskZones as any[])) {
+  for (const zone of riskZones) {
     await prisma.riskZone.upsert({
       where: { zipCode: zone.zipCode },
       update: zone,
@@ -128,7 +126,7 @@ async function main() {
   }
 
   console.log("Seeding Subscribers...");
-  for (const sub of (subscribers as any[])) {
+  for (const sub of subscribers) {
     await prisma.subscriber.upsert({
       where: { email: sub.email },
       update: sub,

@@ -1,1 +1,514 @@
-[]
+[
+  {
+    "category": "greetings",
+    "patterns": [
+      "/^(hi|hello|hey|yo|sup|hiya|holla)$/i",
+      "/good (morning|afternoon|evening|day)/i",
+      "/how are you/i",
+      "/nice to meet you/i",
+      "/is anyone there/i",
+      "/^(greetings|salutations|howdy)$/i",
+      "/what's up/i",
+      "/how's it going/i",
+      "/pleased to meet you/i",
+      "/anybody (here|available)/i",
+      "/can you hear me/i",
+      "/are you (there|online|available)/i",
+      "/^(oi|ahoy|heya)$/i",
+      "/top of the morning/i",
+      "/how do you do/i"
+    ],
+    "keywords": [
+      "hello", "hi", "hey", "greetings", "morning", "afternoon", "evening", "sup", "yo", "neon", "there", "anyone", "howdy", "available", "online"
+    ],
+    "responses": [
+      "Hello! I'm Neon AI, your insurance assistant. How can I help you today?",
+      "Hi there! Welcome to Neon Insurance. What can I assist you with?",
+      "Greetings! I'm here to help you with all your insurance needs."
+    ],
+    "priority": 10
+  },
+  {
+    "category": "getting_started",
+    "patterns": [
+      "/how (do|can) i (start|begin)/i",
+      "/new to insurance/i",
+      "/what do i need/i",
+      "/where do i start/i",
+      "/help me (start|choose|decide)/i",
+      "/first time/i",
+      "/never (had|bought) insurance/i",
+      "/don't know (where|how) to (start|begin)/i",
+      "/what are my options/i",
+      "/guide me/i",
+      "/i'm (confused|lost)/i",
+      "/explain insurance to me/i",
+      "/what should i (get|buy)/i",
+      "/recommend something/i",
+      "/beginner.*insurance/i",
+      "/starting out/i"
+    ],
+    "keywords": [
+      "start", "begin", "beginner", "new", "first", "step", "guide", "introduction", "help", "process", "confused", "lost", "options", "recommend"
+    ],
+    "responses": [
+      "Welcome! To get started: 1) Tell me what you need to protect (car, home, health), 2) I can give you a quick quote, or 3) Connect you with an agent.",
+      "Starting is easy. Are you looking for personal insurance (like car or health) or business coverage?"
+    ],
+    "priority": 10
+  },
+  {
+    "category": "motor_comprehensive",
+    "patterns": [
+      "/comprehensive/i",
+      "/full cover/i",
+      "/cover.*everything/i",
+      "/protect.*my car/i",
+      "/insurance for my (car|vehicle|auto)/i",
+      "/against (theft|fire|accident)/i",
+      "/complete (car|vehicle) (insurance|cover)/i",
+      "/all.*risks/i",
+      "/total (protection|coverage)/i",
+      "/best (car|motor) insurance/i",
+      "/maximum (cover|protection)/i",
+      "/fully (insured|covered)/i",
+      "/own damage/i",
+      "/kasko/i",
+      "/want.*everything covered/i",
+      "/premium (car|motor) insurance/i",
+      "/top.*cover/i"
+    ],
+    "keywords": [
+      "car", "motor", "vehicle", "auto", "comprehensive", "collision", "theft", "fire", "accident", "driving", "toyota", "subaru", "benz", "full", "complete", "kasko", "own damage", "all risks"
+    ],
+    "responses": [
+      "Our Motor Comprehensive Insurance covers accidents, theft, fire, and third-party liability. It's the best protection for your vehicle.",
+      "Comprehensive cover protects your car against damage, theft, and fire, plus damage to others. Would you like a quote for your vehicle?"
+    ],
+    "priority": 9
+  },
+  {
+    "category": "motor_third_party",
+    "patterns": [
+      "/third party/i",
+      "/tpol/i",
+      "/minimum cover/i",
+      "/basic cover/i",
+      "/cheapest (car|motor)/i",
+      "/police sticker/i",
+      "/just.*traffic/i",
+      "/mandatory insurance/i",
+      "/legal requirement/i",
+      "/only.*others/i",
+      "/liability.*only/i",
+      "/budget (car|motor) insurance/i",
+      "/affordable.*car/i",
+      "/bare minimum/i",
+      "/just to be legal/i",
+      "/tpo/i",
+      "/third.*party.*only/i"
+    ],
+    "keywords": [
+      "third", "party", "basic", "minimum", "police", "sticker", "mandatory", "law", "cheap", "lowest", "traffic", "tpo", "tpol", "liability", "legal", "requirement"
+    ],
+    "responses": [
+      "Third-party insurance is the mandatory minimum in Uganda. It covers damage to other people's property or injuries, but NOT your own car.",
+      "We offer Third-Party Only (TPO) insurance. It keeps you legal on the road but doesn't cover your own vehicle repairs."
+    ],
+    "priority": 8
+  },
+  {
+    "category": "boda_boda",
+    "patterns": [
+      "/boda/i",
+      "/motorcycle/i",
+      "/bike insurance/i",
+      "/two wheeler/i",
+      "/ride a bike/i",
+      "/motorbike/i",
+      "/scooter/i",
+      "/boda.*boda/i",
+      "/rider insurance/i",
+      "/passenger.*bike/i",
+      "/commercial.*bike/i",
+      "/delivery.*bike/i",
+      "/uber.*bike/i",
+      "/bolt.*bike/i",
+      "/safeboda/i",
+      "/motorcycle.*taxi/i"
+    ],
+    "keywords": [
+      "boda", "motorcycle", "bike", "rider", "helmet", "passenger", "two wheeler", "vespa", "boxer", "motorbike", "scooter", "delivery", "taxi"
+    ],
+    "responses": [
+      "We have special insurance rates for Boda Bodas and motorcycles. It covers both the rider and the passenger.",
+      "Looking to insure a Boda Boda? We offer both Comprehensive and Third-Party motorcycle insurance."
+    ],
+    "priority": 9
+  },
+  {
+    "category": "health_insurance",
+    "patterns": [
+      "/medical insurance/i",
+      "/health cover/i",
+      "/insurance for.*family/i",
+      "/cover.*sickness/i",
+      "/pay.*hospital/i",
+      "/medical bill/i",
+      "/i am sick/i",
+      "/doctor.*visit/i",
+      "/hospitalization/i",
+      "/surgery.*cover/i",
+      "/medicine.*cover/i",
+      "/dental.*insurance/i",
+      "/maternity.*cover/i",
+      "/outpatient/i",
+      "/inpatient/i",
+      "/medical.*expenses/i",
+      "/health.*plan/i"
+    ],
+    "keywords": [
+      "health", "medical", "doctor", "hospital", "sick", "clinic", "medicine", "dental", "optical", "maternity", "checkup", "illness", "family", "surgery", "treatment", "prescription"
+    ],
+    "responses": [
+      "Our Health Insurance covers hospital stays, surgeries, outpatient care, and prescriptions. We have plans for individuals and families.",
+      "Protect your health! Our medical cover gives you access to the best hospitals in Uganda. Do you need a plan for yourself or a family?"
+    ],
+    "priority": 8
+  },
+  {
+    "category": "travel_insurance",
+    "patterns": [
+      "/travel insurance/i",
+      "/going abroad/i",
+      "/flying to/i",
+      "/planning a trip/i",
+      "/need a visa/i",
+      "/traveling to/i",
+      "/lost luggage/i",
+      "/schengen.*visa/i",
+      "/trip.*cover/i",
+      "/vacation.*insurance/i",
+      "/international.*travel/i",
+      "/flight.*cancel/i",
+      "/emergency.*abroad/i",
+      "/overseas.*cover/i",
+      "/tourist.*insurance/i",
+      "/business.*trip/i",
+      "/study.*abroad/i"
+    ],
+    "keywords": [
+      "travel", "trip", "flight", "abroad", "visa", "schengen", "luggage", "baggage", "plane", "overseas", "vacation", "holiday", "dubai", "europe", "cancel", "emergency", "tourist"
+    ],
+    "responses": [
+      "Our Travel Insurance is perfect for visa applications (including Schengen). It covers medical emergencies abroad, lost luggage, and flight cancellations.",
+      "Traveling soon? We cover medical emergencies and travel inconveniences. Where are you planning to travel to?"
+    ],
+    "priority": 8
+  },
+  {
+    "category": "home_insurance",
+    "patterns": [
+      "/domestic package/i",
+      "/house owner/i",
+      "/i (own|have) a (house|home)/i",
+      "/protect my (home|house|property)/i",
+      "/insurance for my house/i",
+      "/fire insurance/i",
+      "/against thieves/i",
+      "/burglary.*cover/i",
+      "/household.*insurance/i",
+      "/property.*insurance/i",
+      "/building.*insurance/i",
+      "/contents.*cover/i",
+      "/home.*owner/i",
+      "/tenant.*insurance/i",
+      "/apartment.*insurance/i",
+      "/flood.*damage/i",
+      "/natural.*disaster/i"
+    ],
+    "keywords": [
+      "home", "house", "property", "building", "fire", "burglary", "robbery", "thieves", "household", "items", "electronics", "domestic", "rent", "landlord", "tenant", "apartment", "contents"
+    ],
+    "responses": [
+      "Home Insurance protects your building and contents against fire, theft, and natural disasters. We even cover electronics and domestic workers.",
+      "Secure your home against burglary and fire. Do you own the house or are you renting?"
+    ],
+    "priority": 7
+  },
+  {
+    "category": "claims_general",
+    "patterns": [
+      "/file.*claim/i",
+      "/report.*accident/i",
+      "/make a claim/i",
+      "/submit a claim/i",
+      "/i had an accident/i",
+      "/my car was (hit|stolen)/i",
+      "/bad news/i",
+      "/something happened/i",
+      "/need to claim/i",
+      "/claim.*process/i",
+      "/how.*claim/i",
+      "/lodge.*claim/i",
+      "/incident.*report/i",
+      "/damage.*report/i",
+      "/theft.*report/i",
+      "/accident.*report/i",
+      "/claim.*form/i"
+    ],
+    "keywords": [
+      "claim", "accident", "crash", "stolen", "hit", "damaged", "injured", "report", "file", "submit", "form", "happened", "process", "incident", "lodge", "damage"
+    ],
+    "responses": [
+      "I'm sorry to hear about the incident. To file a claim, please have your policy number ready. You can submit details here or call our hotline.",
+      "To assist with your claim, I need to know: 1) What happened? 2) When did it happen? You can also upload photos in our Claims Center."
+    ],
+    "priority": 9
+  },
+  {
+    "category": "claims_status",
+    "patterns": [
+      "/check.*claim/i",
+      "/track.*claim/i",
+      "/status of my claim/i",
+      "/how far is my claim/i",
+      "/update on my claim/i",
+      "/is my claim approved/i",
+      "/claim.*progress/i",
+      "/where is my claim/i",
+      "/claim.*stage/i",
+      "/when.*claim.*paid/i",
+      "/claim.*reference/i",
+      "/follow.*up.*claim/i",
+      "/claim.*number/i",
+      "/claim.*pending/i",
+      "/claim.*processing/i",
+      "/claim.*timeline/i"
+    ],
+    "keywords": [
+      "status", "check", "track", "progress", "update", "far", "stage", "approved", "pending", "ref", "reference", "timeline", "processing", "follow"
+    ],
+    "responses": [
+      "You can check your claim status by logging into your account or providing me with your claim reference number.",
+      "To track your claim, visit the Claims Center on our website. You'll see real-time updates."
+    ],
+    "priority": 8
+  },
+  {
+    "category": "quotes_general",
+    "patterns": [
+      "/how much/i",
+      "/get.*quote/i",
+      "/give me a price/i",
+      "/what is the cost/i",
+      "/calculate premium/i",
+      "/is it expensive/i",
+      "/estimate for/i",
+      "/price.*for/i",
+      "/quotation/i",
+      "/rate.*for/i",
+      "/what.*pay/i",
+      "/monthly.*payment/i",
+      "/annual.*premium/i",
+      "/cost.*of.*insurance/i",
+      "/pricing/i",
+      "/how.*affordable/i",
+      "/budget.*for/i"
+    ],
+    "keywords": [
+      "quote", "price", "cost", "premium", "pay", "rate", "expensive", "cheap", "affordable", "calculate", "calculator", "estimate", "value", "worth", "quotation", "pricing", "monthly", "annual"
+    ],
+    "responses": [
+      "I can give you a quick estimate! What type of insurance do you need a price for? (Motor, Health, Travel, etc.)",
+      "Premiums depend on the coverage type and value. For example, Comprehensive Motor starts at about 4% of vehicle value. What are you looking to insure?"
+    ],
+    "priority": 9
+  },
+  {
+    "category": "payment_methods",
+    "patterns": [
+      "/how.*pay/i",
+      "/payment option/i",
+      "/can i use (momo|money)/i",
+      "/bank transfer/i",
+      "/pay in installments/i",
+      "/do you accept/i",
+      "/payment.*method/i",
+      "/mobile.*money/i",
+      "/credit.*card/i",
+      "/debit.*card/i",
+      "/cash.*payment/i",
+      "/monthly.*payment/i",
+      "/split.*payment/i",
+      "/payment.*plan/i",
+      "/mtn.*money/i",
+      "/airtel.*money/i",
+      "/visa.*card/i"
+    ],
+    "keywords": [
+      "pay", "payment", "money", "cash", "bank", "transfer", "mobile", "mtn", "airtel", "momo", "installment", "credit", "card", "visa", "mastercard", "method", "option", "plan"
+    ],
+    "responses": [
+      "We accept Mobile Money (MTN/Airtel), Bank Transfers, and VISA/Mastercard. You can also pay in installments for annual policies.",
+      "Payment is easy via MTN MoMo or Airtel Money. We also accept bank transfers. Would you like our payment details?"
+    ],
+    "priority": 6
+  },
+  {
+    "category": "contact_support",
+    "patterns": [
+      "/phone number/i",
+      "/speak.*agent/i",
+      "/talk to.*human/i",
+      "/call you/i",
+      "/your email/i",
+      "/where are you/i",
+      "/visit your office/i",
+      "/contact details/i",
+      "/reach.*you/i",
+      "/customer.*service/i",
+      "/support.*team/i",
+      "/live.*agent/i",
+      "/real.*person/i",
+      "/office.*location/i",
+      "/working.*hours/i",
+      "/telephone/i",
+      "/hotline/i"
+    ],
+    "keywords": [
+      "contact", "call", "phone", "email", "support", "help", "agent", "human", "person", "address", "location", "office", "kampala", "reach", "talk", "customer", "service", "hotline", "telephone"
+    ],
+    "responses": [
+      "You can reach us at +256 123 456 789 or visit our office in Kampala. Our team is available 8am-5pm Mon-Fri.",
+      "Need to speak to a human? Call our hotline +256 123 456 789 or email support@neoninsurance.com."
+    ],
+    "priority": 7
+  },
+  {
+    "category": "yes_affirmative",
+    "patterns": [
+      "/^(yes|yeah|sure|ok|alright|fine|correct|please)$/i",
+      "/i would like that/i",
+      "/sounds good/i",
+      "/go ahead/i",
+      "/^(yep|yup|uh huh|absolutely)$/i",
+      "/that's right/i",
+      "/exactly/i",
+      "/definitely/i",
+      "/of course/i",
+      "/i agree/i",
+      "/affirmative/i",
+      "/indeed/i",
+      "/certainly/i",
+      "/for sure/i",
+      "/you bet/i"
+    ],
+    "keywords": [
+      "yes", "yeah", "yep", "sure", "ok", "okay", "alright", "fine", "correct", "right", "agree", "please", "absolutely", "definitely", "certainly"
+    ],
+    "responses": [
+      "Great! How can I proceed? Do you need a quote or more information?",
+      "Okay! Please tell me a bit more about what you need."
+    ],
+    "priority": 5
+  },
+  {
+    "category": "no_negative",
+    "patterns": [
+      "/^(no|nope|nah|cancel|stop)$/i",
+      "/not really/i",
+      "/i don't think so/i",
+      "/changed my mind/i",
+      "/^(nay|negative|never mind)$/i",
+      "/not interested/i",
+      "/don't want/i",
+      "/not for me/i",
+      "/maybe later/i",
+      "/not now/i",
+      "/forget it/i",
+      "/not at the moment/i",
+      "/i'll pass/i",
+      "/no thanks/i",
+      "/that's wrong/i"
+    ],
+    "keywords": [
+      "no", "nope", "nah", "cancel", "stop", "wrong", "incorrect", "neither", "negative", "never", "pass", "later", "not interested"
+    ],
+    "responses": [
+      "Understood. Is there something else I can help you with?",
+      "No problem. Let me know if you have any other questions."
+    ],
+    "priority": 5
+  },
+  {
+    "category": "gratitude",
+    "patterns": [
+      "/thank/i",
+      "/appreciate it/i",
+      "/good job/i",
+      "/that helps/i",
+      "/thanks a lot/i",
+      "/much appreciated/i",
+      "/you're (great|awesome|helpful)/i",
+      "/well done/i",
+      "/perfect/i",
+      "/excellent/i",
+      "/brilliant/i",
+      "/very helpful/i",
+      "/that's helpful/i",
+      "/cheers/i",
+      "/grateful/i"
+    ],
+    "keywords": [
+      "thanks", "thank", "cool", "great", "awesome", "appreciate", "good", "nice", "lovely", "helpful", "perfect", "excellent", "brilliant", "cheers", "grateful"
+    ],
+    "responses": [
+      "You're welcome! Happy to help.",
+      "Glad I could help! Stay safe.",
+      "Anytime! Let me know if you need anything else."
+    ],
+    "priority": 2
+  },
+  {
+    "category": "goodbye",
+    "patterns": [
+      "/bye/i",
+      "/see you/i",
+      "/have a good (day|night)/i",
+      "/later/i",
+      "/goodbye/i",
+      "/catch you later/i",
+      "/talk to you later/i",
+      "/gotta go/i",
+      "/i'm leaving/i",
+      "/take care/i",
+      "/until next time/i",
+      "/see ya/i",
+      "/peace out/i",
+      "/farewell/i",
+      "/adios/i"
+    ],
+    "keywords": [
+      "bye", "goodbye", "later", "night", "leave", "exit", "end", "farewell", "adios", "peace", "care", "see you"
+    ],
+    "responses": [
+      "Goodbye! Drive safely and stay protected.",
+      "See you later! Feel free to come back if you have more questions."
+    ],
+    "priority": 2
+  },
+  {
+    "category": "default",
+    "patterns": [
+      "/.*/i"
+    ],
+    "keywords": [],
+    "responses": [
+      "I'm not sure I understand. I can help with Car, Health, Travel, or Home insurance. Which one interests you?",
+      "I'm still learning! Could you try asking simply, like 'Quote for car' or 'How to claim'?",
+      "I didn't quite catch that. Are you asking about a specific type of insurance?"
+    ],
+    "priority": 0
+  }
+]

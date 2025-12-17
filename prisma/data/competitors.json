@@ -1,1 +1,5 @@
-[]
+[
+  { "name": "Geico", "avgMonthlyRate": 150, "neonSavingsPercentage": 0.20 },
+  { "name": "State Farm", "avgMonthlyRate": 160, "neonSavingsPercentage": 0.18 },
+  { "name": "Progressive", "avgMonthlyRate": 145, "neonSavingsPercentage": 0.15 }
+]

@@ -1,1 +1,58 @@
-[]
+[
+  {
+    "name": "Musasizi-Elizabeth",
+    "role": "chief Operations officer",
+    "imageUrl": "/img/about/Musasizi-Elizabeth.png",
+    "quote": "We build trust through seamless execution. My goal is to ensure our operational process is as reliable and clear as the protection we provide.",
+    "roleColor": "brand-primary",
+    "order": 1
+  },
+  {
+    "name": "KIgemuzi-Rashid",
+    "role": "Manager",
+    "imageUrl": "/img/about/kigemuzi-rashid.png",
+    "quote": "Our team is your advocate. We lead with expertise to navigate the complexities of insurance, ensuring you are always protected and prioritized.",
+    "roleColor": "brand-primary",
+    "order": 2
+  },
+  {
+    "name": "Nambiro-Winfred",
+    "role": "Marketing",
+    "imageUrl": "/img/about/Nambiro-Winfred(-Marketing).png",
+    "quote": "My passion is connecting our promise of security with the community we serve, making complex insurance simple and accessible for everyone",
+    "roleColor": "brand-accent",
+    "order": 3
+  },
+  {
+    "name": "Mr.Gilbert Akampa",
+    "role": "UnderWriting",
+    "imageUrl": "/img/about/Mr.Gilbert Akampa (UnderWritting).png",
+    "quote": "",
+    "roleColor": "brand-primary",
+    "order": 4
+  },
+  {
+    "name": "Orishaba Patience Akankwatsa",
+    "role": "Finance",
+    "imageUrl": "/img/about/Patience.png",
+    "quote": "",
+    "roleColor": "brand-secondary-dark",
+    "order": 5
+  },
+  {
+    "name": "Semambo Umar Kigemuzi",
+    "role": "Claims Assistant",
+    "imageUrl": "/img/about/Umar-Semambo(Assessor).png",
+    "quote": "",
+    "roleColor": "brand-secondary-dark",
+    "order": 6
+  },
+  {
+    "name": "Ndiho-Gregory",
+    "role": "Acounts-Executive & IT",
+    "imageUrl": "/img/about/Ndiho-Gregory(-Acounts-Executive.png",
+    "quote": "",
+    "roleColor": "brand-accent",
+    "order": 7
+  }
+]
