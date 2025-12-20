@@ -1,5 +1,11 @@
 import React, { ReactNode } from "react";
-import { FaUserShield, FaBuilding, FaHandshake, FaTools, FaInfoCircle } from "react-icons/fa";
+import {
+  FaUserShield,
+  FaBuilding,
+  FaHandshake,
+  FaTools,
+  FaInfoCircle,
+} from "react-icons/fa";
 
 // --- Type Definitions for the Content Structure ---
 interface ParagraphContent {
@@ -59,6 +65,7 @@ export interface NavLinkItem {
 }
 
 // --- Complete and Unabridged Data ---
+// /services
 
 export const solutionsData: Solution[] = [
   {
@@ -392,10 +399,11 @@ export const resourcesData: Solution[] = [
     color: "#10B981",
     useDisplayRoute: false, // Direct links, not /display/
     services: [
-      { slug: "calculator", name: "Premium Calculator" },
-      { slug: "tools", name: "Insurance Tools" },
+      // { slug: "calculator", name: "Premium Calculator" },
+      // { slug: "tools", name: "Insurance Tools" },
       { slug: "help", name: "Help Center" },
-      { slug: "get-matched", name: "Get Matched" },
+      { slug: "claims", name: "Claims" },
+      // { slug: "get-matched", name: "Get Matched" },
     ],
   },
 ];
@@ -427,7 +435,7 @@ export const navLinks: NavLinkItem[] = [
     label: "Resources",
     dropdownItems: resourcesData,
   },
-  { href: "/claims", label: "Claims" },
+  // { href: "/claims", label: "Claims" },
   { href: "/insights", label: "Insights" },
   {
     href: "",

@@ -70,7 +70,7 @@ export default function NotFound() {
   return (
     <div
       suppressHydrationWarning
-      className="relative flex flex-col items-center justify-center min-h-[calc(100vh-8rem)] text-center px-4 py-16 bg-brand-dark text-brand-text-onDark overflow-hidden"
+      className="relative flex flex-col items-center justify-center h-screen text-center px-4 py-16 bg-brand-dark text-brand-text-onDark overflow-hidden"
     >
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-radial-gradient from-brand-primary/10 to-transparent rounded-full" />
 
@@ -100,10 +100,9 @@ export default function NotFound() {
         <h2 className="mt-2 text-2xl md:text-3xl font-semibold text-brand-text-onDark/90">
           Page Not Found
         </h2>
-        <p className="mt-3 text-base md:text-lg text-brand-text-onDark/70 max-w-md mx-auto">
-          Oops! The page you&apos;re looking for doesn&apos;t exist. Contact
-          Neon Insurance Brockers
-        </p>
+        {/* <p className="mt-3 text-base md:text-lg text-brand-text-onDark/70 max-w-md mx-auto">
+          Contact Neon Insurance Brockers
+        </p> */}
 
         {/* --- 4. DISPLAY THE FAILED URL --- */}
         {fullUrl && (

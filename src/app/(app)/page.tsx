@@ -11,10 +11,14 @@ import { getSiteConfig } from "@/lib/siteConfig";
 
 export async function generateMetadata(): Promise<Metadata> {
   const config = await getSiteConfig();
-  
+
   return {
-    title: config?.defaultTitle || "Neon Insurance Brokers Ltd | Expert Risk Management in Kampala",
-    description: config?.defaultDescription || "Neon Insurance Brokers provides expert risk assessment, tailored insurance solutions, and dedicated claims advocacy in Uganda.",
+    title:
+      config?.defaultTitle ||
+      "Neon Insurance Brokers Ltd | Expert Risk Management in Kampala",
+    description:
+      config?.defaultDescription ||
+      "Neon Insurance Brokers provides expert risk assessment, tailored insurance solutions, and dedicated claims advocacy in Uganda.",
     alternates: {
       canonical: config?.url || "https://www.neoninsurancebrokerltd.org",
     },
@@ -23,7 +27,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Home() {
   const config = await getSiteConfig();
-  
+
   if (!config) return null;
 
   const insuranceAgencySchema = {
@@ -54,7 +58,7 @@ export default async function Home() {
       config.linkedinUrl,
       config.twitterUrl,
       config.instagramUrl,
-      config.youtubeUrl
+      config.youtubeUrl,
     ].filter(Boolean),
   };
 
@@ -68,7 +72,7 @@ export default async function Home() {
       />
       <DynamicHeroSection />
       <RiskShowcaseSection />
-      <CalculatorSection />
+      {/* <CalculatorSection /> */}
       <ServiceJourneySection />
       <SolutionsCarouselSection />
       <PartnersSection />
