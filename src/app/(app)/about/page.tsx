@@ -9,8 +9,9 @@ import OurStorySection from "@/components/pages/about/OurStorySection";
 import OurTeamSection from "@/components/pages/about/OurTeamSection";
 import ShieldTransition from "@/components/common/ShieldTransition";
 
-import { storyData } from "@/lib/data/storyData";
 import { getSiteConfig } from "@/lib/siteConfig";
+import { prisma } from "@/lib/prisma";
+import { unstable_noStore as noStore } from 'next/cache';
 
 export async function generateMetadata(): Promise<Metadata> {
   const config = await getSiteConfig();
@@ -70,7 +71,11 @@ export async function generateMetadata(): Promise<Metadata> {
 
 // --- Your existing page component remains unchanged ---
 export default async function AboutPage() {
+  noStore();
   const config = await getSiteConfig();
+  const stories = await prisma.story.findMany({
+    orderBy: { year: 'asc' }
+  });
   
   if (!config) return null;
 
@@ -109,7 +114,7 @@ export default async function AboutPage() {
       url: `${config.url}/about`,
     },
     // Combine the descriptions from your timeline to create a rich article body for Google
-    articleBody: storyData
+    articleBody: stories
       .map((story) => `${story.title}: ${story.description}`)
       .join(". "),
     datePublished: "2004-01-01", // Set to your founding date
@@ -130,7 +135,7 @@ export default async function AboutPage() {
 
       <AboutHeroSection />
       <ShieldTransition />
-      <OurStorySection storyData={storyData} />
+      <OurStorySection storyData={stories} />
       <ShieldTransition />
       <OurPhilosophySection />
       <ShieldTransition />

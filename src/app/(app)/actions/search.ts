@@ -9,6 +9,6 @@ export const globalSearch = async (query: string) => {
       return globalSearchCore(query);
     },
     [`global-search-${query}`],
-    { revalidate: 60 }
+    { revalidate: 30 }
   )();
 };

@@ -16,7 +16,7 @@ import {
 } from "react-icons/fa";
 
 // Step 2: Import the TypeScript type definition from your central data file.
-import { CoverageItem } from "@/lib/data/servicesData";
+// import { CoverageItem } from "@/lib/data/servicesData"; // Removed static import
 
 // Step 3: Create the Icon Map. This maps the string identifiers from your data file
 // to the actual icon components you imported above.
@@ -30,6 +30,15 @@ const iconMap: { [key: string]: ReactNode } = {
   "users-cog": <FaUsersCog />,
   anchor: <FaAnchor />,
 };
+
+// --- Type Definitions ---
+export interface CoverageItem {
+  id?: string;
+  icon: string;
+  name: string;
+  category?: string;
+  description?: string | null;
+}
 
 // Step 4: Define the props for your helper and main components.
 interface CoverageCardProps {
@@ -70,7 +79,7 @@ const CoverageCard: React.FC<CoverageCardProps> = ({
       <div className="space-y-4">
         {items.map((item, index) => {
           // Look up the correct icon component from the map.
-          const IconComponent = iconMap[item.icon];
+          const IconComponent = iconMap[item.icon] || <FaShieldAlt />;
           return (
             <motion.div
               key={index}

@@ -9,12 +9,10 @@ import HolisticRiskManagementSection from "@/components/pages/services/HolisticR
 import ClientAdvocacyClaimsSection from "@/components/pages/services/ClientAdvocacyClaimsSection";
 import GetAQuoteSection from "@/components/pages/services/GetAQuoteSection";
 
-import {
-  personalCoveragesData,
-  commercialCoveragesData,
-} from "@/lib/data/servicesData";
 import { processStepsData } from "@/lib/data/holisticRiskData"; // <-- Import the new data
 import { getSiteConfig } from "@/lib/siteConfig";
+import { prisma } from "@/lib/prisma";
+import { unstable_noStore as noStore } from 'next/cache';
 
 // --- 2. Define and export the SEO metadata for the Services page ---
 export async function generateMetadata(): Promise<Metadata> {
@@ -81,11 +79,14 @@ export async function generateMetadata(): Promise<Metadata> {
 
 // --- Your existing page component remains unchanged ---
 export default async function ServicesPage() {
+  noStore();
   const config = await getSiteConfig();
+  const allServices = await prisma.service.findMany();
   
   if (!config) return null;
 
-  const allServices = [...personalCoveragesData, ...commercialCoveragesData];
+  const personalCoveragesData = allServices.filter(s => s.category === 'Personal');
+  const commercialCoveragesData = allServices.filter(s => s.category === 'Commercial');
 
   const insuranceServicesSchema = {
     "@context": "https://schema.org",

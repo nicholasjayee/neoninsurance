@@ -8,8 +8,9 @@ import ContactFormSection from "@/components/pages/contact/ContactFormSection";
 import FaqSection from "@/components/pages/contact/FaqSection";
 
 import { getSiteConfig } from "@/lib/siteConfig";
-import { contactFaqData } from "@/lib/data/faqData";
 import { ContactInfo } from "@/components/pages/contact/ContactDetailsSection";
+import { prisma } from "@/lib/prisma";
+import { unstable_noStore as noStore } from 'next/cache';
 
 export async function generateMetadata(): Promise<Metadata> {
   const config = await getSiteConfig();
@@ -53,7 +54,12 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function ContactPage() {
+  noStore();
   const config = await getSiteConfig();
+  const contactFaqData = await prisma.faq.findMany({
+    take: 5, // Limit to 5 for the contact page
+    orderBy: { createdAt: 'asc' }
+  });
   
   if (!config) return null;
 

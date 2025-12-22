@@ -10,7 +10,7 @@ import {
 import { FaFlag, FaUsers, FaCertificate, FaGlobe, FaBus } from "react-icons/fa";
 import { gsap } from "gsap";
 
-import { Story } from "@/lib/data/storyData";
+// import { Story } from "@/lib/data/storyData"; // Removed static import
 import OptimizedBgImage from "@/components/common/OptimizedBgImage";
 
 const iconMap: { [key: string]: ReactNode } = {
@@ -22,6 +22,14 @@ const iconMap: { [key: string]: ReactNode } = {
 };
 
 // --- Type Definitions ---
+export interface Story {
+  id: string;
+  year: string;
+  title: string;
+  description: string;
+  icon: string;
+}
+
 interface StoryCardProps {
   data: Story;
   index: number;
@@ -117,7 +125,7 @@ const OurStorySection: React.FC<OurStorySectionProps> = ({
     >
       <motion.div className="absolute inset-0 z-0" style={{ y }}>
         <OptimizedBgImage srcUrl={aboutimage} />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-light via-brand-light/80 to-transparent"></div>
+        <div className="absolute inset-0 bg-linear-to-t from-brand-light via-brand-light/80 to-transparent"></div>
       </motion.div>
 
       <div className="container mx-auto px-6 relative z-10 pb-20 md:pb-32">
@@ -142,7 +150,7 @@ const OurStorySection: React.FC<OurStorySectionProps> = ({
             <div key={story.id} className="relative flex justify-center">
               <div className="milestone-icon absolute top-8 left-1/2 -translate-x-1/2 w-10 h-10 bg-brand-light rounded-full border-4 border-brand-primary-dark flex items-center justify-center z-20">
                 <div className="text-brand-primary-dark text-xl">
-                  {iconMap[story.icon]}
+                  {iconMap[story.icon] || <FaFlag />}
                 </div>
               </div>
               <StoryCard data={story} index={index} />
@@ -162,7 +170,7 @@ const OurStorySection: React.FC<OurStorySectionProps> = ({
                 viewport={{ once: true, amount: 0.5 }}
               >
                 <div className="text-brand-primary text-xl">
-                  {iconMap[story.icon]}
+                  {iconMap[story.icon] || <FaFlag />}
                 </div>
               </motion.div>
               <motion.div

@@ -1,7 +1,9 @@
 import { prisma } from "@/lib/prisma";
 import { cache } from 'react';
+import { unstable_noStore as noStore } from 'next/cache';
 
 export const getSiteConfig = cache(async () => {
+  noStore();
   try {
     const config = await prisma.siteConfig.findUnique({
       where: { key: 'main' },

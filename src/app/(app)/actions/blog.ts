@@ -28,7 +28,7 @@ export const getBlogPostBySlug = unstable_cache(
     }
   },
   ["blog-post-by-slug"],
-  { revalidate: 3600 }
+  { revalidate: 60 }
 );
 
 export const getBlogPostById = unstable_cache(
@@ -44,5 +44,5 @@ export const getBlogPostById = unstable_cache(
     }
   },
   ["blog-post-by-id"],
-  { revalidate: 3600 }
+  { revalidate: 60 }
 );

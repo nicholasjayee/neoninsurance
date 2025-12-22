@@ -27,5 +27,5 @@ export const getFaqs = unstable_cache(
     }
   },
   ["get-faqs"],
-  { revalidate: 3600 }
+  { revalidate: 60 }
 );
