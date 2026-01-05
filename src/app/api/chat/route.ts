@@ -3,6 +3,7 @@ import { createOpenAI } from "@ai-sdk/openai";
 import { streamText, convertToCoreMessages } from "ai";
 // Ensure these paths match your file structure
 import { getFallbackResponse, KnowledgeBaseItem } from "@/lib/chatbotFallback";
+import { getAdvancedResponse } from "@/lib/advanced-ai-engine";
 import { getKnowledgeBase } from "@/app/(app)/actions/chatbot";
 
 export const maxDuration = 30;
@@ -63,8 +64,9 @@ export async function POST(req: Request) {
   }
 
   if (!apiKey || apiKey.includes("dummy")) {
-    console.log("No valid OpenAI API Key found. Using Local Keyword Logic.");
-    const fallbackResponse = getFallbackResponse(messages, knowledgeBase);
+    console.log("No valid OpenAI API Key found. Using Advanced AI Engine.");
+    // Use the new Advanced AI Engine
+    const fallbackResponse = getAdvancedResponse(messages, knowledgeBase);
     return new Response(fallbackResponse, {
       headers: { "Content-Type": "text/plain; charset=utf-8" },
     });
@@ -82,10 +84,11 @@ export async function POST(req: Request) {
 
     return result.toTextStreamResponse();
   } catch (error) {
-    console.error("OpenAI API Error, switching to Fallback Logic:", error);
+    console.error("OpenAI API Error, switching to Advanced AI Engine:", error);
 
     // 6. Emergency Fallback
-    const fallbackResponse = getFallbackResponse(messages, knowledgeBase);
+    // Use the new Advanced AI Engine
+    const fallbackResponse = getAdvancedResponse(messages, knowledgeBase);
     return new Response(fallbackResponse, {
       headers: { "Content-Type": "text/plain; charset=utf-8" },
     });

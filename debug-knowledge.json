@@ -1,5 +1,111 @@
 [
   {
+    "id": "cmjyep97v000004jokbchkx16",
+    "category": "motor_third_party_digital_sticker",
+    "patterns": [
+      "/motor.*third.*party/i",
+      "/digital.*sticker/i",
+      "/how.*pay.*motor.*insurance/i",
+      "/how.*get.*third.*party/i",
+      "/buy.*motor.*insurance/i",
+      "/pay.*third.*party/i",
+      "/third.*party.*insurance/i",
+      "/vehicle.*insurance.*payment/i"
+    ],
+    "keywords": [
+      "motor third party",
+      "digital sticker",
+      "vehicle insurance",
+      "third party insurance",
+      "motor insurance",
+      "number plate",
+      "insurance sticker",
+      "Airtel",
+      "MTN",
+      "mobile money"
+    ],
+    "responses": [
+      "You can now pay for Motor Third Party Insurance digitally in just a few minutes. Dial *185*7*6*1# on Airtel or *165*4*5*5# on MTN, enter your number plate, confirm details, and complete payment. You’ll receive an SMS with your digital sticker reference. Then visit the website of your preffered \ninsurer, Enter reference, number plate, and phone number.  Enter your email  then submit.",
+      "No need to visit agents anymore. Pay your Motor Third Party Insurance using MTN or Airtel mobile money. You will receive an sms with your digital sticker referance. \"then visit the website of your preffered \ninsurer, Enter reference, number plate, and phone number. Enter your email  then submit. Your Digital sticker will be delivered to your inbox in seconds via Email and SMS.",
+      "At Neon Insurance Brokers Ltd, we help you process Motor Third Party digital stickers quickly and safely. Contact us if you need assistance choosing an insurer or downloading your sticker."
+    ],
+    "priority": 15,
+    "isActive": true,
+    "createdAt": "2026-01-03T14:36:57.451Z",
+    "updatedAt": "2026-01-03T14:36:57.451Z"
+  },
+  {
+    "id": "cmjyf87r3000004jo76dy839i",
+    "category": "marine_cargo_insurance",
+    "patterns": [
+      "/marine.*insurance/i",
+      "/marine.*cargo/i",
+      "/import.*insurance/i",
+      "/ship.*goods/i",
+      "/insurance.*imports/i",
+      "/cargo.*insurance/i",
+      "/goods.*in.*transit.*sea/i",
+      "/cover.*imports/i",
+      "/marine.*cargo.*insurance/i"
+    ],
+    "keywords": [
+      "marine insurance",
+      "cargo insurance",
+      "imports",
+      "goods in transit",
+      "shipping",
+      "container",
+      "freight",
+      "sea cargo",
+      "air cargo",
+      "local marine insurance"
+    ],
+    "responses": [
+      "Marine Cargo Insurance protects your imports against loss or damage while in transit by sea, air, or land. At Neon Insurance Brokers Ltd, we help you arrange cover before your goods are shipped to Uganda.",
+      "Importing goods without marine insurance can expose you to major losses. Marine Cargo Insurance covers risks like damage, theft, and delays during transit. Neon Insurance Brokers can help you choose the right cover for your shipment.",
+      "Whether you’re importing commercial goods or personal cargo, Marine Insurance ensures your shipment is protected from the point of origin to delivery. Contact Neon Insurance Brokers Ltd for guidance on the right policy.",
+      "December is a peak import season. Secure your goods with Marine Cargo Insurance to avoid unexpected losses during transit. Our team at Neon Insurance Brokers Ltd is ready to assist."
+    ],
+    "priority": 14,
+    "isActive": true,
+    "createdAt": "2026-01-03T14:51:42.014Z",
+    "updatedAt": "2026-01-03T14:51:42.014Z"
+  },
+  {
+    "id": "cmjyg9smz000004l5gf46ve9k",
+    "category": "life_insurance",
+    "patterns": [
+      "/life.*insurance/i",
+      "/family.*cover/i",
+      "/insurance.*family/i",
+      "/death.*benefit/i",
+      "/secure.*family/i",
+      "/long.*term.*insurance/i",
+      "/financial.*protection/i",
+      "/life.*policy/i"
+    ],
+    "keywords": [
+      "life insurance",
+      "family protection",
+      "family protection",
+      "dependents",
+      "financial security",
+      "death benefit",
+      "long term insurance",
+      "long term insurance"
+    ],
+    "responses": [
+      "Life Insurance provides financial protection for your life and family in case of death or permanent disability. At Neon Insurance Brokers Ltd, we help you choose a life policy that secures your loved ones’ future.",
+      "Life Insurance ensures your dependents remain financially stable even when you’re no longer around. Neon Insurance Brokers Ltd can guide you on affordable life cover options in Uganda.",
+      "Don’t wait for uncertainty to strike. Life Insurance is a gift of protection and peace of mind for you and your loved ones. Contact Neon Insurance Brokers Ltd for expert guidance."
+    ],
+    "priority": 12,
+    "isActive": true,
+    "createdAt": "2026-01-03T15:20:55.355Z",
+    "updatedAt": "2026-01-03T15:20:55.355Z"
+  },
+  {
+    "id": "cmjeeatp90000c0y8r9709zdk",
     "category": "greetings",
     "patterns": [
       "/hi|hello|hey|yo|sup|hiya|holla/i",
@@ -19,16 +125,33 @@
       "/talk.*to.*me/i"
     ],
     "keywords": [
-      "hello", "hi", "hey", "greetings", "morning", "afternoon", "evening", "sup", "yo", "there", "anyone", "howdy", "available", "online"
+      "hello",
+      "hi",
+      "hey",
+      "greetings",
+      "morning",
+      "afternoon",
+      "evening",
+      "sup",
+      "yo",
+      "there",
+      "anyone",
+      "howdy",
+      "available",
+      "online"
     ],
     "responses": [
       "Hello! I'm Neon AI, your insurance assistant. How can I help you today?",
       "Hi there! Welcome to Neon Insurance. What can I assist you with?",
       "Greetings! I'm here to help you with all your insurance needs."
     ],
-    "priority": 3
+    "priority": 3,
+    "isActive": true,
+    "createdAt": "2025-12-20T14:30:20.636Z",
+    "updatedAt": "2025-12-20T14:30:20.636Z"
   },
   {
+    "id": "cmjeeatzh0001c0y8z0hqfwz1",
     "category": "getting_started",
     "patterns": [
       "/how.*(start|begin)/i",
@@ -57,15 +180,39 @@
       "/know.*about.*insurance/i"
     ],
     "keywords": [
-      "start", "begin", "beginner", "new", "first", "step", "guide", "introduction", "help", "process", "confused", "lost", "options", "recommend", "policies", "policy", "insurance", "package", "packages", "product", "products"
+      "start",
+      "begin",
+      "beginner",
+      "new",
+      "first",
+      "step",
+      "guide",
+      "introduction",
+      "help",
+      "process",
+      "confused",
+      "lost",
+      "options",
+      "recommend",
+      "policies",
+      "policy",
+      "insurance",
+      "package",
+      "packages",
+      "product",
+      "products"
     ],
     "responses": [
       "Welcome! To get started: 1) Tell me what you need to protect (car, home, health), 2) I can give you a quick quote, or 3) Connect you with an agent.",
       "Starting is easy. Are you looking for personal insurance (like car or health) or business coverage?"
     ],
-    "priority": 10
+    "priority": 10,
+    "isActive": true,
+    "createdAt": "2025-12-20T14:30:21.005Z",
+    "updatedAt": "2025-12-20T14:30:21.005Z"
   },
   {
+    "id": "cmjeeaub60002c0y8upzkwdaj",
     "category": "about_ai",
     "patterns": [
       "/who.*are.*you/i",
@@ -79,16 +226,28 @@
       "/know.*(your|the).*name/i"
     ],
     "keywords": [
-      "who", "name", "ai", "bot", "robot", "human", "assistant", "neon", "identity"
+      "who",
+      "name",
+      "ai",
+      "bot",
+      "robot",
+      "human",
+      "assistant",
+      "neon",
+      "identity"
     ],
     "responses": [
       "I'm Neon AI, your virtual insurance assistant. I can help you with quotes, claims, and general insurance information!",
       "I am the Neon Insurance Smart Assistant. My goal is to make insurance easy for you. How can I help today?",
       "You're talking to Neon AI! I'm here to guide you through our insurance products and services."
     ],
-    "priority": 11
+    "priority": 11,
+    "isActive": true,
+    "createdAt": "2025-12-20T14:30:21.426Z",
+    "updatedAt": "2025-12-20T14:30:21.426Z"
   },
   {
+    "id": "cmjeeauy30003c0y8fz3x3vlm",
     "category": "policy_management",
     "patterns": [
       "/my.*policy/i",
@@ -115,16 +274,40 @@
       "/coverage.*status/i"
     ],
     "keywords": [
-      "my policy", "my plan", "expire", "due", "deductible", "id card", "discount", "statement", "active", "change", "add", "driver", "fees", "missed", "payment", "senior", "veteran", "student", "covered", "coverage", "cover"
+      "my policy",
+      "my plan",
+      "expire",
+      "due",
+      "deductible",
+      "id card",
+      "discount",
+      "statement",
+      "active",
+      "change",
+      "add",
+      "driver",
+      "fees",
+      "missed",
+      "payment",
+      "senior",
+      "veteran",
+      "student",
+      "covered",
+      "coverage",
+      "cover"
     ],
     "responses": [
       "For your security, I cannot access specific policy details here. Please visit our [Contact Page](/contact) to speak with an agent or log in to your portal.",
       "Questions about your specific policy, payments, or coverage status need to be handled by an agent. Please reach out to us at +256 123 456 789.",
       "I can't see your personal policy information. To change your plan or check your status, please contact our support team directly."
     ],
-    "priority": 12
+    "priority": 12,
+    "isActive": true,
+    "createdAt": "2025-12-20T14:30:22.251Z",
+    "updatedAt": "2025-12-20T14:30:22.251Z"
   },
   {
+    "id": "cmjeeavpg0004c0y8zyf4ai2u",
     "category": "motor_comprehensive",
     "patterns": [
       "/comprehensive/i",
@@ -149,15 +332,40 @@
       "/i.*need.*(car|motor).*insurance/i"
     ],
     "keywords": [
-      "car", "motor", "vehicle", "auto", "comprehensive", "collision", "theft", "fire", "accident", "driving", "toyota", "subaru", "benz", "full", "complete", "kasko", "own damage", "all risks", "insure", "policy", "policies", "cover"
+      "car",
+      "motor",
+      "vehicle",
+      "auto",
+      "comprehensive",
+      "collision",
+      "theft",
+      "fire",
+      "accident",
+      "driving",
+      "toyota",
+      "subaru",
+      "benz",
+      "full",
+      "complete",
+      "kasko",
+      "own damage",
+      "all risks",
+      "insure",
+      "policy",
+      "policies",
+      "cover"
     ],
     "responses": [
       "Our Motor Comprehensive Insurance covers accidents, theft, fire, and third-party liability. It's the best protection for your vehicle.",
       "Comprehensive cover protects your car against damage, theft, and fire, plus damage to others. Would you like a quote for your vehicle?"
     ],
-    "priority": 9
+    "priority": 9,
+    "isActive": true,
+    "createdAt": "2025-12-20T14:30:23.236Z",
+    "updatedAt": "2025-12-20T14:30:23.236Z"
   },
   {
+    "id": "cmjeeaweh0005c0y8c63oquh9",
     "category": "motor_third_party",
     "patterns": [
       "/third.*party/i",
@@ -181,15 +389,34 @@
       "/how.*much.*is.*third.*party/i"
     ],
     "keywords": [
-      "third", "party", "basic", "minimum", "police", "sticker", "mandatory", "law", "cheap", "lowest", "traffic", "tpo", "tpol", "liability", "legal", "requirement"
+      "third",
+      "party",
+      "basic",
+      "minimum",
+      "police",
+      "sticker",
+      "mandatory",
+      "law",
+      "cheap",
+      "lowest",
+      "traffic",
+      "tpo",
+      "tpol",
+      "liability",
+      "legal",
+      "requirement"
     ],
     "responses": [
       "Third-party insurance is the mandatory minimum in Uganda. It covers damage to other people's property or injuries, but NOT your own car.",
       "We offer Third-Party Only (TPO) insurance. It keeps you legal on the road but doesn't cover your own vehicle repairs."
     ],
-    "priority": 8
+    "priority": 8,
+    "isActive": true,
+    "createdAt": "2025-12-20T14:30:24.137Z",
+    "updatedAt": "2025-12-20T14:30:24.137Z"
   },
   {
+    "id": "cmjeeawym0006c0y8znx4va92",
     "category": "boda_boda",
     "patterns": [
       "/boda/i",
@@ -212,15 +439,31 @@
       "/insure.*(bike|motorcycle)/i"
     ],
     "keywords": [
-      "boda", "motorcycle", "bike", "rider", "helmet", "passenger", "two wheeler", "vespa", "boxer", "motorbike", "scooter", "delivery", "taxi"
+      "boda",
+      "motorcycle",
+      "bike",
+      "rider",
+      "helmet",
+      "passenger",
+      "two wheeler",
+      "vespa",
+      "boxer",
+      "motorbike",
+      "scooter",
+      "delivery",
+      "taxi"
     ],
     "responses": [
       "We have special insurance rates for Boda Bodas and motorcycles. It covers both the rider and the passenger.",
       "Looking to insure a Boda Boda? We offer both Comprehensive and Third-Party motorcycle insurance."
     ],
-    "priority": 9
+    "priority": 9,
+    "isActive": true,
+    "createdAt": "2025-12-20T14:30:24.862Z",
+    "updatedAt": "2025-12-20T14:30:24.862Z"
   },
   {
+    "id": "cmjeeax8b0007c0y87m57jx32",
     "category": "health_insurance",
     "patterns": [
       "/medical.*insurance/i",
@@ -246,15 +489,34 @@
       "/i.*need.*medical.*cover/i"
     ],
     "keywords": [
-      "health", "medical", "doctor", "hospital", "sick", "clinic", "medicine", "dental", "optical", "maternity", "checkup", "illness", "family", "surgery", "treatment", "prescription"
+      "health",
+      "medical",
+      "doctor",
+      "hospital",
+      "sick",
+      "clinic",
+      "medicine",
+      "dental",
+      "optical",
+      "maternity",
+      "checkup",
+      "illness",
+      "family",
+      "surgery",
+      "treatment",
+      "prescription"
     ],
     "responses": [
       "Our Health Insurance covers hospital stays, surgeries, outpatient care, and prescriptions. We have plans for individuals and families.",
       "Protect your health! Our medical cover gives you access to the best hospitals in Uganda. Do you need a plan for yourself or a family?"
     ],
-    "priority": 8
+    "priority": 8,
+    "isActive": true,
+    "createdAt": "2025-12-20T14:30:25.211Z",
+    "updatedAt": "2025-12-20T14:30:25.211Z"
   },
   {
+    "id": "cmjeeaxhf0008c0y8aog5hkqh",
     "category": "travel_insurance",
     "patterns": [
       "/travel.*insurance/i",
@@ -280,15 +542,35 @@
       "/i.*am.*traveling/i"
     ],
     "keywords": [
-      "travel", "trip", "flight", "abroad", "visa", "schengen", "luggage", "baggage", "plane", "overseas", "vacation", "holiday", "dubai", "europe", "cancel", "emergency", "tourist"
+      "travel",
+      "trip",
+      "flight",
+      "abroad",
+      "visa",
+      "schengen",
+      "luggage",
+      "baggage",
+      "plane",
+      "overseas",
+      "vacation",
+      "holiday",
+      "dubai",
+      "europe",
+      "cancel",
+      "emergency",
+      "tourist"
     ],
     "responses": [
       "Our Travel Insurance is perfect for visa applications (including Schengen). It covers medical emergencies abroad, lost luggage, and flight cancellations.",
       "Traveling soon? We cover medical emergencies and travel inconveniences. Where are you planning to travel to?"
     ],
-    "priority": 8
+    "priority": 8,
+    "isActive": true,
+    "createdAt": "2025-12-20T14:30:25.539Z",
+    "updatedAt": "2025-12-20T14:30:25.539Z"
   },
   {
+    "id": "cmjeeaxqb0009c0y8h1eqhww8",
     "category": "home_insurance",
     "patterns": [
       "/domestic.*package/i",
@@ -313,15 +595,35 @@
       "/how.*protect.*home/i"
     ],
     "keywords": [
-      "home", "house", "property", "building", "fire", "burglary", "robbery", "thieves", "household", "items", "electronics", "domestic", "rent", "landlord", "tenant", "apartment", "contents"
+      "home",
+      "house",
+      "property",
+      "building",
+      "fire",
+      "burglary",
+      "robbery",
+      "thieves",
+      "household",
+      "items",
+      "electronics",
+      "domestic",
+      "rent",
+      "landlord",
+      "tenant",
+      "apartment",
+      "contents"
     ],
     "responses": [
       "Home Insurance protects your building and contents against fire, theft, and natural disasters. We even cover electronics and domestic workers.",
       "Secure your home against burglary and fire. Do you own the house or are you renting?"
     ],
-    "priority": 7
+    "priority": 7,
+    "isActive": true,
+    "createdAt": "2025-12-20T14:30:25.859Z",
+    "updatedAt": "2025-12-20T14:30:25.859Z"
   },
   {
+    "id": "cmjeeaxzp000ac0y8ma43c5j5",
     "category": "claims_general",
     "patterns": [
       "/file.*claim/i",
@@ -347,15 +649,36 @@
       "/what.*is.*claim.*process/i"
     ],
     "keywords": [
-      "claim", "accident", "crash", "stolen", "hit", "damaged", "injured", "report", "file", "submit", "form", "happened", "process", "incident", "lodge", "damage", "policy", "number"
+      "claim",
+      "accident",
+      "crash",
+      "stolen",
+      "hit",
+      "damaged",
+      "injured",
+      "report",
+      "file",
+      "submit",
+      "form",
+      "happened",
+      "process",
+      "incident",
+      "lodge",
+      "damage",
+      "policy",
+      "number"
     ],
     "responses": [
       "I'm sorry to hear about the incident. To file a claim, please have your policy number ready. You can submit details here or call our hotline.",
       "To assist with your claim, I need to know: 1) What happened? 2) When did it happen? You can also upload photos in our Claims Center."
     ],
-    "priority": 9
+    "priority": 9,
+    "isActive": true,
+    "createdAt": "2025-12-20T14:30:26.196Z",
+    "updatedAt": "2025-12-20T14:30:26.196Z"
   },
   {
+    "id": "cmjeeay8x000bc0y8eujyz8i9",
     "category": "claims_status",
     "patterns": [
       "/check.*claim/i",
@@ -378,15 +701,32 @@
       "/is.*claim.*ready/i"
     ],
     "keywords": [
-      "status", "check", "track", "progress", "update", "far", "stage", "approved", "pending", "ref", "reference", "timeline", "processing", "follow"
+      "status",
+      "check",
+      "track",
+      "progress",
+      "update",
+      "far",
+      "stage",
+      "approved",
+      "pending",
+      "ref",
+      "reference",
+      "timeline",
+      "processing",
+      "follow"
     ],
     "responses": [
       "You can check your claim status by logging into your account or providing me with your claim reference number.",
       "To track your claim, visit the Claims Center on our website. You'll see real-time updates."
     ],
-    "priority": 8
+    "priority": 8,
+    "isActive": true,
+    "createdAt": "2025-12-20T14:30:26.529Z",
+    "updatedAt": "2025-12-20T14:30:26.529Z"
   },
   {
+    "id": "cmjeeayh5000cc0y8bjpykfuv",
     "category": "quotes_general",
     "patterns": [
       "/how.*much/i",
@@ -412,15 +752,37 @@
       "/know.*rates/i"
     ],
     "keywords": [
-      "quote", "price", "cost", "premium", "pay", "rate", "expensive", "cheap", "affordable", "calculate", "calculator", "estimate", "value", "worth", "quotation", "pricing", "monthly", "annual", "rates"
+      "quote",
+      "price",
+      "cost",
+      "premium",
+      "pay",
+      "rate",
+      "expensive",
+      "cheap",
+      "affordable",
+      "calculate",
+      "calculator",
+      "estimate",
+      "value",
+      "worth",
+      "quotation",
+      "pricing",
+      "monthly",
+      "annual",
+      "rates"
     ],
     "responses": [
       "I can give you a quick estimate! What type of insurance do you need a price for? (Motor, Health, Travel, etc.)",
       "Premiums depend on the coverage type and value. For example, Comprehensive Motor starts at about 4% of vehicle value. What are you looking to insure?"
     ],
-    "priority": 9
+    "priority": 9,
+    "isActive": true,
+    "createdAt": "2025-12-20T14:30:26.825Z",
+    "updatedAt": "2025-12-20T14:30:26.825Z"
   },
   {
+    "id": "cmjeeayq6000dc0y84pk6ao7a",
     "category": "payment_methods",
     "patterns": [
       "/how.*pay/i",
@@ -445,15 +807,36 @@
       "/can.*pay.*monthly/i"
     ],
     "keywords": [
-      "pay", "payment", "money", "cash", "bank", "transfer", "mobile", "mtn", "airtel", "momo", "installment", "credit", "card", "visa", "mastercard", "method", "option", "plan"
+      "pay",
+      "payment",
+      "money",
+      "cash",
+      "bank",
+      "transfer",
+      "mobile",
+      "mtn",
+      "airtel",
+      "momo",
+      "installment",
+      "credit",
+      "card",
+      "visa",
+      "mastercard",
+      "method",
+      "option",
+      "plan"
     ],
     "responses": [
       "We accept Mobile Money (MTN/Airtel), Bank Transfers, and VISA/Mastercard. You can also pay in installments for annual policies.",
       "Payment is easy via MTN MoMo or Airtel Money. We also accept bank transfers. Would you like our payment details?"
     ],
-    "priority": 6
+    "priority": 6,
+    "isActive": true,
+    "createdAt": "2025-12-20T14:30:27.150Z",
+    "updatedAt": "2025-12-20T14:30:27.150Z"
   },
   {
+    "id": "cmjeeayyu000ec0y8gcjxikqg",
     "category": "contact_support",
     "patterns": [
       "/phone.*number/i",
@@ -482,15 +865,44 @@
       "/social.*media/i"
     ],
     "keywords": [
-      "contact", "call", "phone", "email", "support", "help", "agent", "human", "person", "address", "location", "office", "kampala", "reach", "talk", "customer", "service", "hotline", "telephone", "contacts", "whatsapp", "number", "social", "facebook", "twitter", "instagram"
+      "contact",
+      "call",
+      "phone",
+      "email",
+      "support",
+      "help",
+      "agent",
+      "human",
+      "person",
+      "address",
+      "location",
+      "office",
+      "kampala",
+      "reach",
+      "talk",
+      "customer",
+      "service",
+      "hotline",
+      "telephone",
+      "contacts",
+      "whatsapp",
+      "number",
+      "social",
+      "facebook",
+      "twitter",
+      "instagram"
     ],
     "responses": [
       "You can reach us at +256 123 456 789 or visit our office in Kampala. Our team is available 8am-5pm Mon-Fri.",
       "Need to speak to a human? Call our hotline +256 123 456 789 or email support@neoninsurance.com."
     ],
-    "priority": 5
+    "priority": 5,
+    "isActive": true,
+    "createdAt": "2025-12-20T14:30:27.462Z",
+    "updatedAt": "2025-12-20T14:30:27.462Z"
   },
   {
+    "id": "cmjeeaz7v000fc0y8v397vtiv",
     "category": "yes_affirmative",
     "patterns": [
       "/\\byes\\b|\\byeah\\b|\\bsure\\b|\\bok\\b|\\balright\\b|\\bfine\\b|\\bcorrect\\b|\\bplease\\b/i",
@@ -510,15 +922,33 @@
       "/you.*bet/i"
     ],
     "keywords": [
-      "yes", "yeah", "yep", "sure", "ok", "okay", "alright", "fine", "correct", "right", "agree", "please", "absolutely", "definitely", "certainly"
+      "yes",
+      "yeah",
+      "yep",
+      "sure",
+      "ok",
+      "okay",
+      "alright",
+      "fine",
+      "correct",
+      "right",
+      "agree",
+      "please",
+      "absolutely",
+      "definitely",
+      "certainly"
     ],
     "responses": [
       "Great! How can I proceed? Do you need a quote or more information?",
       "Okay! Please tell me a bit more about what you need."
     ],
-    "priority": 2
+    "priority": 2,
+    "isActive": true,
+    "createdAt": "2025-12-20T14:30:27.787Z",
+    "updatedAt": "2025-12-20T14:30:27.787Z"
   },
   {
+    "id": "cmjeeazh0000gc0y89ohvpzmo",
     "category": "no_negative",
     "patterns": [
       "/\\bno\\b|\\bnope\\b|\\bnah\\b|\\bcancel\\b|\\bstop\\b/i",
@@ -538,15 +968,31 @@
       "/that's.*wrong/i"
     ],
     "keywords": [
-      "no", "nope", "nah", "cancel", "stop", "wrong", "incorrect", "neither", "negative", "never", "pass", "later", "not interested"
+      "no",
+      "nope",
+      "nah",
+      "cancel",
+      "stop",
+      "wrong",
+      "incorrect",
+      "neither",
+      "negative",
+      "never",
+      "pass",
+      "later",
+      "not interested"
     ],
     "responses": [
       "Understood. Is there something else I can help you with?",
       "No problem. Let me know if you have any other questions."
     ],
-    "priority": 2
+    "priority": 2,
+    "isActive": true,
+    "createdAt": "2025-12-20T14:30:28.116Z",
+    "updatedAt": "2025-12-20T14:30:28.116Z"
   },
   {
+    "id": "cmjeeazpa000hc0y8o9mh7ikx",
     "category": "gratitude",
     "patterns": [
       "/thank/i",
@@ -566,16 +1012,34 @@
       "/grateful/i"
     ],
     "keywords": [
-      "thanks", "thank", "cool", "great", "awesome", "appreciate", "good", "nice", "lovely", "helpful", "perfect", "excellent", "brilliant", "cheers", "grateful"
+      "thanks",
+      "thank",
+      "cool",
+      "great",
+      "awesome",
+      "appreciate",
+      "good",
+      "nice",
+      "lovely",
+      "helpful",
+      "perfect",
+      "excellent",
+      "brilliant",
+      "cheers",
+      "grateful"
     ],
     "responses": [
       "You're welcome! Happy to help.",
       "Glad I could help! Stay safe.",
       "Anytime! Let me know if you need anything else."
     ],
-    "priority": 2
+    "priority": 2,
+    "isActive": true,
+    "createdAt": "2025-12-20T14:30:28.414Z",
+    "updatedAt": "2025-12-20T14:30:28.414Z"
   },
   {
+    "id": "cmjeeb05u000ic0y8t5trskca",
     "category": "goodbye",
     "patterns": [
       "/bye/i",
@@ -595,304 +1059,41 @@
       "/adios/i"
     ],
     "keywords": [
-      "bye", "goodbye", "later", "night", "leave", "exit", "end", "farewell", "adios", "peace", "care", "see you"
+      "bye",
+      "goodbye",
+      "later",
+      "night",
+      "leave",
+      "exit",
+      "end",
+      "farewell",
+      "adios",
+      "peace",
+      "care",
+      "see you"
     ],
     "responses": [
       "Goodbye! Drive safely and stay protected.",
       "See you later! Feel free to come back if you have more questions."
     ],
-    "priority": 2
+    "priority": 2,
+    "isActive": true,
+    "createdAt": "2025-12-20T14:30:29.010Z",
+    "updatedAt": "2025-12-20T14:30:29.010Z"
   },
   {
-    "category": "life_insurance",
-    "patterns": [
-      "/life.*insurance/i",
-      "/term.*life/i",
-      "/whole.*life/i",
-      "/toto.*education/i",
-      "/education.*plan/i",
-      "/child.*education/i",
-      "/protect.*family/i",
-      "/death.*benefit/i",
-      "/life.*cover/i"
-    ],
-    "keywords": [
-      "life", "term", "whole", "toto", "education", "child", "family", "death", "beneficiary", "future", "school fees"
-    ],
-    "responses": [
-      "Our Life Insurance plans secure your family's future. We offer Term Life, Whole Life, and the TOTO Education Plan to save for your child's schooling.",
-      "Protect your loved ones with Neon Life Insurance. The TOTO Education Plan ensures your child's education is covered no matter what."
-    ],
-    "priority": 8
-  },
-  {
-    "category": "business_insurance",
-    "patterns": [
-      "/business.*insurance/i",
-      "/sme.*insurance/i",
-      "/corporate.*insurance/i",
-      "/protect.*business/i",
-      "/risk.*management/i",
-      "/workman.*compensation/i",
-      "/group.*personal.*accident/i",
-      "/fidelity.*guarantee/i",
-      "/public.*liability/i",
-      "/professional.*indemnity/i",
-      "/employers.*liability/i"
-    ],
-    "keywords": [
-      "business", "sme", "corporate", "risk", "workman", "compensation", "liability", "indemnity", "fidelity", "guarantee", "group", "accident", "employee"
-    ],
-    "responses": [
-      "Neon offers comprehensive Business Insurance including Fire, Burglary, Workers' Compensation, and Public Liability. We tailor packages for SMEs and large corporations.",
-      "Protect your business assets and employees. We offer specialized covers like Professional Indemnity and Fidelity Guarantee."
-    ],
-    "priority": 8
-  },
-  {
-    "category": "marine_cargo",
-    "patterns": [
-      "/marine.*cargo/i",
-      "/shipping.*insurance/i",
-      "/goods.*in.*transit/i",
-      "/import.*insurance/i",
-      "/export.*insurance/i",
-      "/sea.*freight/i",
-      "/air.*freight/i",
-      "/cargo.*loss/i",
-      "/transit.*insurance/i"
-    ],
-    "keywords": [
-      "marine", "cargo", "shipping", "transit", "import", "export", "freight", "sea", "air", "goods", "logistics", "local marine"
-    ],
-    "responses": [
-      "Our Marine Cargo Insurance covers your goods against loss or damage during transit by sea, air, or land. It protects from warehouse to warehouse.",
-      "Shipping goods? Protect your cargo from theft, damage, delays, or loss with our Marine Cargo policy. Essential for importers and exporters."
-    ],
-    "priority": 8
-  },
-  {
-    "category": "group_personal_accident",
-    "patterns": [
-      "/group.*personal.*accident/i",
-      "/gpa/i",
-      "/employee.*accident/i",
-      "/staff.*accident/i",
-      "/workplace.*injury/i"
-    ],
-    "keywords": [
-      "group", "personal", "accident", "gpa", "employee", "staff", "injury", "workplace", "medical"
-    ],
-    "responses": [
-      "Group Personal Accident (GPA) insurance covers your employees against accidental injury, disability, or death, whether on or off duty.",
-      "Protect your team with GPA cover. It provides financial support for medical expenses and compensation in case of accidents."
-    ],
-    "priority": 8
-  },
-  {
-    "category": "medical_insurance",
-    "patterns": [
-      "/medical.*insurance/i",
-      "/health.*insurance/i",
-      "/medical.*cover/i",
-      "/health.*cover/i",
-      "/opd/i",
-      "/inpatient/i",
-      "/maternity.*cover/i",
-      "/dental.*cover/i",
-      "/optical.*cover/i"
-    ],
-    "keywords": [
-      "medical", "health", "insurance", "cover", "opd", "inpatient", "maternity", "dental", "optical", "hospital", "clinic"
-    ],
-    "responses": [
-      "Our Medical Insurance covers OPD, Inpatient, Maternity, Dental, and Optical care. We partner with top hospitals and clinics across Uganda.",
-      "Protect your health and your family's with Neon Medical Insurance. We offer comprehensive plans for individuals, families, and staff."
-    ],
-    "priority": 8
-  },
-  {
-    "category": "professional_indemnity",
-    "patterns": [
-      "/professional.*indemnity/i",
-      "/pi.*cover/i",
-      "/errors.*omissions/i",
-      "/legal.*liability/i",
-      "/negligence/i",
-      "/lawyer.*insurance/i",
-      "/doctor.*insurance/i",
-      "/engineer.*insurance/i"
-    ],
-    "keywords": [
-      "professional", "indemnity", "liability", "errors", "omissions", "negligence", "legal", "lawyer", "doctor", "engineer", "consultant"
-    ],
-    "responses": [
-      "Professional Indemnity Insurance protects you against claims of negligence, errors, or omissions in your professional services.",
-      "Essential for lawyers, doctors, engineers, and consultants. It covers legal costs and compensation claims."
-    ],
-    "priority": 8
-  },
-  {
-    "category": "public_liability",
-    "patterns": [
-      "/public.*liability/i",
-      "/third.*party.*liability/i",
-      "/injury.*to.*others/i",
-      "/damage.*to.*property/i",
-      "/liability.*insurance/i"
-    ],
-    "keywords": [
-      "public", "liability", "third party", "injury", "damage", "property", "legal"
-    ],
-    "responses": [
-      "Public Liability Insurance covers legal liabilities if a third party suffers injury or property damage while on your premises or due to your operations.",
-      "Protect your business from costly legal claims with Public Liability cover. Ideal for events, offices, and construction sites."
-    ],
-    "priority": 8
-  },
-  {
-    "category": "travel_insurance",
-    "patterns": [
-      "/travel.*insurance/i",
-      "/trip.*insurance/i",
-      "/flight.*delay/i",
-      "/lost.*baggage/i",
-      "/medical.*emergency.*abroad/i",
-      "/travel.*cover/i"
-    ],
-    "keywords": [
-      "travel", "trip", "flight", "delay", "baggage", "lost", "medical", "emergency", "abroad", "vacation", "journey"
-    ],
-    "responses": [
-      "Travel Insurance covers medical emergencies, flight delays, lost baggage, and trip cancellations. Travel confidently with Neon.",
-      "Whether flying for business or leisure, our Travel Insurance protects you from medical emergencies to lost luggage."
-    ],
-    "priority": 8
-  },
-  {
-    "category": "fire_burglary",
-    "patterns": [
-      "/fire.*insurance/i",
-      "/burglary.*insurance/i",
-      "/property.*insurance/i",
-      "/fire.*allied.*perils/i",
-      "/theft.*insurance/i"
-    ],
-    "keywords": [
-      "fire", "burglary", "theft", "property", "perils", "building", "contents", "flood", "riot"
-    ],
-    "responses": [
-      "Fire and Allied Perils Insurance protects your buildings and contents from fire, floods, riots, and lightning. Essential for property owners.",
-      "Burglary Insurance covers theft with forceful entry. Protect your shop, salon, or home from break-ins."
-    ],
-    "priority": 8
-  },
-  {
-    "category": "agriculture_insurance",
-    "patterns": [
-      "/agriculture.*insurance/i",
-      "/crop.*insurance/i",
-      "/livestock.*insurance/i",
-      "/farm.*insurance/i",
-      "/drought.*cover/i",
-      "/farming.*risks/i",
-      "/agribusiness/i"
-    ],
-    "keywords": [
-      "agriculture", "crop", "livestock", "farm", "farming", "drought", "weather", "harvest", "agribusiness"
-    ],
-    "responses": [
-      "Our Agriculture Insurance protects farmers against risks like drought, pests, and disease. We cover both crops and livestock.",
-      "Farming is vital. Secure your harvest and livestock with Neon's Agricultural Insurance."
-    ],
-    "priority": 8
-  },
-  {
-    "category": "premium_financing",
-    "patterns": [
-      "/premium.*finance/i",
-      "/pay.*installments/i",
-      "/idf/i",
-      "/insurance.*loan/i",
-      "/finance.*premium/i",
-      "/cash.*flow/i",
-      "/pay.*slowly/i"
-    ],
-    "keywords": [
-      "premium", "finance", "financing", "installment", "idf", "loan", "cash flow", "bank", "credit"
-    ],
-    "responses": [
-      "We offer Insurance Premium Financing (IDF) to help you pay your premiums in installments, easing your cash flow management.",
-      "Don't let a lump sum payment stop you. Ask about our Premium Financing options to spread the cost."
-    ],
-    "priority": 7
-  },
-  {
-    "category": "money_insurance",
-    "patterns": [
-      "/money.*insurance/i",
-      "/cash.*in.*transit/i",
-      "/money.*in.*safe/i",
-      "/cash.*insurance/i",
-      "/theft.*of.*money/i"
-    ],
-    "keywords": [
-      "money", "cash", "transit", "safe", "strongroom", "theft"
-    ],
-    "responses": [
-      "Money Insurance covers cash in transit, in a safe, or with authorized staff. It includes loss from theft or attempted theft.",
-      "Scope of cover includes cash in hands of authorized officials, in transit to/from bank, and in premises during/after working hours.",
-      "Major exclusions include war, terrorism, employee dishonesty (unless discovered within 7 days), and shortages due to clerical errors."
-    ],
-    "priority": 7
-  },
-  {
-    "category": "contractors_all_risk",
-    "patterns": [
-      "/contractor.*insurance/i",
-      "/construction.*insurance/i",
-      "/plant.*machinery/i",
-      "/all.*risk/i",
-      "/building.*site/i",
-      "/engineering.*insurance/i"
-    ],
-    "keywords": [
-      "contractor", "construction", "plant", "machinery", "site", "project", "all risk", "engineering"
-    ],
-    "responses": [
-      "Contractors' All Risk Insurance covers construction projects, plant, and machinery against damage and third-party liability.",
-      "Building something big? Protect your construction site and equipment with Contractors' All Risk cover."
-    ],
-    "priority": 8
-  },
-  {
-    "category": "all_risks",
-    "patterns": [
-      "/all.*risk/i",
-      "/portable.*equipment/i",
-      "/office.*equipment/i",
-      "/computer.*insurance/i",
-      "/laptop.*insurance/i",
-      "/electronic.*equipment/i"
-    ],
-    "keywords": [
-      "all risk", "portable", "equipment", "computer", "laptop", "printer", "office", "electronic"
-    ],
-    "responses": [
-      "All Risks Insurance covers portable office equipment like computers, laptops, and printers against fire, accidental damage, and theft.",
-      "This policy is ideal for protecting your valuable electronic devices and office equipment from unforeseen risks."
-    ],
-    "priority": 8
-  },
-  {
+    "id": "cmjeeb0ex000jc0y8p59zknx8",
     "category": "default",
     "patterns": [],
     "keywords": [],
     "responses": [
-      "I'm not sure I understand. I can help with Car, Health, Travel, Home, Business, or Life insurance. Which one interests you?",
-      "I'm still learning! Could you try asking simply, like 'Quote for car', 'Marine insurance', or 'TOTO plan'?",
+      "I'm not sure I understand. I can help with Car, Health, Travel, or Home insurance. Which one interests you?",
+      "I'm still learning! Could you try asking simply, like 'Quote for car' or 'How to claim'?",
       "I didn't quite catch that. Are you asking about a specific type of insurance?"
     ],
-    "priority": 0
+    "priority": 0,
+    "isActive": true,
+    "createdAt": "2025-12-20T14:30:29.337Z",
+    "updatedAt": "2025-12-20T14:30:29.337Z"
   }
 ]
