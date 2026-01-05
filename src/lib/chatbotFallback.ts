@@ -1,5 +1,8 @@
 // chatbotFallback.ts
 
+import { readFile } from "fs/promises";
+import { join } from "path";
+
 interface Message {
   id: string;
   role: "system" | "user" | "assistant" | "data";
@@ -298,5 +301,20 @@ export function getFallbackResponse(
   }
 
   return "I'm not sure I understand. Could you rephrase that? I can help with claims, quotes, and general insurance information.";
+}
+
+/**
+ * Load knowledge base from JSON file (for testing)
+ */
+export async function loadKnowledgeBase(): Promise<KnowledgeBaseItem[]> {
+  try {
+    const filePath = join(process.cwd(), "prisma", "data", "knowledgeBase.json");
+    const fileContent = await readFile(filePath, "utf-8");
+    const data = JSON.parse(fileContent);
+    return data as KnowledgeBaseItem[];
+  } catch (error) {
+    console.error("Failed to load knowledge base:", error);
+    return [];
+  }
 }
 

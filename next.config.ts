@@ -2,6 +2,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Optimize build performance and memory usage
+  experimental: {
+    // Reduce memory pressure during builds
+    workerThreads: false,
+    cpus: 1,
+  },
+  // Reduce memory usage during production builds
+  productionBrowserSourceMaps: false,
+  
   images: {
     // DO NOT set a global loader here.
     // We will use remotePatterns for the default loader.
