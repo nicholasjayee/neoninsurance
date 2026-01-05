@@ -2,6 +2,7 @@ import { KnowledgeBaseItem } from "./chatbotFallback";
 import { ContextVector, calculateDecay, cosineSimilarity } from "./ai/math";
 import { tokenize } from "./ai/tokenizer";
 import { analyzeSentiment } from "./ai/sentiment";
+import { KnowledgeCache, CachedKnowledgeItem } from "./ai/knowledge-cache";
 
 // --- Types ---
 
@@ -14,13 +15,18 @@ interface Message {
 // --- Core AI Logic ---
 
 export class AdvancedAIEngine {
-  private knowledgeBase: KnowledgeBaseItem[];
+  private knowledgeCache: KnowledgeCache;
   private contextVector: ContextVector = {};
   private responseHistory: string[] = [];
   private readonly MAX_HISTORY = 5;
 
   constructor(knowledgeBase: KnowledgeBaseItem[]) {
-    this.knowledgeBase = knowledgeBase;
+    // Initialize knowledge cache (pre-compute all expensive operations)
+    this.knowledgeCache = new KnowledgeCache(knowledgeBase);
+    
+    // Log cache stats for debugging
+    const stats = this.knowledgeCache.getStats();
+    console.log(`[AI Engine] Initialized with ${stats.totalItems} categories, ${stats.totalPatterns} patterns, ${stats.totalKeywords} keywords`);
   }
 
   /**
@@ -49,62 +55,35 @@ export class AdvancedAIEngine {
   }
 
   /**
-   * Calculate the match score for a knowledge base item.
+   * Calculate the match score for a cached knowledge base item (OPTIMIZED)
    */
-  private scoreItem(item: KnowledgeBaseItem, userTokens: string[], sentiment: number, rawMessage: string): number {
+  private scoreItem(cached: CachedKnowledgeItem, userTokens: string[], sentiment: number, rawMessage: string): number {
     let score = 0;
 
-    // 1. Vector Similarity (Keyword Match)
-    // Create a vector for the item
-    const itemVector: ContextVector = {};
-    item.keywords.forEach(k => {
-      // Tokenize phrases in keywords (e.g. "marine insurance" -> "marin", "insur")
-      const kTokens = tokenize(k);
-      kTokens.forEach(t => itemVector[t] = 1);
-    });
-    
-    // Create a vector for the user input (current turn only)
+    // 1. Vector Similarity (Keyword Match) - Use pre-computed vector
     const inputVector: ContextVector = {};
     userTokens.forEach(t => inputVector[t] = 1);
 
-    const similarity = cosineSimilarity(inputVector, itemVector);
+    const similarity = cosineSimilarity(inputVector, cached.keywordVector);
     score += similarity * 50; // Base weight
 
     // 2. Context Relevance (Historical)
-    const contextSimilarity = cosineSimilarity(this.contextVector, itemVector);
+    const contextSimilarity = cosineSimilarity(this.contextVector, cached.keywordVector);
     score += contextSimilarity * 30; // Context weight
 
-    // 3. Pattern Matching (Regex)
-    // This is CRITICAL for specific phrases like "who are you" or "what is insurance"
-    for (const patternStr of item.patterns) {
-      try {
-        // Handle regex strings like "/hi|hello/i"
-        const match = patternStr.match(/^\/(.+)\/([gimuy]*)$/);
-        if (match) {
-          const pattern = new RegExp(match[1], match[2]);
-          if (pattern.test(rawMessage)) {
-            // console.log(`[AI Debug] Pattern Match: ${patternStr} for category ${item.category}`);
-            score += 100; // Massive boost for regex match
-            break; // One match is enough
-          }
-        } else {
-          // Simple string match fallback
-          if (new RegExp(patternStr, "i").test(rawMessage)) {
-            score += 100;
-            break;
-          }
-        }
-      } catch {
-        // Ignore invalid regex
+    // 3. Pattern Matching (Regex) - Use pre-compiled patterns
+    for (const pattern of cached.compiledPatterns) {
+      if (pattern.test(rawMessage)) {
+        score += 100; // Massive boost for regex match
+        break; // One match is enough
       }
     }
 
     // 4. Priority
-    score += item.priority;
+    score += cached.item.priority;
 
     // 5. Sentiment Adjustment
-    // If user is angry (sentiment < -0.5), boost "support" or "apology" categories
-    if (sentiment < -0.5 && (item.category.includes("support") || item.category.includes("complaint"))) {
+    if (sentiment < -0.5 && (cached.item.category.includes("support") || cached.item.category.includes("complaint"))) {
       score += 20;
     }
 
@@ -112,7 +91,7 @@ export class AdvancedAIEngine {
   }
 
   /**
-   * Main function to get the best response.
+   * Main function to get the best response (OPTIMIZED)
    */
   public getResponse(messages: Message[]): string {
     const lastUserMessage = messages.slice().reverse().find(m => m.role === "user");
@@ -127,18 +106,29 @@ export class AdvancedAIEngine {
     const sentiment = this.analyzeSentiment(userText);
     const userTokens = tokenize(userText);
 
-    // 3. Score all items
-    const scoredItems = this.knowledgeBase.map(item => ({
-      item,
-      score: this.scoreItem(item, userTokens, sentiment, userText)
-    }));
+    // 3. Score all items with early exit optimization
+    const scoredItems: Array<{ item: KnowledgeBaseItem; score: number }> = [];
+    
+    // Iterate through sorted items (high priority first)
+    for (const cached of this.knowledgeCache.getAllSorted()) {
+      const score = this.scoreItem(cached, userTokens, sentiment, userText);
+      
+      // Early exit: If pattern match + high priority, stop immediately
+      // Score > 110 means pattern match (100) + priority (10+)
+      if (score > 110 && cached.item.priority >= 10) {
+        scoredItems.push({ item: cached.item, score });
+        break; // Found high-confidence match, no need to check others
+      }
+      
+      scoredItems.push({ item: cached.item, score });
+    }
 
-    // 4. Sort
+    // 4. Sort (only if we didn't early exit)
     scoredItems.sort((a, b) => b.score - a.score);
     const bestMatch = scoredItems[0];
 
     // 5. Select Response with Repetition Penalty
-    if (bestMatch && bestMatch.score > 25) { // Threshold (Must be > max priority of 15)
+    if (bestMatch && bestMatch.score > 25) {
       const potentialResponses = bestMatch.item.responses;
       
       // Filter out recently used responses
@@ -148,7 +138,7 @@ export class AdvancedAIEngine {
       if (availableResponses.length > 0) {
         selectedResponse = availableResponses[Math.floor(Math.random() * availableResponses.length)];
       } else {
-        // If all used, pick random but least recently used (simplified: just random)
+        // If all used, pick random
         selectedResponse = potentialResponses[Math.floor(Math.random() * potentialResponses.length)];
       }
 
@@ -160,8 +150,8 @@ export class AdvancedAIEngine {
     }
 
     // Default Fallback
-    const defaultItem = this.knowledgeBase.find(i => i.category === "default");
-    return defaultItem?.responses[0] || "I'm not sure I understand. Can you rephrase?";
+    const defaultCached = this.knowledgeCache.getCached("default");
+    return defaultCached?.item.responses[0] || "I'm not sure I understand. Can you rephrase?";
   }
 }
 

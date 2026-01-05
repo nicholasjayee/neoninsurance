@@ -11,21 +11,34 @@ export function calculateDecay(initialValue: number, timeSteps: number, lambda: 
 }
 
 /**
- * Cosine Similarity
+ * Cosine Similarity (Optimized)
  * similarity = (A . B) / (||A|| * ||B||)
+ * Single-pass algorithm for better performance
  */
 export function cosineSimilarity(vecA: ContextVector, vecB: ContextVector): number {
-  const intersection = Object.keys(vecA).filter(k => k in vecB);
-  
   let dotProduct = 0;
-  for (const key of intersection) {
-    dotProduct += vecA[key] * vecB[key];
+  let magnitudeA = 0;
+  let magnitudeB = 0;
+  
+  // Single pass through vecA
+  for (const key in vecA) {
+    const valA = vecA[key];
+    magnitudeA += valA * valA;
+    
+    // Calculate dot product if key exists in vecB
+    if (key in vecB) {
+      dotProduct += valA * vecB[key];
+    }
   }
-
-  const magnitudeA = Math.sqrt(Object.values(vecA).reduce((sum, val) => sum + val * val, 0));
-  const magnitudeB = Math.sqrt(Object.values(vecB).reduce((sum, val) => sum + val * val, 0));
-
+  
+  // Single pass through vecB for magnitude
+  for (const key in vecB) {
+    const valB = vecB[key];
+    magnitudeB += valB * valB;
+  }
+  
+  // Early exit if either vector is zero
   if (magnitudeA === 0 || magnitudeB === 0) return 0;
-
-  return dotProduct / (magnitudeA * magnitudeB);
+  
+  return dotProduct / (Math.sqrt(magnitudeA) * Math.sqrt(magnitudeB));
 }

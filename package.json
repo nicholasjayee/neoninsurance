@@ -7,6 +7,7 @@
     "build": "next build --turbopack",
     "start": "next start",
     "chatbot:run": "tsx interactive-tester.ts",
+    "chatbot:run:ai": "tsx interactive-tester.ts --ai",
     "lint": "next lint",
     "postinstall": "prisma generate",
     "prisma:generate": "prisma generate",
