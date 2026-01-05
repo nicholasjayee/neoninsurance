@@ -66,6 +66,84 @@
     "priority": 10
   },
   {
+    "category": "what_is_insurance",
+    "patterns": [
+      "/what.*is.*insurance/i",
+      "/explain.*insurance/i",
+      "/define.*insurance/i",
+      "/insurance.*meaning/i",
+      "/what.*does.*insurance.*mean/i",
+      "/tell.*me.*about.*insurance/i",
+      "/insurance.*definition/i"
+    ],
+    "keywords": [
+      "what is", "insurance", "explain", "define", "meaning", "definition", "tell me", "about insurance"
+    ],
+    "responses": [
+      "Insurance is a financial safety net that protects you from unexpected losses. You pay a small regular amount (premium), and if something bad happens (accident, illness, fire), the insurance company pays for the damages or losses.",
+      "Think of insurance as protection for your future. It's an agreement where you pay a premium, and in return, the insurance company covers your losses if something goes wrong - like a car accident, medical emergency, or property damage.",
+      "Insurance is peace of mind. Instead of paying huge costs when disaster strikes, you pay small regular amounts. The insurance company pools money from many people to help those who face losses. It's financial protection for life's uncertainties."
+    ],
+    "priority": 10
+  },
+  {
+    "category": "how_insurance_works",
+    "patterns": [
+      "/how.*does.*insurance.*work/i",
+      "/how.*insurance.*works/i",
+      "/explain.*how.*insurance/i",
+      "/insurance.*process/i",
+      "/how.*to.*use.*insurance/i"
+    ],
+    "keywords": [
+      "how", "works", "process", "explain", "use", "function"
+    ],
+    "responses": [
+      "Here's how insurance works: 1) You choose a policy that fits your needs, 2) You pay a premium (monthly or yearly), 3) If something covered happens, you file a claim, 4) The insurance company investigates and pays for covered losses. Simple!",
+      "Insurance works through risk-sharing. Many people pay premiums into a pool. When someone has a loss, the pool pays for it. You're protected because you're part of a larger community sharing risk.",
+      "The process: Choose your cover → Pay premium → Get policy → If loss occurs → File claim → Insurance pays. At Neon Insurance Brokers, we help you through every step and ensure you get the best rates."
+    ],
+    "priority": 10
+  },
+  {
+    "category": "why_insurance_matters",
+    "patterns": [
+      "/why.*need.*insurance/i",
+      "/why.*insurance.*important/i",
+      "/do.*i.*need.*insurance/i",
+      "/importance.*of.*insurance/i",
+      "/why.*should.*i.*get.*insurance/i",
+      "/benefits.*of.*insurance/i"
+    ],
+    "keywords": [
+      "why", "need", "important", "importance", "benefits", "should", "matters"
+    ],
+    "responses": [
+      "Insurance matters because life is unpredictable. One accident, illness, or fire can wipe out your savings. Insurance protects your finances, gives you peace of mind, and ensures your family's security even when the unexpected happens.",
+      "You need insurance because: 1) Medical bills can bankrupt you, 2) Accidents happen to everyone, 3) It's legally required for vehicles, 4) It protects your family's future, 5) Business losses can destroy years of hard work. Insurance is your financial safety net.",
+      "Insurance is important because it transfers risk from you to the insurance company. Instead of losing everything in one disaster, you pay small amounts regularly and stay protected. It's smart financial planning for Ugandans."
+    ],
+    "priority": 10
+  },
+  {
+    "category": "what_insurance_companies_do",
+    "patterns": [
+      "/what.*do.*insurance.*companies.*do/i",
+      "/role.*of.*insurance.*company/i",
+      "/insurance.*company.*purpose/i",
+      "/what.*insurance.*companies/i"
+    ],
+    "keywords": [
+      "insurance company", "companies", "do", "role", "purpose", "what"
+    ],
+    "responses": [
+      "Insurance companies collect premiums from many people, invest that money, and use it to pay claims when policyholders face losses. They assess risk, set prices, and provide financial protection to individuals and businesses.",
+      "Insurance companies do three main things: 1) Sell insurance policies, 2) Collect premiums and manage funds, 3) Pay claims when covered events happen. They make money by investing premiums and charging for risk management.",
+      "Insurance companies provide financial protection by pooling risk. But here's the key: Neon Insurance Brokers works FOR YOU, not the insurance company. We help you find the best insurance company with the right price and coverage."
+    ],
+    "priority": 9
+  },
+  {
     "category": "about_ai",
     "patterns": [
       "/who.*are.*you/i",
@@ -87,6 +165,92 @@
       "You're talking to Neon AI! I'm here to guide you through our insurance products and services."
     ],
     "priority": 11
+  },
+  {
+    "category": "about_neon_insurance",
+    "patterns": [
+      "/what.*is.*neon.*insurance/i",
+      "/tell.*about.*neon/i",
+      "/who.*is.*neon/i",
+      "/about.*neon.*insurance/i",
+      "/what.*does.*neon.*do/i",
+      "/neon.*insurance.*brokers/i",
+      "/tell.*me.*about.*your.*company/i",
+      "/what.*company.*is.*this/i",
+      "/who.*are.*you.*guys/i",
+      "/about.*your.*company/i"
+    ],
+    "keywords": [
+      "neon", "company", "about", "who", "what is", "brokers", "insurance brokers", "tell me", "your company"
+    ],
+    "responses": [
+      "Neon Insurance Brokers Ltd is a licensed insurance brokerage firm in Uganda. We help individuals and businesses find the right insurance coverage at the best rates. As your insurance broker, we represent YOUR interests, not the insurance company's.",
+      "We are Neon Insurance Brokers Ltd - your trusted insurance partner in Uganda. We simplify insurance by helping you compare options, negotiate better rates, and handle claims faster. Licensed by the Insurance Regulatory Authority of Uganda.",
+      "Neon Insurance Brokers Ltd makes insurance simple and accessible for Ugandans. We offer Motor, Health, Life, Marine, Business, and Travel insurance. Our job is to find you the best cover at the right price."
+    ],
+    "priority": 10
+  },
+  {
+    "category": "why_choose_neon",
+    "patterns": [
+      "/why.*choose.*neon/i",
+      "/why.*should.*i.*use.*neon/i",
+      "/what.*makes.*neon.*different/i",
+      "/why.*neon.*insurance/i",
+      "/benefits.*of.*neon/i",
+      "/advantage.*neon/i",
+      "/why.*work.*with.*neon/i"
+    ],
+    "keywords": [
+      "why", "choose", "benefit", "advantage", "different", "better", "special"
+    ],
+    "responses": [
+      "Why choose Neon? We negotiate better rates, handle claims faster, and provide expert guidance. As brokers, we work for YOU, not the insurance company. Plus, we offer digital solutions like instant Motor Third Party stickers.",
+      "Neon Insurance Brokers offers: 1) Expert advice on the right cover, 2) Better rates through negotiation, 3) Fast claims support, 4) Digital convenience (like USSD sticker payments), 5) Licensed and trusted in Uganda.",
+      "We're different because we're YOUR advocate. Insurance companies sell policies - we find you the BEST policy. We compare options, negotiate prices, and support you through claims. That's the Neon advantage."
+    ],
+    "priority": 10
+  },
+  {
+    "category": "neon_services",
+    "patterns": [
+      "/what.*services.*do.*you.*offer/i",
+      "/what.*do.*you.*provide/i",
+      "/services.*available/i",
+      "/what.*can.*you.*help.*with/i",
+      "/list.*your.*services/i",
+      "/what.*products.*do.*you.*have/i"
+    ],
+    "keywords": [
+      "services", "offer", "provide", "products", "help", "available", "list"
+    ],
+    "responses": [
+      "Neon Insurance Brokers offers: Motor Insurance (Comprehensive & Third Party), Health & Medical Insurance, Life Insurance, Marine Cargo, Travel Insurance, Business Insurance (Fire, Burglary, Liability), and specialized covers like Group Personal Accident and Professional Indemnity.",
+      "We provide comprehensive insurance solutions: 🚗 Motor (cars, boda bodas), 🏥 Health & Medical, 👨‍👩‍👧 Life & Education Plans, 🚢 Marine & Cargo, ✈️ Travel, 🏢 Business (Property, Liability, Workers Comp), and more. What do you need covered?",
+      "Our services include: Insurance brokerage (finding you the best rates), Claims support, Risk assessment, Digital sticker services, Policy renewals, and expert insurance advice. We handle Motor, Health, Life, Marine, Travel, and Business insurance."
+    ],
+    "priority": 10
+  },
+  {
+    "category": "neon_contact_info",
+    "patterns": [
+      "/where.*is.*neon.*located/i",
+      "/neon.*office/i",
+      "/neon.*address/i",
+      "/how.*to.*reach.*neon/i",
+      "/neon.*phone.*number/i",
+      "/neon.*email/i",
+      "/neon.*website/i",
+      "/contact.*details/i"
+    ],
+    "keywords": [
+      "location", "address", "office", "phone", "email", "website", "contact", "reach", "find"
+    ],
+    "responses": [
+      "You can reach Neon Insurance Brokers Ltd at: 📞 +256 200 940 878, 📧 info@neoninsurance.co.ug, 🌐 www.neoninsurancebrokerltd.org. We're based in Kampala, Uganda.",
+      "Contact us: Phone: 0200 940 878, Email: info@neoninsurance.co.ug, Website: neoninsurancebrokerltd.org. We're here to help with all your insurance needs!"
+    ],
+    "priority": 9
   },
   {
     "category": "policy_management",
@@ -188,6 +352,32 @@
       "We offer Third-Party Only (TPO) insurance. It keeps you legal on the road but doesn't cover your own vehicle repairs."
     ],
     "priority": 8
+  },
+  {
+    "category": "motor_third_party_digital_sticker",
+    "patterns": [
+      "/motor.*third.*party/i",
+      "/digital.*sticker/i",
+      "/how.*pay.*motor.*insurance/i",
+      "/how.*get.*third.*party/i",
+      "/buy.*motor.*insurance/i",
+      "/pay.*third.*party/i",
+      "/third.*party.*insurance/i",
+      "/vehicle.*insurance.*payment/i",
+      "/airtel.*motor/i",
+      "/mtn.*motor/i",
+      "/185.*761/i",
+      "/165.*455/i"
+    ],
+    "keywords": [
+      "motor third party", "digital sticker", "vehicle insurance", "third party insurance", "motor insurance", "number plate", "insurance sticker", "Airtel", "MTN", "mobile money", "pay", "payment", "dial", "USSD"
+    ],
+    "responses": [
+      "You can now pay for Motor Third Party Insurance digitally in just a few minutes. Dial *185*7*6*1# on Airtel or *165*4*5*5# on MTN, enter your number plate, confirm details, and complete payment. You'll receive an SMS with your digital sticker reference. Then visit the website of your preferred insurer, enter reference, number plate, and phone number. Enter your email then submit.",
+      "No need to visit agents anymore. Pay your Motor Third Party Insurance using MTN or Airtel mobile money. You will receive an SMS with your digital sticker reference. Then visit the website of your preferred insurer, enter reference, number plate, and phone number. Enter your email then submit. Your Digital sticker will be delivered to your inbox in seconds via Email and SMS.",
+      "At Neon Insurance Brokers Ltd, we help you process Motor Third Party digital stickers quickly and safely. Contact us if you need assistance choosing an insurer or downloading your sticker."
+    ],
+    "priority": 10
   },
   {
     "category": "boda_boda",
@@ -612,18 +802,26 @@
       "/toto.*education/i",
       "/education.*plan/i",
       "/child.*education/i",
-      "/protect.*family/i",
+      "/family.*cover/i",
+      "/insurance.*family/i",
       "/death.*benefit/i",
+      "/secure.*family/i",
+      "/long.*term.*insurance/i",
+      "/financial.*protection/i",
+      "/life.*policy/i",
+      "/protect.*family/i",
       "/life.*cover/i"
     ],
     "keywords": [
-      "life", "term", "whole", "toto", "education", "child", "family", "death", "beneficiary", "future", "school fees"
+      "life", "term", "whole", "toto", "education", "child", "family", "death", "beneficiary", "future", "school fees", "family protection", "dependents", "financial security", "long term insurance"
     ],
     "responses": [
-      "Our Life Insurance plans secure your family's future. We offer Term Life, Whole Life, and the TOTO Education Plan to save for your child's schooling.",
-      "Protect your loved ones with Neon Life Insurance. The TOTO Education Plan ensures your child's education is covered no matter what."
+      "Life Insurance provides financial protection for your family in case of death or permanent disability. At Neon Insurance Brokers Ltd, we help you choose a life policy that secures your loved ones' future.",
+      "Life Insurance ensures your dependents remain financially stable even when you're no longer around. Neon Insurance Brokers Ltd can guide you on affordable life cover options in Uganda.",
+      "Don't wait for uncertainty to strike. Life Insurance is a gift of protection and peace of mind for you and your loved ones. Contact Neon Insurance Brokers Ltd for expert guidance.",
+      "Our Life Insurance plans secure your family's future. We offer Term Life, Whole Life, and the TOTO Education Plan to save for your child's schooling."
     ],
-    "priority": 8
+    "priority": 9
   },
   {
     "category": "business_insurance",
@@ -653,6 +851,7 @@
     "category": "marine_cargo",
     "patterns": [
       "/marine.*cargo/i",
+      "/marine.*insurance/i",
       "/shipping.*insurance/i",
       "/goods.*in.*transit/i",
       "/import.*insurance/i",
@@ -660,16 +859,23 @@
       "/sea.*freight/i",
       "/air.*freight/i",
       "/cargo.*loss/i",
-      "/transit.*insurance/i"
+      "/transit.*insurance/i",
+      "/ship.*goods/i",
+      "/insurance.*imports/i",
+      "/cargo.*insurance/i",
+      "/goods.*in.*transit.*sea/i",
+      "/cover.*imports/i"
     ],
     "keywords": [
-      "marine", "cargo", "shipping", "transit", "import", "export", "freight", "sea", "air", "goods", "logistics", "local marine"
+      "marine", "cargo", "shipping", "transit", "import", "export", "freight", "sea", "air", "goods", "logistics", "local marine", "container", "sea cargo", "air cargo"
     ],
     "responses": [
-      "Our Marine Cargo Insurance covers your goods against loss or damage during transit by sea, air, or land. It protects from warehouse to warehouse.",
-      "Shipping goods? Protect your cargo from theft, damage, delays, or loss with our Marine Cargo policy. Essential for importers and exporters."
+      "Marine Cargo Insurance protects your imports against loss or damage while in transit by sea, air, or land. At Neon Insurance Brokers Ltd, we help you arrange cover before your goods are shipped to Uganda.",
+      "Importing goods without marine insurance can expose you to major losses. Marine Cargo Insurance covers risks like damage, theft, and delays during transit. Neon Insurance Brokers can help you choose the right cover for your shipment.",
+      "Whether you're importing commercial goods or personal cargo, Marine Insurance ensures your shipment is protected from the point of origin to delivery. Contact Neon Insurance Brokers Ltd for guidance on the right policy.",
+      "Secure your goods with Marine Cargo Insurance to avoid unexpected losses during transit. Our team at Neon Insurance Brokers Ltd is ready to assist."
     ],
-    "priority": 8
+    "priority": 9
   },
   {
     "category": "group_personal_accident",
@@ -747,25 +953,6 @@
     "responses": [
       "Public Liability Insurance covers legal liabilities if a third party suffers injury or property damage while on your premises or due to your operations.",
       "Protect your business from costly legal claims with Public Liability cover. Ideal for events, offices, and construction sites."
-    ],
-    "priority": 8
-  },
-  {
-    "category": "travel_insurance",
-    "patterns": [
-      "/travel.*insurance/i",
-      "/trip.*insurance/i",
-      "/flight.*delay/i",
-      "/lost.*baggage/i",
-      "/medical.*emergency.*abroad/i",
-      "/travel.*cover/i"
-    ],
-    "keywords": [
-      "travel", "trip", "flight", "delay", "baggage", "lost", "medical", "emergency", "abroad", "vacation", "journey"
-    ],
-    "responses": [
-      "Travel Insurance covers medical emergencies, flight delays, lost baggage, and trip cancellations. Travel confidently with Neon.",
-      "Whether flying for business or leisure, our Travel Insurance protects you from medical emergencies to lost luggage."
     ],
     "priority": 8
   },
