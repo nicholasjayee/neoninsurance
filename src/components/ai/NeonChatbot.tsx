@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiMessageSquare, FiX, FiSend, FiCpu, FiShield, FiMail } from "react-icons/fi";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
+import ReactMarkdown from "react-markdown";
 import { askNeonBot } from "@/app/(app)/actions/chatbot";
 
 interface Message {
@@ -170,10 +171,35 @@ export default function NeonChatbot() {
                     className={`max-w-[80%] p-3 rounded-2xl text-sm ${
                       m.role === "user"
                         ? "bg-brand-primary text-white rounded-tr-none"
-                        : "bg-white border border-brand-border text-brand-text-primary rounded-tl-none shadow-sm"
+                        : "bg-white border border-brand-border text-brand-text-primary rounded-tl-none shadow-sm overflow-hidden"
                     }`}
                   >
-                    {m.content}
+                    {m.role === "user" ? (
+                      m.content
+                    ) : (
+                      <div className="prose-chat">
+                        <ReactMarkdown
+                          components={{
+                            p: ({...props}) => <p className="mb-2 last:mb-0 wrap-break-word" {...props} />,
+                            a: ({...props}) => <a className="text-blue-600 hover:text-blue-800 underline wrap-break-word" target="_blank" rel="noopener noreferrer" {...props} />,
+                            ul: ({...props}) => <ul className="list-disc pl-5 mb-2 space-y-1" {...props} />,
+                            ol: ({...props}) => <ol className="list-decimal pl-5 mb-2 space-y-1" {...props} />,
+                            li: ({...props}) => <li className="pl-1" {...props} />,
+                            strong: ({...props}) => <strong className="font-semibold text-gray-900" {...props} />,
+                            h1: ({...props}) => <h1 className="text-lg font-bold mb-2 mt-4 first:mt-0" {...props} />,
+                            h2: ({...props}) => <h2 className="text-base font-semibold mb-2 mt-3 first:mt-0" {...props} />,
+                            h3: ({...props}) => <h3 className="text-sm font-semibold mb-1 mt-2 first:mt-0" {...props} />,
+                            code: ({children, ...props}) => (
+                              <code className="bg-gray-100 px-1 py-0.5 rounded text-xs text-red-600 font-mono wrap-break-word" {...props}>
+                                {children}
+                              </code>
+                            ),
+                          }}
+                        >
+                          {m.content}
+                        </ReactMarkdown>
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
