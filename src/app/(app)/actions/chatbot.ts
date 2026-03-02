@@ -1,21 +1,25 @@
 "use server";
 
-import { prisma } from "@/lib/prisma";
-import { unstable_cache } from "next/cache";
+const API_URL = "https://neon-bot-api.vercel.app/chat";
 
-export const getKnowledgeBase = unstable_cache(
-  async () => {
-    try {
-      const knowledge = await prisma.chatbotKnowledge.findMany({
-        where: { isActive: true },
-        orderBy: { priority: 'desc' }, // Higher priority first
-      });
-      return { success: true, knowledge };
-    } catch (error) {
-      console.error("Error fetching chatbot knowledge:", error);
-      return { success: false, error: "Failed to fetch knowledge base" };
+export async function askNeonBot(message: string, history: { role: string; content: string }[] = []) {
+  try {
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ message, history }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`API responded with status: ${response.status}`);
     }
-  },
-  ["chatbot-knowledge"],
-  { revalidate: 3600 } // Cache for 1 hour
-);
+
+    const data = await response.json();
+    return data.response as string;
+  } catch (error) {
+    console.error("Chatbot API Error:", error);
+    return "I'm having trouble connecting to the insurance expert right now. Please try again later.";
+  }
+}

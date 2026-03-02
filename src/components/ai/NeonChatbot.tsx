@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiMessageSquare, FiX, FiSend, FiCpu, FiShield, FiMail } from "react-icons/fi";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
+import { askNeonBot } from "@/app/(app)/actions/chatbot";
 
 interface Message {
   id: string;
@@ -73,19 +74,13 @@ export default function NeonChatbot() {
     setIsLoading(true);
 
     try {
-      const response = await fetch("/api/chat", {
-        method: "POST",
-        headers: { 
-          "Content-Type": "application/json",
-          "X-Session-Id": sessionId, // Send session ID (not stored, just for logging)
-        },
-        body: JSON.stringify({ 
-          messages: [...messages, userMessage],
-          sessionId, // Include but don't persist
-        }),
-      });
+      // Format history for the API
+      const apiHistory = messages.map(m => ({
+        role: m.role,
+        content: m.content
+      }));
 
-      const text = await response.text();
+      const text = await askNeonBot(userMessage.content, apiHistory);
       
       const assistantMessage: Message = {
         id: `${sessionId}_${Date.now() + 1}`,
